@@ -1,1 +1,7 @@
+Erstelle den heutigen Baurecht-Newsletter.
 
+Recherchiere aktuelle Entwicklungen der letzten 14 Tage zu VOB, BauGB, HOAI,
+DIN-Normen, Arbeitsschutz, BGH/OLG-Urteile und GEG. Gib das Ergebnis als
+vollständiges HTML-Dokument aus und ergänze immer die jeweilige Quelle.
+Außerdem ergänze jeweils eine kurze Einordnung, was die jeweilige Entwicklung
+für ein kleines Bauunternehmen bedeutet.
