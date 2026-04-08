@@ -1,7 +1,19 @@
 Erstelle den heutigen Baurecht-Newsletter.
 
 Recherchiere aktuelle Entwicklungen der letzten 14 Tage zu VOB, BauGB, HOAI,
-DIN-Normen, Arbeitsschutz, BGH/OLG-Urteile und GEG. Gib das Ergebnis als
-vollständiges HTML-Dokument aus und ergänze immer die jeweilige Quelle.
-Außerdem ergänze jeweils eine kurze Einordnung, was die jeweilige Entwicklung
-für ein kleines Bauunternehmen bedeutet.
+DIN-Normen, Arbeitsschutz, BGH/OLG-Urteile und GEG.
+
+Durchsuche dabei verpflichtend folgende Primärquellen zuerst:
+1. BMWE Pressemitteilungen:
+   https://www.bundeswirtschaftsministerium.de/SiteGlobals/Functions/RSSFeed/DE/RSSNewsfeed/Feed.xml
+2. BMWE Newsletter „Energiewende direkt":
+   https://energiewende.bundeswirtschaftsministerium.de/EWD/Redaktion/Newsletter/
+3. BGH Pressemitteilungen:
+   https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2026/
+4. BMWK Vergaberecht:
+   https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Dossier/oeffentliche-auftraege-und-vergabe.html
+
+Dann ergänze mit allgemeiner Web-Recherche zu allen 7 Rubriken.
+Gib das Ergebnis als vollständiges HTML-Dokument aus.
+Ergänze bei jeder Meldung Quelle (URL + Datum).
+Ergänze jeweils Praxiseinordnung für ein kleines Bauunternehmen.
