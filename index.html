@@ -3,137 +3,442 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baurecht-Newsletter</title>
+<title>Marwin's Baurecht-Newsletter</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --nav-w:260px;--hdr-h:60px;
-  --blau:#1a3a5c;--gold:#b8860b;--hell:#f4f7fb;--rand:#d5dde8;
-  --text:#1e2530;--matt:#5a6a7e;--gruen:#1a5c38;--rot:#b03030;
-  --praxis:#fff8e8;--praxis-r:#d4a017;--quelle:#f0f4f0;--quelle-r:#4a7c5a;--teal:#1a5c5c;
+  --nav-w:270px;
+  --hdr-h:64px;
+  --rot:#C41230;
+  --anthrazit:#1C1C1C;
+  --grau:#4A4A4A;
+  --warmweiss:#F5F3F0;
+  --sand:#E8E4DE;
+  --weiss:#FFFFFF;
+  --text:#1C1C1C;
+  --matt:#4A4A4A;
+  --rand:#E8E4DE;
+  --praxis:#FFF9F0;
+  --praxis-r:#C41230;
+  --quelle:#F5F3F0;
+  --quelle-r:#4A4A4A;
 }
-body{font-family:Georgia,serif;background:#e8edf4;color:var(--text);font-size:15px;line-height:1.75;display:flex;flex-direction:column;min-height:100vh}
-.topbar{position:fixed;top:0;left:0;right:0;height:var(--hdr-h);background:var(--blau);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:200;border-bottom:3px solid var(--gold)}
-.topbar-logo{display:flex;align-items:center;gap:12px}
-.topbar-logo-icon{width:34px;height:34px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.topbar-logo-text strong{display:block;font-size:15px;letter-spacing:.3px}
-.topbar-logo-text span{font-size:11px;opacity:.65;font-family:Arial,sans-serif;letter-spacing:.5px}
-.topbar-actions{display:flex;align-items:center;gap:6px}
-.topbar-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:6px 14px;border-radius:4px;font-size:12px;font-family:Arial,sans-serif;cursor:pointer;letter-spacing:.3px;transition:background .2s}
-.topbar-btn:hover{background:rgba(255,255,255,.22)}
-.topbar-btn.aktiv{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:700}
-.burger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:4px}
-.burger span{width:20px;height:2px;background:#fff;border-radius:1px;display:block}
-.layout{display:flex;padding-top:var(--hdr-h);min-height:100vh}
-.sidebar{width:var(--nav-w);position:fixed;top:var(--hdr-h);left:0;bottom:0;background:#fff;border-right:1px solid var(--rand);overflow-y:auto;z-index:100;display:flex;flex-direction:column}
-.sidebar-section{padding:20px 20px 8px;border-bottom:1px solid var(--rand)}
-.sidebar-label{font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--matt);margin-bottom:10px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:6px;cursor:pointer;font-family:Arial,sans-serif;font-size:13px;color:var(--text);transition:background .15s,color .15s;margin-bottom:2px;user-select:none}
-.nav-item:hover{background:var(--hell)}
-.nav-item.aktiv{background:var(--blau);color:#fff}
-.nav-item.aktiv .nav-badge{background:rgba(255,255,255,.25);color:#fff}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:var(--warmweiss);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.7;
+  min-height:100vh;
+}
+
+/* ── TOPBAR ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;
+  height:var(--hdr-h);
+  background:var(--anthrazit);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;z-index:300;
+  border-bottom:3px solid var(--rot);
+}
+.topbar-logo{display:flex;align-items:center;gap:12px;min-width:0}
+.topbar-logo-bar{width:4px;height:34px;background:var(--rot);border-radius:2px;flex-shrink:0}
+.topbar-logo-text{min-width:0}
+.topbar-logo-text strong{
+  display:block;font-size:14px;font-weight:700;
+  color:var(--weiss);letter-spacing:.3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.topbar-logo-text span{
+  font-size:10px;color:rgba(255,255,255,.5);
+  letter-spacing:1.5px;text-transform:uppercase;
+  white-space:nowrap;
+}
+.topbar-nav{display:flex;align-items:center;gap:4px}
+.topbar-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.75);
+  padding:7px 14px;border-radius:6px;
+  font-size:12px;cursor:pointer;
+  letter-spacing:.3px;transition:all .2s;
+  white-space:nowrap;
+}
+.topbar-btn:hover{background:rgba(255,255,255,.1);color:var(--weiss)}
+.topbar-btn.aktiv{
+  background:var(--rot);border-color:var(--rot);
+  color:var(--weiss);font-weight:600;
+}
+.burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:6px;margin-left:8px;
+}
+.burger span{width:22px;height:2px;background:rgba(255,255,255,.8);border-radius:1px;display:block;transition:all .25s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── HINWEIS-BANNER ── */
+.top-disclaimer{
+  position:fixed;top:var(--hdr-h);left:0;right:0;
+  background:var(--anthrazit);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  padding:8px 20px;
+  font-size:11px;color:rgba(255,255,255,.55);
+  text-align:center;z-index:299;
+  letter-spacing:.2px;line-height:1.4;
+}
+.top-disclaimer span{color:rgba(255,255,255,.35)}
+
+/* ── LAYOUT ── */
+.layout{
+  display:flex;
+  padding-top:calc(var(--hdr-h) + 36px);
+  min-height:100vh;
+}
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.5);z-index:199;
+  backdrop-filter:blur(2px);
+}
+.overlay.open{display:block}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--nav-w);
+  position:fixed;
+  top:calc(var(--hdr-h) + 36px);
+  left:0;bottom:0;
+  background:var(--weiss);
+  border-right:1px solid var(--rand);
+  overflow-y:auto;z-index:200;
+  display:flex;flex-direction:column;
+  -webkit-overflow-scrolling:touch;
+}
+.sidebar-section{padding:18px 16px 10px;border-bottom:1px solid var(--rand)}
+.sidebar-label{
+  font-size:10px;text-transform:uppercase;letter-spacing:2px;
+  color:var(--matt);margin-bottom:10px;font-weight:600;
+}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:8px;
+  cursor:pointer;font-size:13px;color:var(--text);
+  transition:background .15s;margin-bottom:2px;user-select:none;
+}
+.nav-item:hover{background:var(--warmweiss)}
+.nav-item.aktiv{background:var(--anthrazit);color:var(--weiss)}
+.nav-item.aktiv .nav-badge{background:rgba(255,255,255,.2);color:var(--weiss)}
 .nav-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
-.nav-badge{margin-left:auto;font-size:10px;font-family:Arial,sans-serif;font-weight:700;background:var(--rot);color:#fff;padding:2px 7px;border-radius:10px}
-.archiv-item{padding:9px 12px;border-radius:6px;cursor:pointer;margin-bottom:2px;transition:background .15s}
-.archiv-item:hover{background:var(--hell)}
-.archiv-nummer{font-family:Arial,sans-serif;font-size:12px;font-weight:700;color:var(--blau)}
-.archiv-datum{font-family:Arial,sans-serif;font-size:11px;color:var(--matt)}
-.archiv-thema{font-family:Arial,sans-serif;font-size:11px;color:var(--text);margin-top:1px}
-.main{margin-left:var(--nav-w);flex:1;padding:32px 36px 60px}
-.page-hdr{background:var(--blau);color:#fff;border-radius:8px;padding:28px 36px 22px;margin-bottom:28px;border-bottom:4px solid var(--gold);position:relative;overflow:hidden}
-.page-hdr::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 14px)}
+.nav-badge{
+  margin-left:auto;font-size:10px;font-weight:700;
+  background:var(--rot);color:var(--weiss);
+  padding:2px 8px;border-radius:20px;
+}
+.archiv-item{
+  padding:10px 12px;border-radius:8px;
+  cursor:pointer;margin-bottom:2px;transition:background .15s;
+}
+.archiv-item:hover{background:var(--warmweiss)}
+.archiv-nummer{font-size:12px;font-weight:700;color:var(--rot)}
+.archiv-datum{font-size:11px;color:var(--matt)}
+.archiv-thema{font-size:11px;color:var(--text);margin-top:1px}
+
+/* ── MAIN ── */
+.main{
+  margin-left:var(--nav-w);
+  flex:1;
+  padding:0 32px 80px;
+  max-width:100%;
+  min-width:0;
+}
+
+/* ── PAGE HEADER ── */
+.page-hdr{
+  background:var(--anthrazit);color:var(--weiss);
+  border-radius:12px;
+  padding:32px 36px 24px;
+  margin-bottom:32px;
+  position:relative;overflow:hidden;
+}
+.page-hdr-accent{
+  position:absolute;left:0;top:0;bottom:0;
+  width:5px;background:var(--rot);
+}
+.page-hdr-yr{
+  position:absolute;right:28px;top:50%;transform:translateY(-50%);
+  font-size:80px;font-weight:800;
+  color:rgba(196,18,48,.12);line-height:1;
+  pointer-events:none;user-select:none;
+}
 .page-hdr-inner{position:relative;z-index:1}
-.page-hdr-kicker{font-family:Arial,sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;opacity:.6;margin-bottom:4px}
-.page-hdr h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:6px}
-.page-hdr-meta{font-family:Arial,sans-serif;font-size:12px;opacity:.7;display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.2)}
-.section{margin-top:38px;border-top:2px solid var(--rand);padding-top:24px}
-.section-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.section-icon{width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.ic-vob{background:#e6f0fb}.ic-baugb{background:#e6f5ec}.ic-hoai{background:#fef5e4}
-.ic-din{background:#f0e8fa}.ic-as{background:#fde8e8}.ic-urt{background:#e6f4f8}.ic-geg{background:#e6f8f0}
-.section-nr{font-family:Arial,sans-serif;font-size:11px;color:var(--matt);text-transform:uppercase;letter-spacing:1.5px}
-.section-title{font-size:19px;font-weight:700;color:var(--blau);line-height:1.2}
-.karte{background:var(--hell);border:1px solid var(--rand);border-left:5px solid var(--blau);border-radius:0 6px 6px 0;margin-bottom:14px;overflow:hidden}
-.karte-vob{border-left-color:#2874a6}.karte-baugb{border-left-color:var(--gruen)}
-.karte-hoai{border-left-color:var(--gold)}.karte-din{border-left-color:#7d3c98}
-.karte-as{border-left-color:var(--rot)}.karte-urt{border-left-color:var(--teal)}.karte-geg{border-left-color:#1a7a55}
-.karte-kopf{padding:14px 18px 0;display:flex;align-items:flex-start;gap:10px}
-.karte-titel{font-size:14px;font-weight:700;color:var(--blau);flex:1;line-height:1.35}
-.badge{font-family:Arial,sans-serif;font-weight:700;font-size:10px;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:2px}
-.b-neu{background:#b03030;color:#fff}.b-hot{background:#b05a00;color:#fff}
-.b-info{background:var(--teal);color:#fff}.b-pend{background:#7d3c98;color:#fff}
-.b-tarif{background:var(--gruen);color:#fff}.b-frist{background:#8b2500;color:#fff}
-.karte-body{padding:8px 18px 0}
-.karte-body p{font-size:13.5px;color:#333;margin-bottom:6px}
-.quelle-box{margin:10px 18px 0;padding:8px 12px;background:var(--quelle);border-left:3px solid var(--quelle-r);font-family:Arial,sans-serif;font-size:11.5px;color:#3a5a3a;line-height:1.5}
-.quelle-box strong{color:#1a4a1a}
-.praxis-box{margin:10px 18px 14px;padding:10px 14px;background:var(--praxis);border:1px solid var(--praxis-r);border-radius:4px;font-family:Arial,sans-serif;font-size:12px;color:#5a3a00;line-height:1.6}
-.praxis-label{display:block;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#7a4a00;margin-bottom:3px}
-.karte-fuss{display:flex;gap:16px;flex-wrap:wrap;padding:8px 18px 10px;border-top:1px solid var(--rand);font-family:Arial,sans-serif;font-size:11px;color:var(--matt)}
-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
-th{background:var(--blau);color:#fff;padding:8px 11px;font-family:Arial,sans-serif;font-size:11.5px;text-align:left}
-td{padding:8px 11px;border-bottom:1px solid var(--rand)}
-tr:nth-child(even) td{background:#f5f8fc}
+.page-hdr-kicker{
+  font-size:10px;letter-spacing:2.5px;
+  text-transform:uppercase;opacity:.55;margin-bottom:6px;
+}
+.page-hdr h1{font-size:24px;font-weight:800;line-height:1.2}
+.page-hdr-date{font-size:12px;opacity:.6;margin-top:6px}
+.page-hdr-meta{
+  display:flex;gap:12px;flex-wrap:wrap;
+  margin-top:14px;padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.12);
+  font-size:12px;opacity:.65;
+}
+
+/* ── EDITORIAL ── */
+.editorial{
+  background:var(--weiss);
+  border-left:4px solid var(--rot);
+  padding:14px 18px;
+  font-size:13.5px;color:var(--grau);
+  font-style:italic;
+  border-radius:0 8px 8px 0;
+  margin-bottom:8px;
+}
+
+/* ── SECTION ── */
+.section{margin-top:40px;border-top:1px solid var(--rand);padding-top:28px}
+.section-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.section-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;flex-shrink:0;
+}
+.ic-vob{background:#EEF3FA}.ic-baugb{background:#EAF5EE}.ic-hoai{background:#FEF6E8}
+.ic-din{background:#F3EEF8}.ic-as{background:#FAEAEC}.ic-urt{background:#EAF3F8}.ic-geg{background:#EAF5F0}
+.section-nr{font-size:10px;color:var(--matt);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.section-title{font-size:18px;font-weight:700;color:var(--anthrazit);line-height:1.2}
+
+/* ── KARTE ── */
+.karte{
+  background:var(--weiss);
+  border:1px solid var(--rand);
+  border-left:4px solid var(--anthrazit);
+  border-radius:0 10px 10px 0;
+  margin-bottom:14px;overflow:hidden;
+}
+.karte-vob{border-left-color:#2874a6}
+.karte-baugb{border-left-color:#1a5c38}
+.karte-hoai{border-left-color:#b8860b}
+.karte-din{border-left-color:#7d3c98}
+.karte-as{border-left-color:var(--rot)}
+.karte-urt{border-left-color:#1a5c5c}
+.karte-geg{border-left-color:#1a7a55}
+.karte-kopf{padding:16px 18px 0;display:flex;align-items:flex-start;gap:10px}
+.karte-titel{font-size:14px;font-weight:700;color:var(--anthrazit);flex:1;line-height:1.4}
+.badge{
+  font-weight:700;font-size:10px;padding:3px 9px;
+  border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:2px;
+  letter-spacing:.3px;
+}
+.b-neu{background:var(--rot);color:var(--weiss)}
+.b-hot{background:#b05a00;color:var(--weiss)}
+.b-info{background:#1a5c5c;color:var(--weiss)}
+.b-pend{background:#7d3c98;color:var(--weiss)}
+.b-tarif{background:#1a5c38;color:var(--weiss)}
+.b-frist{background:#8b2500;color:var(--weiss)}
+.karte-body{padding:10px 18px 0}
+.karte-body p{font-size:13.5px;color:var(--grau);margin-bottom:7px;line-height:1.65}
+.quelle-box{
+  margin:12px 18px 0;padding:9px 13px;
+  background:var(--quelle);border-left:3px solid var(--quelle-r);
+  font-size:11.5px;color:var(--grau);line-height:1.55;border-radius:0 4px 4px 0;
+}
+.quelle-box strong{color:var(--anthrazit)}
+.praxis-box{
+  margin:12px 18px 16px;padding:12px 15px;
+  background:var(--praxis);
+  border:1px solid rgba(196,18,48,.2);
+  border-left:3px solid var(--rot);
+  border-radius:0 8px 8px 0;
+  font-size:12.5px;color:#4a1a00;line-height:1.65;
+}
+.praxis-label{
+  display:block;font-weight:700;font-size:10px;
+  text-transform:uppercase;letter-spacing:.8px;
+  color:var(--rot);margin-bottom:4px;
+}
+.karte-fuss{
+  display:flex;gap:16px;flex-wrap:wrap;
+  padding:9px 18px 11px;
+  border-top:1px solid var(--rand);
+  font-size:11px;color:var(--matt);
+}
+
+/* ── TABELLE ── */
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;border-radius:8px;overflow:hidden}
+th{background:var(--anthrazit);color:var(--weiss);padding:9px 12px;font-size:11.5px;text-align:left;font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid var(--rand)}
+tr:nth-child(even) td{background:var(--warmweiss)}
 tr:last-child td{border-bottom:none}
-.editorial{background:var(--hell);border-left:4px solid var(--gold);padding:14px 18px;font-size:13.5px;color:#444;font-style:italic;border-radius:0 4px 4px 0;margin-bottom:8px}
-.hinweis{background:#fff8e1;border:1px solid #f0c040;border-radius:4px;padding:13px 16px;font-family:Arial,sans-serif;font-size:13px;color:#5a3e00;margin:14px 0}
-.disclaimer{background:#fdf0f0;border:1px solid #f5c6c6;border-radius:4px;padding:14px 18px;font-family:Arial,sans-serif;font-size:12px;color:#7a2020;margin-top:36px}
-.archiv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:20px}
-.archiv-karte{background:#fff;border:1px solid var(--rand);border-radius:8px;padding:18px 20px;cursor:pointer;transition:box-shadow .2s,border-color .2s}
-.archiv-karte:hover{border-color:var(--blau);box-shadow:0 2px 12px rgba(26,58,92,.1)}
-.archiv-karte-nr{font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--matt);margin-bottom:4px}
-.archiv-karte-titel{font-size:14px;font-weight:700;color:var(--blau);margin-bottom:6px;line-height:1.3}
-.archiv-karte-datum{font-family:Arial,sans-serif;font-size:12px;color:var(--matt);margin-bottom:10px}
+
+/* ── DISCLAIMER ── */
+.disclaimer{
+  background:var(--weiss);border:1px solid var(--rand);
+  border-left:4px solid var(--rot);
+  border-radius:0 8px 8px 0;
+  padding:14px 18px;font-size:12px;
+  color:var(--grau);margin-top:40px;line-height:1.6;
+}
+
+/* ── ARCHIV ── */
+.archiv-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:16px;margin-top:20px;
+}
+.archiv-karte{
+  background:var(--weiss);border:1px solid var(--rand);
+  border-radius:10px;padding:18px 20px;
+  cursor:pointer;transition:all .2s;
+}
+.archiv-karte:hover{border-color:var(--rot);box-shadow:0 4px 16px rgba(196,18,48,.1);transform:translateY(-1px)}
+.archiv-karte-nr{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--matt);margin-bottom:4px}
+.archiv-karte-titel{font-size:14px;font-weight:700;color:var(--anthrazit);margin-bottom:6px;line-height:1.3}
+.archiv-karte-datum{font-size:12px;color:var(--matt);margin-bottom:12px}
 .archiv-karte-themen{display:flex;flex-wrap:wrap;gap:5px}
-.thema-pill{font-family:Arial,sans-serif;font-size:10px;background:var(--hell);border:1px solid var(--rand);color:var(--matt);padding:2px 8px;border-radius:10px}
-.archiv-karte-btn{font-family:Arial,sans-serif;font-size:12px;color:var(--blau);font-weight:700;margin-top:12px;display:inline-block}
-.archiv-nav{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:12px 16px;background:#fff;border:1px solid var(--rand);border-radius:6px;font-family:Arial,sans-serif;font-size:13px}
-.btn-back{padding:7px 16px;border:1px solid var(--rand);border-radius:4px;background:#fff;cursor:pointer;color:var(--blau);font-weight:700;font-family:Arial,sans-serif;font-size:12px}
-.btn-back:hover{background:var(--hell)}
-.impressum-wrap{max-width:720px}
+.thema-pill{font-size:10px;background:var(--warmweiss);border:1px solid var(--rand);color:var(--matt);padding:2px 9px;border-radius:20px}
+.archiv-karte-btn{font-size:12px;color:var(--rot);font-weight:700;margin-top:14px;display:inline-block}
+.archiv-nav{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin-bottom:24px;padding:12px 16px;
+  background:var(--weiss);border:1px solid var(--rand);border-radius:10px;
+  font-size:13px;
+}
+.btn-back{
+  padding:8px 16px;border:1px solid var(--rand);
+  border-radius:8px;background:var(--weiss);
+  cursor:pointer;color:var(--anthrazit);font-weight:600;font-size:12px;
+  transition:background .15s;
+}
+.btn-back:hover{background:var(--warmweiss)}
+.btn-back.prim{background:var(--rot);border-color:var(--rot);color:var(--weiss)}
+.btn-back.prim:hover{background:#a50f28}
+
+/* ── IMPRESSUM ── */
+.impressum-wrap{max-width:680px}
 .impressum-section{margin-bottom:28px}
-.impressum-section h3{font-size:15px;font-weight:700;color:var(--blau);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--rand)}
-.impressum-field{background:#fff;border:1px solid var(--rand);border-radius:4px;padding:12px 14px;font-family:Arial,sans-serif;font-size:13px;color:#888;font-style:italic;margin-bottom:8px}
-.impressum-field strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--matt);margin-bottom:3px;font-style:normal}
-.tag-aktuell{display:inline-flex;align-items:center;gap:5px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;background:#b03030;color:#fff;padding:3px 10px;border-radius:10px;vertical-align:middle;margin-left:8px}
-@media(max-width:820px){
-  .sidebar{transform:translateX(-100%);transition:transform .25s}
-  .sidebar.open{transform:translateX(0)}
-  .main{margin-left:0;padding:20px 18px 48px}
+.impressum-section h3{
+  font-size:14px;font-weight:700;color:var(--anthrazit);
+  margin-bottom:12px;padding-bottom:8px;
+  border-bottom:1px solid var(--rand);
+}
+.impressum-field{
+  background:var(--weiss);border:1px solid var(--rand);
+  border-radius:8px;padding:12px 14px;
+  font-size:13.5px;color:var(--text);margin-bottom:8px;
+  line-height:1.6;
+}
+.impressum-field strong{
+  display:block;font-size:10px;text-transform:uppercase;
+  letter-spacing:1px;color:var(--matt);margin-bottom:3px;font-weight:600;
+}
+.hinweis{
+  background:#FFF9F0;border:1px solid rgba(196,18,48,.25);
+  border-radius:8px;padding:13px 16px;
+  font-size:13px;color:#4a1a00;margin:14px 0;
+}
+
+/* ── TAG AKTUELL ── */
+.tag-aktuell{
+  display:inline-flex;align-items:center;
+  font-size:10px;font-weight:700;
+  background:var(--rot);color:var(--weiss);
+  padding:3px 10px;border-radius:20px;
+  vertical-align:middle;margin-left:8px;letter-spacing:.3px;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media(max-width:900px){
+  .main{padding:0 24px 80px}
+  .page-hdr{padding:24px 24px 20px}
+  .page-hdr h1{font-size:20px}
+  .page-hdr-yr{font-size:60px;right:16px}
+}
+
+@media(max-width:768px){
+  :root{--hdr-h:56px}
+  .topbar{padding:0 16px}
+  .topbar-logo-text strong{font-size:13px}
+  .topbar-nav .topbar-btn:not(.aktiv){display:none}
   .burger{display:flex}
-  .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:99}
-  .overlay.open{display:block}
+  .sidebar{
+    top:calc(var(--hdr-h) + 32px);
+    transform:translateX(-110%);
+    transition:transform .28s cubic-bezier(.4,0,.2,1);
+    box-shadow:4px 0 24px rgba(0,0,0,.15);
+  }
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0;padding:0 16px 80px}
+  .layout{padding-top:calc(var(--hdr-h) + 32px)}
+  .top-disclaimer{font-size:10px;padding:6px 16px}
+  .page-hdr{padding:20px 20px 16px;border-radius:10px}
+  .page-hdr h1{font-size:18px}
+  .page-hdr-yr{display:none}
+  .page-hdr-meta{gap:8px;font-size:11px}
+  .archiv-grid{grid-template-columns:1fr}
+  .karte-kopf{flex-direction:column;gap:6px}
+  .badge{align-self:flex-start}
+  table{font-size:12px}
+  th,td{padding:7px 9px}
+}
+
+@media(max-width:480px){
+  .topbar-logo-text span{display:none}
+  .topbar-nav{gap:2px}
+  .topbar-btn.aktiv{padding:7px 10px;font-size:11px}
+  .main{padding:0 12px 80px}
+  .page-hdr{padding:16px 16px 14px}
+  .section-title{font-size:16px}
+  .karte-body p{font-size:13px}
+  .praxis-box,.quelle-box{font-size:12px}
 }
 </style>
 </head>
 <body>
 
+<!-- TOPBAR -->
 <header class="topbar">
   <div class="topbar-logo">
-    <div class="topbar-logo-icon">⚖</div>
+    <div class="topbar-logo-bar"></div>
     <div class="topbar-logo-text">
-      <strong>Baurecht-Newsletter</strong>
-      <span>FACHPUBLIKATION · BAURECHT &amp; VERGABE</span>
+      <strong>Marwin's Baurecht-Newsletter</strong>
+      <span>Fachpublikation · Baurecht &amp; Vergabe</span>
     </div>
   </div>
-  <div class="topbar-actions">
+  <div class="topbar-nav">
     <button class="topbar-btn aktiv" onclick="zeigePage('aktuell')">Aktuelle Ausgabe</button>
     <button class="topbar-btn" onclick="zeigePage('archiv')">Archiv</button>
     <button class="topbar-btn" onclick="zeigePage('impressum')">Impressum</button>
-    <button class="burger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" onclick="toggleSidebar()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<!-- DISCLAIMER BANNER -->
+<div class="top-disclaimer">
+  ⚠ Dieser Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung dar.
+  <span>Bei konkreten Rechtsfragen wenden Sie sich an eine zugelassene Rechtsanwältin oder einen Rechtsanwalt.</span>
+</div>
 
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
 <div class="layout">
+
+<!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-section">
     <div class="sidebar-label">Aktuelle Ausgabe</div>
-    <div class="nav-item aktiv" onclick="zeigePage('aktuell')">
-      <span class="nav-icon">📄</span>Ausgabe 14 / 2026<span class="nav-badge">NEU</span>
+    <div class="nav-item aktiv" id="nav-aktuell" onclick="zeigePage('aktuell')">
+      <span class="nav-icon">📄</span>
+      Ausgabe 14 / 2026
+      <span class="nav-badge">NEU</span>
     </div>
-    <div style="font-family:Arial,sans-serif;font-size:11px;color:var(--matt);padding:4px 12px 8px">7. April 2026</div>
+    <div style="font-size:11px;color:var(--matt);padding:3px 12px 6px">7. April 2026</div>
   </div>
   <div class="sidebar-section">
     <div class="sidebar-label">Inhalt dieser Ausgabe</div>
@@ -146,9 +451,9 @@ tr:last-child td{border-bottom:none}
     <div class="nav-item" onclick="scrollZu('geg')"><span class="nav-icon">🌿</span>GEG</div>
   </div>
   <div class="sidebar-section" style="flex:1">
-    <div class="sidebar-label">Archiv (Auszug)</div>
+    <div class="sidebar-label">Archiv</div>
     <div id="sidebar-archiv"></div>
-    <div class="nav-item" style="margin-top:8px;color:var(--blau);font-weight:700" onclick="zeigePage('archiv')">
+    <div class="nav-item" style="color:var(--rot);font-weight:700;margin-top:6px" onclick="zeigePage('archiv')">
       <span class="nav-icon">📚</span>Alle Ausgaben →
     </div>
   </div>
@@ -156,6 +461,7 @@ tr:last-child td{border-bottom:none}
     <div class="nav-item" onclick="zeigePage('impressum')"><span class="nav-icon">🏢</span>Impressum</div>
   </div>
 </nav>
+
 <main class="main" id="main-content"></main>
 </div>
 
@@ -163,20 +469,10 @@ tr:last-child td{border-bottom:none}
 /* ════════════════════════════════════════════════════════════════
    WARTUNGSBEREICH – nur diese 4 Stellen bei jeder neuen Ausgabe ändern
    ════════════════════════════════════════════════════════════════
-
-   SCHRITT 1 ▸ ARCHIV-METADATEN
-     Neuen Eintrag OBEN einfügen mit aktuell:true
-     Beim bisherigen ersten Eintrag aktuell:true entfernen
-
-   SCHRITT 2 ▸ INHALTSFUNKTION
-     Funktion inhalt_NR_JAHR() nach dem letzten vorhandenen Eintrag anlegen
-
-   SCHRITT 3 ▸ NEWSLETTER_INHALT
-     Neue Zeile oben im Objekt eintragen
-
-   SCHRITT 4 ▸ renderAktuell()
-     Nummer auf neue Ausgabe umstellen
-
+   SCHRITT 1 ▸ ARCHIV-METADATEN  – neuen Eintrag OBEN, aktuell:true
+   SCHRITT 2 ▸ INHALTSFUNKTION   – inhalt_NR_JAHR() anlegen
+   SCHRITT 3 ▸ NEWSLETTER_INHALT – neue Zeile oben eintragen
+   SCHRITT 4 ▸ renderAktuell()   – Nummer umstellen
    ════════════════════════════════════════════════════════════════ */
 
 
@@ -186,42 +482,9 @@ const ARCHIV = [
     nr:'14/2026', datum:'7. April 2026', aktuell:true,
     themen:['VOB Wertgrenzen','BGH WEG Dreiangebotsregel','Tariflöhne +3,9 %','GEG/GMG Reform','Asbestpflichten','ASR A5.1','CLP-Gemische'],
     highlight:'BGH kippt Dreiangebotsregel · Tariflöhne +3,9 % ab April · GMG-Verzögerung'
-  },
-  {
-    nr:'13/2026', datum:'24. März 2026',
-    themen:['VOB/B Reform','BauTurbo Praxis','HOAI-Stand','DIN 4109','OLG-Urteile'],
-    highlight:'BauTurbo erstes Quartal · HOAI-Gespräche im BMWE · CLP-Vorbereitung'
-  },
-  {
-    nr:'12/2026', datum:'10. März 2026',
-    themen:['Vergabe EU-Schwellen','GEG Entwurf','ASR A5.1','OLG Sachsen-Anhalt'],
-    highlight:'GMG-Eckpunkte 24.2. · ASR A5.1 Kontrollen · Widerruf Bauvertrag'
-  },
-  {
-    nr:'11/2026', datum:'24. Februar 2026',
-    themen:['GMG Eckpunkte','VOB/A 2026','EPBD Frist','Mindestlohn Bau'],
-    highlight:'Bundesregierung stellt GMG-Eckpunkte vor · VOB/A Praxisstart 2026'
-  },
-  {
-    nr:'10/2026', datum:'10. Februar 2026',
-    themen:['BauGB 2. Novelle','HOAI Gutachten','Vergabebeschleunigung'],
-    highlight:'BauGB-Ressortabstimmung gestartet · HOAI-Gutachten veröffentlicht'
-  },
-  {
-    nr:'09/2026', datum:'27. Januar 2026',
-    themen:['Wertgrenzen VOB/A','EU BauPVO','GEG aktuell','BGH WEG'],
-    highlight:'VOB/A Wertgrenzen im ersten Praxistest · EU-BauPVO in Kraft'
-  },
-  {
-    nr:'08/2026', datum:'13. Januar 2026',
-    themen:['Jahresauftakt 2026','Mindestlohn 13,90 €','SOKA-BAU','BauTurbo Start'],
-    highlight:'Alle Änderungen zum Jahresbeginn · BauTurbo gestartet'
-  },
-  {
-    nr:'07/2025', datum:'16. Dezember 2025',
-    themen:['VOB/A BAnz','GEG Koalition','BGH Bauzeit','Jahresrückblick 2025'],
-    highlight:'VOB/A im Bundesanzeiger · Jahresrückblick Baurecht 2025'
   }
+  /* Neue Ausgaben hier oben einfügen:
+  { nr:'15/2026', datum:'22. April 2026', aktuell:true, themen:[...], highlight:'...' }, */
 ];
 
 
@@ -230,22 +493,26 @@ const ARCHIV = [
 function inhalt_14_2026() {
   return `
 <div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
   <div class="page-hdr-inner">
-    <div class="page-hdr-kicker">Fachpublikation · Baurecht &amp; Vergabe</div>
-    <h1>Baurecht-Newsletter <span class="tag-aktuell">Ausgabe 14 / 2026</span></h1>
-    <div style="font-family:Arial,sans-serif;font-size:13px;opacity:.75;margin-top:4px">7. April 2026 · Berichtszeitraum: 24. März – 7. April 2026 · mit Quellen &amp; Praxiseinordnung</div>
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Ausgabe 14 / 2026 <span class="tag-aktuell">NEU</span></h1>
+    <div class="page-hdr-date">7. April 2026 · Berichtszeitraum: 24. März – 7. April 2026</div>
     <div class="page-hdr-meta">
       <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
-      <span>📏 DIN-Normen</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
+      <span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
     </div>
   </div>
 </div>
+
 <div class="editorial">
-  <strong>Zur aktuellen Ausgabe:</strong> Der BGH hat die jahrzehntelange „Drei-Angebote-Regel" bei WEG-Erhaltungsmaßnahmen abgeschafft. Die Tariflohnerhöhung im Bauhauptgewerbe (+3,9 % ab 1. April) erfordert sofortigen Kalkulationshandlungsbedarf. Im GEG-Bereich verzögert sich der Kabinettsbeschluss erneut. Alle Meldungen mit Quellenangabe und Praxiseinordnung.
+  <strong>Zur aktuellen Ausgabe:</strong> Der BGH hat die jahrzehntelange „Drei-Angebote-Regel" bei WEG-Erhaltungsmaßnahmen abgeschafft. Die Tariflohnerhöhung im Bauhauptgewerbe (+3,9 % ab 1. April) erfordert sofortigen Kalkulationshandlungsbedarf. Im GEG-Bereich verzögert sich der Kabinettsbeschluss erneut. Alle Meldungen mit Quellenangabe und Praxiseinordnung für kleine Baubetriebe.
 </div>
 
 <div class="section" id="s-vob">
   <div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB – Vergabe- und Vertragsordnung</div></div></div>
+
   <div class="karte karte-vob">
     <div class="karte-kopf"><div class="karte-titel">Neue Wertgrenzen § 3a VOB/A: Erstes volles Anwendungsjahr 2026</div><span class="badge b-info">AKTUELL</span></div>
     <div class="karte-body">
@@ -259,9 +526,10 @@ function inhalt_14_2026() {
       <p>Die Differenzierung nach Gewerken bei der Beschränkten Ausschreibung ist entfallen. Bund-Direktaufträge für Liefer-/DL bis 15.000 € (UVgO, gültig bis 31.12.2027).</p>
     </div>
     <div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB, BAnz AT 16.12.2025 B7 | BHO-Legal (7.1.2026, bho-legal.com) | IHK Schwerin (ihk.de/schwerin)</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Öffentliche Auftraggeber können Sie bis 50.000 € ohne Vergabeverfahren direkt beauftragen. <strong>Tipp:</strong> Machen Sie Stamm-Auftraggeber aktiv auf die neuen Wertgrenzen aufmerksam.</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Öffentliche Auftraggeber können Sie bis 50.000 € ohne Vergabeverfahren direkt beauftragen. <strong>Tipp:</strong> Machen Sie Stamm-Auftraggeber aktiv auf die neuen Wertgrenzen aufmerksam – viele wissen noch nicht, dass ein vereinfachtes Vorgehen möglich ist.</div>
     <div class="karte-fuss"><span>📅 In Kraft: 1.1.2026</span><span>⚖️ § 3a VOB/A</span></div>
   </div>
+
   <div class="karte karte-vob">
     <div class="karte-kopf"><div class="karte-titel">Vergabebeschleunigungsgesetz im parlamentarischen Verfahren</div><span class="badge b-hot">AKTUELL</span></div>
     <div class="karte-body"><p>Das nationale Vergabebeschleunigungsgesetz ist im parlamentarischen Verfahren (Zieltermin: Frühjahr 2026). Geplant: verkürzte Angebotsfristen, erweiterte Direkt- und Verhandlungsoptionen, verbindlichere E-Vergabe. EU-Schwellenwert Bauleistungen: 5.404.000 € (unverändert).</p></div>
@@ -275,9 +543,9 @@ function inhalt_14_2026() {
   <div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB – Bauplanungs- und Städtebaurecht</div></div></div>
   <div class="karte karte-baugb">
     <div class="karte-kopf"><div class="karte-titel">BauTurbo § 246e BauGB: Erstes volles Umsetzungsjahr – 2. Novelle Ende Mai im Kabinett</div><span class="badge b-info">INFO</span></div>
-    <div class="karte-body"><p>Der BauTurbo (in Kraft seit 30.10.2025, befristet bis 31.12.2030) ermöglicht Kommunen Abweichungen vom Bauplanungsrecht für Wohnbauprojekte ohne Bebauungsplanänderung. Die Ressortabstimmung für die 2. BauGB-Novelle läuft; Kabinett Ende Mai 2026 geplant. Kernpunkte: Aufstockungen bundesweit ohne B-Plan-Änderung (§ 31 Abs. 3 BauGB n.F.), leichtere Verdichtung in zweiter Reihe, kommunale Werkzeuge gegen Schrottimmobilien.</p></div>
+    <div class="karte-body"><p>Der BauTurbo (in Kraft seit 30.10.2025, befristet bis 31.12.2030) ermöglicht Kommunen Abweichungen vom Bauplanungsrecht für Wohnbauprojekte ohne Bebauungsplanänderung. Die Ressortabstimmung für die 2. BauGB-Novelle läuft; Kabinett Ende Mai 2026 geplant. Kernpunkte: Aufstockungen bundesweit ohne B-Plan-Änderung, leichtere Verdichtung in zweiter Reihe, kommunale Werkzeuge gegen Schrottimmobilien.</p></div>
     <div class="quelle-box"><strong>📄 Quellen:</strong> VBI (16.12.2025, vbi.de) | WEKA Baurecht (29.1.2026, weka.de) | Haufe Immobilien (haufe.de)</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Mehr Aufstockungen und Nachverdichtungsprojekte bedeuten neue Auftragsvolumina. <strong>Positionieren Sie sich jetzt als Spezialist für Aufstockungen</strong> – dieses Marktsegment wird nach Inkrafttreten stark anziehen.</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Mehr Aufstockungen und Nachverdichtungsprojekte bedeuten neue Auftragsvolumina. <strong>Positionieren Sie sich jetzt als Spezialist für Aufstockungen</strong> – dieses Marktsegment wird stark wachsen.</div>
     <div class="karte-fuss"><span>⚖️ § 246e BauGB</span><span>📅 Kabinett 2. Novelle: Ende Mai 2026</span></div>
   </div>
 </div>
@@ -313,7 +581,7 @@ function inhalt_14_2026() {
 
 <div class="section" id="s-as">
   <div class="section-hdr"><div class="section-icon ic-as">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz &amp; Tariflöhne</div></div></div>
-  <div class="karte karte-as" style="border-left-width:6px">
+  <div class="karte karte-as" style="border-left-width:5px">
     <div class="karte-kopf"><div class="karte-titel">⭐ Tariflöhne Bauhauptgewerbe: +3,9 % ab 1. April 2026 &amp; historische Ost-West-Angleichung</div><span class="badge b-tarif">SOFORT</span></div>
     <div class="karte-body">
       <p>Dritte und letzte Stufe des Tarifvertrags (IG BAU / ZDB / HDB, 14.6.2024). Im Westen +3,9 %, im Osten Anhebung auf Westniveau (bis +9 %). Erstmals seit der Wiedervereinigung bundesweit einheitliche Tariflöhne.</p>
@@ -326,7 +594,7 @@ function inhalt_14_2026() {
       </table>
     </div>
     <div class="quelle-box"><strong>📄 Quellen:</strong> handwerk.cloud (24.3.2026) | lohndialog.de | bau.bi (2.4.2026) | Handwerksblatt (1.4.2026) | IG BAU / ZDB / HDB, TV-Lohn 14.6.2024</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Sofort-Checkliste:</span>✅ Lohnsoftware aktualisiert? ✅ Festpreisangebote auf Kostendeckung geprüft? ✅ Rahmenverträge angepasst oder Preisgleitklausel vereinbart? ✅ SOKA-BAU-Meldung auf höhere Bruttolohnsumme angepasst? ✅ Oststandorte auf Westsätze umgestellt? <strong>Bereits abgegebene Festpreise können nicht nachträglich erhöht werden!</strong></div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Sofort-Checkliste:</span>✅ Lohnsoftware aktualisiert? ✅ Festpreisangebote auf Kostendeckung geprüft? ✅ Rahmenverträge angepasst? ✅ SOKA-BAU-Meldung angepasst? ✅ Oststandorte auf Westsätze umgestellt? <strong>Bereits abgegebene Festpreise können nicht nachträglich erhöht werden!</strong></div>
     <div class="karte-fuss"><span>📅 In Kraft: 1.4.2026</span><span>Laufzeit bis 31.3.2027</span></div>
   </div>
   <div class="karte karte-as">
@@ -340,11 +608,9 @@ function inhalt_14_2026() {
 
 <div class="section" id="s-urt">
   <div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">Aktuelle Rechtsprechung – BGH &amp; OLG</div></div></div>
-  <div class="karte karte-urt" style="border-left-color:#b03030;border-left-width:6px">
+  <div class="karte karte-urt" style="border-left-color:#C41230;border-left-width:5px">
     <div class="karte-kopf"><div class="karte-titel">⭐ LEITENTSCHEIDUNG: BGH kippt „Drei-Angebote-Regel" bei WEG-Erhaltungsmaßnahmen</div><span class="badge b-neu">BGH 27.03.2026</span></div>
-    <div class="karte-body">
-      <p><strong>Az. BGH V ZR 7/25</strong> – Wohnungseigentümer sind nicht allgemein verpflichtet, vor Erhaltungsmaßnahmen mehrere Vergleichsangebote einzuholen. Der BGH erteilt der langjährigen Instanzgerichtspraxis (LG Berlin, LG Karlsruhe, LG Frankfurt u.a.) eine ausdrückliche Absage. Maßstab ist die ordnungsmäßige Verwaltung nach §§ 18, 19 WEG im Einzelfall.</p>
-    </div>
+    <div class="karte-body"><p><strong>Az. BGH V ZR 7/25</strong> – Wohnungseigentümer sind nicht allgemein verpflichtet, vor Erhaltungsmaßnahmen mehrere Vergleichsangebote einzuholen. Der BGH erteilt der langjährigen Instanzgerichtspraxis eine ausdrückliche Absage. Maßstab ist die ordnungsmäßige Verwaltung nach §§ 18, 19 WEG im Einzelfall.</p></div>
     <div class="quelle-box"><strong>📄 Quellen:</strong> BGH, PM Nr. 57 v. 27.3.2026 (bundesgerichtshof.de) | Dr. Otto Schmidt (otto-schmidt.de) | LTO (lto.de) | Fritz &amp; Partner (fritzundpartner.com)</div>
     <div class="praxis-box"><span class="praxis-label">🔨 Sehr gute Nachricht für etablierte Handwerksbetriebe!</span>Als Stammhandwerker einer WEG kann die Gemeinschaft Sie jetzt beauftragen, ohne zwingend Konkurrenzangebote einzuholen. <strong>Dokumentieren Sie Ihre bisherigen Leistungen</strong> als Schutz vor Anfechtungsversuchen.</div>
     <div class="karte-fuss"><span>⚖️ BGH V ZR 7/25, 27.3.2026</span><span>📄 §§ 18, 19 WEG</span></div>
@@ -358,7 +624,7 @@ function inhalt_14_2026() {
   </div>
   <div class="karte karte-urt">
     <div class="karte-kopf"><div class="karte-titel">BGH: Terminplananpassung ist keine Anordnung nach § 2 Abs. 5 VOB/B</div><span class="badge b-info">WEITER RELEVANT</span></div>
-    <div class="karte-body"><p>Der BGH (2025, VII. Bausenat) hat klargestellt: Die bloße Mitteilung eines geänderten Terminplans ist keine Anordnung i.S.v. § 2 Abs. 5 VOB/B. Mehrkosten durch Bauzeitverzögerungen können nicht mehr allein auf eine solche Mitteilung gestützt werden.</p></div>
+    <div class="karte-body"><p>Der BGH (2025, VII. Bausenat): Die bloße Mitteilung eines geänderten Terminplans ist keine Anordnung i.S.v. § 2 Abs. 5 VOB/B. Mehrkosten durch Bauzeitverzögerungen können nicht mehr allein auf eine solche Mitteilung gestützt werden.</p></div>
     <div class="quelle-box"><strong>📄 Quellen:</strong> Handwerksblatt (19.2.2025, handwerksblatt.de) | IBR-Online | § 2 Abs. 5, § 6 VOB/B</div>
     <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Bauzeitverzögerungen sofort: <strong>Schriftliche Behinderungsanzeige (§ 6 VOB/B)</strong> einreichen und formelle Anordnung der Verschiebung einfordern. Jeden Baustillstand dokumentieren.</div>
     <div class="karte-fuss"><span>⚖️ BGH 2025, VII. Senat</span><span>📄 § 2 Abs. 5, § 6 VOB/B</span></div>
@@ -374,27 +640,24 @@ function inhalt_14_2026() {
       <p><strong>Geplante GMG-Kernpunkte (Entwurf 24.2.2026 – noch kein geltendes Recht):</strong> Abschaffung 65-%-EE-Pflicht · Gas-/Ölheizungen ohne EE-Mindestanteil zulässig · „Biotreppe" ab 2029 · keine Betriebsverbote · keine Austauschpflicht für funktionierende Heizungen.</p>
     </div>
     <div class="quelle-box"><strong>📄 Quellen:</strong> Öko-Zentrum NRW, Update 18.3.2026 (oekozentrum.nrw) | Bundesarchitektenkammer (18.2.2026, bak.de) | GEG zuletzt geändert Art. 3 G v. 9.1.2026, BGBl. 2026 I Nr. 4</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span><strong>Bis zum GMG-Inkrafttreten gilt das aktuelle GEG vollumfänglich.</strong> In Großstädten (>100.000 EW) greift die 65-%-EE-Pflicht beim Heizungswechsel ab 30. Juni 2026. Förderanträge (BEG) VOR Beauftragung stellen.</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span><strong>Bis zum GMG-Inkrafttreten gilt das aktuelle GEG vollumfänglich.</strong> In Großstädten (&gt;100.000 EW) greift die 65-%-EE-Pflicht beim Heizungswechsel ab 30. Juni 2026. Förderanträge (BEG) VOR Beauftragung stellen.</div>
     <div class="karte-fuss"><span>📅 Kabinett: Mitte April 2026</span><span>📅 GMG-Inkrafttreten: 1.7.2026 (gefährdet)</span></div>
   </div>
 </div>
 
 <div class="disclaimer">
-  <strong>⚠️ Rechtlicher Hinweis:</strong> Dieser Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung dar. Trotz sorgfältiger Recherche kann für die Richtigkeit und Vollständigkeit keine Haftung übernommen werden. Stand: 7. April 2026.
+  <strong>⚠️ Rechtlicher Hinweis:</strong> Marwin's Baurecht-Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung im Sinne des Rechtsdienstleistungsgesetzes (RDG) dar. Trotz sorgfältiger Recherche kann für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte keine Gewähr übernommen werden. Stand: 7. April 2026. Bei konkreten Rechtsfragen wenden Sie sich bitte an eine zugelassene Rechtsanwältin oder einen zugelassenen Rechtsanwalt.
 </div>`;
 }
 
-/* Neue Inhaltsfunktion hier anlegen:
-   function inhalt_15_2026() { return `...`; }
-   function inhalt_16_2026() { return `...`; }  */
+/* Neue Ausgaben hier anlegen:
+   function inhalt_15_2026() { return `...`; }  */
 
 
 /* ── SCHRITT 3: NEWSLETTER_INHALT ─────────────────────────────── */
 const NEWSLETTER_INHALT = {
   '14/2026': inhalt_14_2026()
-  /* Neue Ausgaben hier eintragen (neueste zuerst):
-  '15/2026': inhalt_15_2026(),
-  '16/2026': inhalt_16_2026(),  */
+  /* '15/2026': inhalt_15_2026(), */
 };
 
 
@@ -406,31 +669,32 @@ function renderAktuell() {
 
 /* ════════════════════════════════════════════════════════════════
    AB HIER NICHTS ÄNDERN
-   ════════════════════════════════════════════════════════════════ */
+════════════════════════════════════════════════════════════════ */
+
 function renderArchiv() {
+  const hatInhalt = nr => !!NEWSLETTER_INHALT[nr];
   const karten = ARCHIV.map(a => `
     <div class="archiv-karte" onclick="zeigePage('archiv-detail','${a.nr}')">
-      <div class="archiv-karte-nr">Ausgabe ${a.nr}${a.aktuell ? ' &nbsp;<span style="color:#b03030;font-weight:700">● AKTUELL</span>' : ''}</div>
+      <div class="archiv-karte-nr">Ausgabe ${a.nr}${a.aktuell ? ' &nbsp;<span style="color:var(--rot);font-weight:700">● AKTUELL</span>' : ''}</div>
       <div class="archiv-karte-titel">${a.highlight}</div>
       <div class="archiv-karte-datum">📅 ${a.datum}</div>
       <div class="archiv-karte-themen">${a.themen.map(t => `<span class="thema-pill">${t}</span>`).join('')}</div>
-      <div class="archiv-karte-btn">${NEWSLETTER_INHALT[a.nr] ? 'Ausgabe öffnen →' : '⏳ Inhalt folgt'}</div>
+      <div class="archiv-karte-btn">${hatInhalt(a.nr) ? 'Ausgabe öffnen →' : '⏳ Inhalt folgt'}</div>
     </div>`).join('');
   return `
 <div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
   <div class="page-hdr-inner">
-    <div class="page-hdr-kicker">Alle Ausgaben</div>
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
     <h1>Newsletter-Archiv</h1>
     <div class="page-hdr-meta">
-      <span>📚 ${ARCHIV.length} Ausgaben</span>
+      <span>📚 ${ARCHIV.length} Ausgabe${ARCHIV.length !== 1 ? 'n' : ''}</span>
       <span>${Object.keys(NEWSLETTER_INHALT).length} mit Volltext</span>
-      <span>Seit Dezember 2025</span>
     </div>
   </div>
 </div>
-<div style="font-family:Arial,sans-serif;font-size:13px;color:var(--matt);margin-bottom:4px">
-  Ausgaben mit hinterlegtem Volltext öffnen sich direkt. Ältere Ausgaben werden schrittweise ergänzt.
-</div>
+<p style="font-size:13px;color:var(--matt);margin-bottom:4px">Ausgaben mit Volltext öffnen sich direkt. Weitere Ausgaben folgen alle 14 Tage.</p>
 <div class="archiv-grid">${karten}</div>`;
 }
 
@@ -441,14 +705,14 @@ function renderArchivDetail(nr) {
     <div class="archiv-nav">
       <button class="btn-back" onclick="zeigePage('archiv')">← Zurück zum Archiv</button>
       <span style="color:var(--matt);font-size:12px">Ausgabe ${nr} · ${a ? a.datum : ''}</span>
-      ${a && !a.aktuell ? `<button class="btn-back" onclick="zeigePage('aktuell')" style="margin-left:auto;background:var(--blau);color:#fff;border-color:var(--blau)">Aktuelle Ausgabe →</button>` : ''}
+      ${a && !a.aktuell ? `<button class="btn-back prim" onclick="zeigePage('aktuell')">Aktuelle Ausgabe →</button>` : ''}
     </div>`;
   if (inhalt) return navBar + inhalt;
   return navBar + `
-    <div style="text-align:center;padding:48px 24px;background:var(--hell);border-radius:8px;border:1px solid var(--rand)">
-      <div style="font-size:42px;margin-bottom:14px">📄</div>
-      <h2 style="font-size:17px;color:var(--blau);margin-bottom:8px">Ausgabe ${nr}</h2>
-      <p style="font-family:Arial,sans-serif;font-size:13.5px;color:var(--matt);max-width:420px;margin:0 auto">
+    <div style="text-align:center;padding:56px 24px;background:var(--weiss);border-radius:12px;border:1px solid var(--rand)">
+      <div style="font-size:40px;margin-bottom:16px">📄</div>
+      <h2 style="font-size:17px;color:var(--anthrazit);margin-bottom:8px">Ausgabe ${nr}</h2>
+      <p style="font-size:13.5px;color:var(--matt);max-width:400px;margin:0 auto">
         Der Volltext dieser Ausgabe ist noch nicht hinterlegt.<br>
         Funktion <code>inhalt_${nr.replace('/','_')}()</code> anlegen und in <code>NEWSLETTER_INHALT</code> eintragen.
       </p>
@@ -456,68 +720,118 @@ function renderArchivDetail(nr) {
 }
 
 function renderImpressum() {
-  const f = (l, h) => `<div class="impressum-field"><strong>${l}</strong>${h}</div>`;
+  const f = (l, v) => `<div class="impressum-field"><strong>${l}</strong>${v}</div>`;
   return `
 <div class="page-hdr">
+  <div class="page-hdr-accent"></div>
   <div class="page-hdr-inner">
-    <div class="page-hdr-kicker">Rechtliche Informationen</div>
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
     <h1>Impressum</h1>
-    <div class="page-hdr-meta"><span>Angaben gemäß § 5 TMG</span></div>
+    <div class="page-hdr-date">Angaben gemäß § 5 TMG</div>
   </div>
 </div>
 <div class="impressum-wrap">
-  <div class="hinweis" style="margin-bottom:28px"><strong>📝 Hinweis:</strong> Die mit [Platzhalter] gekennzeichneten Felder vor der Veröffentlichung befüllen. Ein unvollständiges Impressum kann Abmahnungen zur Folge haben.</div>
-  <div class="impressum-section"><h3>Angaben gemäß § 5 TMG</h3>${f('Herausgeber / Betreiber','[Vollständiger Name oder Firma]')}${f('Anschrift','[Straße und Hausnummer]')}${f('PLZ und Ort','[Postleitzahl] [Ort], Deutschland')}</div>
-  <div class="impressum-section"><h3>Kontakt</h3>${f('Telefon','[+49 (0) __ __ / __ __ __ __]')}${f('E-Mail','[kontakt@ihre-domain.de]')}${f('Website','[https://www.ihre-domain.de]')}</div>
-  <div class="impressum-section"><h3>Vertretungsberechtigte Person(en)</h3>${f('Vertreten durch','[Vorname Nachname, Funktion]')}${f('Bei GmbH/UG: HRB-Nummer','[Amtsgericht Ort, HRB Nummer]')}</div>
-  <div class="impressum-section"><h3>Umsatzsteuer</h3>${f('USt-IdNr. gemäß § 27a UStG','[DE000000000] oder: Kleinunternehmer gem. § 19 UStG')}</div>
-  <div class="impressum-section"><h3>Journalistisch-redaktionelle Inhalte</h3>${f('Verantwortlich gemäß § 55 Abs. 2 RStV','[Vorname Nachname, Anschrift wie oben]')}</div>
-  <div class="impressum-section"><h3>Haftungsausschluss</h3>
-    <div style="font-size:13.5px;color:#444;line-height:1.75">
-      <p style="margin-bottom:10px"><strong>Haftung für Inhalte:</strong> Die Inhalte wurden mit größtmöglicher Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden.</p>
-      <p style="margin-bottom:10px"><strong>Kein Ersatz für Rechtsberatung:</strong> Die Inhalte dienen ausschließlich der allgemeinen Information und stellen keine Rechtsberatung im Sinne des RDG dar.</p>
-      <p><strong>Urheberrecht:</strong> Die erstellten Inhalte unterliegen dem deutschen Urheberrecht. Vervielfältigung und Verbreitung bedürfen der schriftlichen Zustimmung.</p>
+
+  <div class="hinweis">
+    <strong>⚠️ Rechtlicher Hinweis:</strong> Marwin's Baurecht-Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung im Sinne des Rechtsdienstleistungsgesetzes (RDG) dar. Trotz sorgfältiger Recherche kann für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte keine Gewähr übernommen werden. Bei konkreten Rechtsfragen wenden Sie sich bitte an eine zugelassene Rechtsanwältin oder einen zugelassenen Rechtsanwalt.
+  </div>
+
+  <div class="impressum-section" style="margin-top:24px">
+    <h3>Herausgeber</h3>
+    ${f('Name / Firma', 'ma-k-de')}
+  </div>
+
+  <div class="impressum-section">
+    <h3>Anschrift</h3>
+    ${f('Straße und Hausnummer', '[Straße und Hausnummer]')}
+    ${f('PLZ und Ort', '[Postleitzahl] [Ort]')}
+    ${f('Land', 'Deutschland')}
+  </div>
+
+  <div class="impressum-section">
+    <h3>Kontakt</h3>
+    ${f('Telefon', '[+49 (0) __ __ / __ __ __ __]')}
+    ${f('E-Mail', '[kontakt@ma-k-de]')}
+    ${f('Website', '[https://www.ma-k-de]')}
+  </div>
+
+  <div class="impressum-section">
+    <h3>Vertretungsberechtigte Person</h3>
+    ${f('Vertreten durch', 'Marwin [Nachname]')}
+  </div>
+
+  <div class="impressum-section">
+    <h3>Journalistisch-redaktionelle Verantwortung</h3>
+    ${f('Verantwortlich gemäß § 55 Abs. 2 RStV', 'Marwin [Nachname], Anschrift wie oben')}
+  </div>
+
+  <div class="impressum-section">
+    <h3>Haftungsausschluss</h3>
+    <div style="font-size:13.5px;color:var(--grau);line-height:1.75">
+      <p style="margin-bottom:10px"><strong>Haftung für Inhalte:</strong> Die Inhalte wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich.</p>
+      <p style="margin-bottom:10px"><strong>Kein Ersatz für Rechtsberatung:</strong> Die Inhalte stellen keine Rechtsberatung im Sinne des RDG dar und begründen kein Mandatsverhältnis.</p>
+      <p><strong>Urheberrecht:</strong> Die erstellten Inhalte unterliegen dem deutschen Urheberrecht. Vervielfältigung und Verbreitung bedürfen der schriftlichen Zustimmung des Herausgebers.</p>
     </div>
   </div>
-  <div class="impressum-section"><h3>Streitschlichtung</h3>
-    <p style="font-size:13.5px;color:#444">Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: https://ec.europa.eu/consumers/odr – Wir nehmen nicht an Streitbeilegungsverfahren vor Verbraucherschlichtungsstellen teil.</p>
+
+  <div class="impressum-section">
+    <h3>Streitschlichtung</h3>
+    <p style="font-size:13.5px;color:var(--grau)">Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: https://ec.europa.eu/consumers/odr – Wir nehmen nicht an Streitbeilegungsverfahren vor Verbraucherschlichtungsstellen teil.</p>
   </div>
+
 </div>`;
 }
 
 function zeigePage(seite, nr) {
-  document.querySelectorAll('.topbar-btn').forEach(b => b.classList.remove('aktiv'));
-  if (seite === 'aktuell') document.querySelectorAll('.topbar-btn')[0].classList.add('aktiv');
-  else if (seite === 'archiv' || seite === 'archiv-detail') document.querySelectorAll('.topbar-btn')[1].classList.add('aktiv');
-  else if (seite === 'impressum') document.querySelectorAll('.topbar-btn')[2].classList.add('aktiv');
+  const btns = document.querySelectorAll('.topbar-btn');
+  btns.forEach(b => b.classList.remove('aktiv'));
+  if (seite === 'aktuell') btns[0].classList.add('aktiv');
+  else if (seite === 'archiv' || seite === 'archiv-detail') btns[1].classList.add('aktiv');
+  else if (seite === 'impressum') btns[2].classList.add('aktiv');
+
   const main = document.getElementById('main-content');
   if (seite === 'aktuell') main.innerHTML = renderAktuell();
   else if (seite === 'archiv') main.innerHTML = renderArchiv();
   else if (seite === 'archiv-detail') main.innerHTML = renderArchivDetail(nr);
   else if (seite === 'impressum') main.innerHTML = renderImpressum();
+
   window.scrollTo(0, 0);
-  if (window.innerWidth <= 820) {
-    document.getElementById('sidebar').classList.remove('open');
-    document.getElementById('overlay').classList.remove('open');
-  }
+  if (window.innerWidth <= 768) closeSidebar();
 }
 
 function scrollZu(id) {
   zeigePage('aktuell');
-  setTimeout(() => { const el = document.getElementById('s-' + id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+  setTimeout(() => {
+    const el = document.getElementById('s-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 60);
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('burger').classList.remove('open');
 }
 
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('overlay').classList.toggle('open');
+  const open = document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open', open);
+  document.getElementById('burger').classList.toggle('open', open);
 }
 
-document.getElementById('sidebar-archiv').innerHTML = ARCHIV.slice(1, 5).map(a => `
-  <div class="archiv-item" onclick="zeigePage('archiv-detail','${a.nr}')">
-    <div class="archiv-nummer">Ausgabe ${a.nr}</div>
-    <div class="archiv-datum">${a.datum}</div>
-    <div class="archiv-thema">${a.highlight.split('·')[0].trim()}</div>
-  </div>`).join('');
+/* Sidebar-Archiv befüllen */
+const sidebarArchiv = document.getElementById('sidebar-archiv');
+const archivOhneAktuell = ARCHIV.filter(a => !a.aktuell).slice(0, 4);
+if (archivOhneAktuell.length === 0) {
+  sidebarArchiv.innerHTML = `<div style="font-size:12px;color:var(--matt);padding:8px 12px;font-style:italic">Erste Ausgabe – noch kein Archiv</div>`;
+} else {
+  sidebarArchiv.innerHTML = archivOhneAktuell.map(a => `
+    <div class="archiv-item" onclick="zeigePage('archiv-detail','${a.nr}')">
+      <div class="archiv-nummer">Ausgabe ${a.nr}</div>
+      <div class="archiv-datum">${a.datum}</div>
+      <div class="archiv-thema">${a.highlight.split('·')[0].trim()}</div>
+    </div>`).join('');
+}
 
 zeigePage('aktuell');
 </script>
