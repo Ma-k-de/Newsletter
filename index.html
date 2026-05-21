@@ -93,8 +93,8 @@
 const ARCHIV = [
   {
     nr: '18/2026', datum: '21. Mai 2026', aktuell: true,
-    themen: ['Recherche-Ergebnisse einfügen'],
-    highlight: '🔍 Ausgabe 18/2026 – Recherche-Inhalte aus Web-Search-Session einfügen'
+    themen: ['Vergabebeschleunigungsgesetz im BGBl.', 'BTTG seit 1.5.', 'GModG → 1.11.', 'BauGB-Upgrade Kabinett', 'DIN 4108-2:2026-05', 'BG BAU Drohnen-Prämie', 'Wärmeplanung 30.6.'],
+    highlight: '⚡ Vergabebeschleunigungsgesetz verkündet (18.5.) · BTTG seit 1.5. · GModG → 1.11. · DIN 4108-2 neu'
   },
   {
     nr: '17/2026', datum: '13. Mai 2026', aktuell: false,
@@ -143,7 +143,7 @@ function inhalt_18_2026() {
 </div>
 
 <div class="editorial">
-  <strong>📝 Hinweis zur Redaktion:</strong> Diese Ausgabe wurde strukturell vorbereitet. Die Inhalte aus der Web-Recherche (BMWE, BGH-Pressemitteilungen, BMWK Vergaberecht und allgemeine Web-Suche zu den 7 Rubriken) müssen noch eingepflegt werden. Nutze dafür den Prompt im HTML-Kommentar oben in dieser Datei in einer Claude-Session mit aktiviertem Web Search. Das HTML-Ergebnis dann in diese Funktion <code>inhalt_18_2026()</code> einfügen.
+  <strong>⚡ Vergaberecht in Bewegung:</strong> Das Vergabebeschleunigungsgesetz wurde am 18.5.2026 im Bundesgesetzblatt verkündet und tritt am 1.7.2026 in Kraft – Bundesrat-Zustimmung am 8.5. Parallel ist seit 1.5.2026 das Bundestariftreuegesetz (BTTG) wirksam. Aus der GEG-Welt: Das GModG-Inkrafttreten ist auf 1.11.2026 verschoben – bis dahin gilt das GEG vollumfänglich, die Wärmeplanungs-Frist 30.6.2026 für Großstädte rückt also unverändert näher. Im DIN-Bereich erscheint die DIN 4108-2:2026-05 zum sommerlichen Wärmeschutz. Alle Meldungen mit Quellen und Praxiseinordnung.
 </div>
 
 <div class="section" id="s-vob">
@@ -151,12 +151,35 @@ function inhalt_18_2026() {
     <div class="section-icon ic-vob">📋</div>
     <div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB – Vergabe- und Vertragsordnung</div></div>
   </div>
+  <div class="karte karte-vob" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ Vergabebeschleunigungsgesetz im BGBl. – Inkrafttreten 1. Juli 2026</div><span class="badge b-neu">VERKÜNDET 18.05.</span></div>
+    <div class="karte-body">
+      <p>Das Gesetz zur Beschleunigung der Vergabe öffentlicher Aufträge wurde am 18.5.2026 im Bundesgesetzblatt verkündet (BGBl. 2026 I Nr. 137). Bundesrat-Zustimmung am 8.5.2026, Bundestags-Beschluss bereits am 23.4.2026. <strong>Inkrafttreten: 1.7.2026.</strong></p>
+      <p><strong>Kernpunkte für Bauleistungen:</strong></p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li><strong>Direktauftrag-Wertgrenze Bund</strong> steigt auf 50.000 € (vorher 15.000 € für Liefer-/DL nach UVgO)</li>
+        <li>Reduzierte Nachweispflichten, schlankere Vergabeunterlagen</li>
+        <li>Textform (z. B. E-Mail) genügt in Nachprüfungsverfahren</li>
+        <li>Markterkundungen vorrangig elektronisch</li>
+        <li>Ausnahme vom Losgrundsatz für Infrastrukturvorhaben aus dem Sondervermögen Infrastruktur und Klimaneutralität (§ 97a Abs. 3 GWB-neu)</li>
+        <li>EU-Schwellenwert Bauleistungen unverändert 5.404.000 €</li>
+      </ul>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Bundesregierung-Pressemitteilung (8.5.2026, bundesregierung.de) | Bundesrat KOMPAKT vom 8. Mai 2026 (bundesrat.de) | cosinex-Blog „Vergabebeschleunigung: Stand des Gesetzentwurfes" (18.5.2026, blog.cosinex.de) | Gleiss Lutz „Bundestag verabschiedet Vergabebeschleunigungsgesetz" (gleisslutz.com) | Bundesingenieurkammer (bingk.de) | BGBl. 2026 I Nr. 137 vom 18.05.2026</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Für kleine Aufträge des Bundes (< 50.000 €) entfällt das formale Vergabeverfahren. <strong>Stamm-Auftraggeber beim Bund und nachgeordneten Behörden aktiv ansprechen</strong> und auf die neue Direktauftrags-Grenze hinweisen. E-Vergabe-Plattformen (DTVP, subreport, evergabe-online) testen, da Textform und elektronische Markterkundung Standard werden. Vergabeunterlagen auf neue Nachweis-Erleichterungen prüfen.</div>
+    <div class="karte-fuss"><span>📅 BGBl.: 18.5.2026</span><span>📅 Inkrafttreten: 1.7.2026</span></div>
+  </div>
+
   <div class="karte karte-vob">
-    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Aktuelle VOB-Entwicklung</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
-    <div class="karte-body"><p>Hier kommt der recherchierte Inhalt zur VOB der letzten 14 Tage hin. Erwartete Folgethemen aus Ausgabe 17/2026: Fortgang Vergabebeschleunigungsgesetz, Umsetzungspraxis § 3a VOB/A Wertgrenzen, Auswirkungen GModG auf öffentliche Ausschreibungen.</p></div>
-    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
-    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+    <div class="karte-kopf"><div class="karte-titel">Bundestariftreuegesetz (BTTG) seit 1. Mai 2026 in Kraft</div><span class="badge b-hot">SEIT 01.05.</span></div>
+    <div class="karte-body">
+      <p>Das BTTG (BGBl. 2026 I Nr. 119 v. 30.4.2026) wurde am Bundestag am 26.2., Bundesrat 27.3.2026 verabschiedet und gilt seit 1.5.2026. Anwendungsbereich: <strong>öffentliche Bau- und Dienstleistungsaufträge sowie Konzessionen des Bundes ab 50.000 € netto.</strong> Lieferaufträge sind nicht erfasst.</p>
+      <p>Auftragnehmer müssen den eingesetzten Beschäftigten mindestens die tariflichen Arbeitsbedingungen gewähren, die per Rechtsverordnung des BMAS festgesetzt werden – auf Antrag von Tarifvertragsparteien. Eine zentrale Prüfstelle bei der Deutschen Rentenversicherung Knappschaft-Bahn-See wird eingerichtet. Bei Verstößen drohen Vergabesperre und Eintrag im Wettbewerbsregister.</p>
+      <p><strong>Wichtig:</strong> Die praktische Wirkung entfaltet sich erst mit Erlass der jeweiligen Rechtsverordnungen je Branche. Landesrechtliche Tariftreuegesetze (in allen Bundesländern außer Bayern und Sachsen) bleiben unberührt.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Bundesregierung „Bundestariftreuegesetz in Kraft" (4.5.2026, bundesregierung.de) | Haufe „Tariftreuegesetz tritt in Kraft" (haufe.de) | Vergabeblog (5.5.2026, vergabeblog.de) | subreport-Blog „BTTG: Neue Vorgaben ab 1.5.2026" | BGBl. 2026 I Nr. 119 vom 30.4.2026</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Wer am Bauhauptgewerbe-Tarifvertrag oder TV Mindestlohn Bau hängt, hat keinen Mehraufwand. Nicht-tarifgebundene Betriebe müssen ein <strong>Tariftreueversprechen abgeben</strong> und im Auftragsfall die Einhaltung dokumentieren. Tarifgebundene Betriebe sollten ein „Tariftreuezertifikat" über ihren Arbeitgeberverband anfordern – das vereinfacht die Teilnahme an Bundesvergaben spürbar. Nachunternehmer-Verträge: BTTG-Klauseln durchreichen.</div>
+    <div class="karte-fuss"><span>📅 In Kraft: 1.5.2026</span><span>⚖️ BGBl. 2026 I Nr. 119</span></div>
   </div>
 </div>
 
@@ -166,11 +189,22 @@ function inhalt_18_2026() {
     <div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB – Bauplanungs- und Städtebaurecht</div></div>
   </div>
   <div class="karte karte-baugb">
-    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] BauGB-Upgrade Folgeschritt</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
-    <div class="karte-body"><p>Stand des BauGB-Upgrades nach Kabinettsbeschluss in Ausgabe 17. Erwartete Themen: Bundestags-Lesung, Anhörungen im Wohnungsbau-Ausschuss, Stellungnahmen der Verbände (DStGB, BAK, ZDB).</p></div>
-    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
-    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+    <div class="karte-kopf"><div class="karte-titel">BauGB-Upgrade: Kabinettsbeschluss für Ende Mai 2026 erwartet</div><span class="badge b-info">LAUFEND</span></div>
+    <div class="karte-body">
+      <p>Nach Abschluss der Verbändeanhörung am 29.4.2026 wird der Kabinettsbeschluss zum „Gesetz zur Modernisierung des Städtebau- und Raumordnungsrechts" (BauGB-Upgrade) Ende Mai 2026 erwartet. Schwerpunkte des Entwurfs:</p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li><strong>Wohnungsbau im überragenden öffentlichen Interesse</strong> (§ 1 Abs. 7a BauGB-E) in Gebieten mit angespanntem Wohnungsmarkt</li>
+        <li><strong>Bauleitplanung max. 24 Monate</strong> zwischen Aufstellungsbeschluss und Abschluss (§ 4b BauGB-E)</li>
+        <li><strong>Aufstockungen ohne B-Plan-Änderung</strong> bundesweit (§ 31 Abs. 3 BauGB) – nicht mehr nur in angespannten Wohnungsmärkten</li>
+        <li><strong>Einstufige, elektronische Öffentlichkeitsbeteiligung</strong> über zentrales Landesportal</li>
+        <li><strong>Schrottimmobilien-Instrumente</strong> einschließlich neuem Vorkaufsrechts-Tatbestand</li>
+        <li>Privilegierung von Speicheranlagen (Batterie- und Wasserstoffspeicher) im Außenbereich</li>
+      </ul>
+      <p>Nach Kabinettsbeschluss folgt das parlamentarische Verfahren mit erster Lesung erwartet vor der Sommerpause. Der BauTurbo (§ 246e BauGB) bleibt parallel bis 31.12.2030 in Kraft.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Haufe „BauGB-Novelle: Die Pläne der Bundesregierung" (haufe.de) | hgrs „BauGB-Upgrade 2026" (16.5.2026, hgrs.eu) | Prometheus „BauGB Novelle 2026" (prometheus-recht.de) | Aulinger „Referentenentwurf zur BauGB-Novelle 2026" (aulinger.eu)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Aufstockungs- und Nachverdichtungs-Projekte werden ab Inkrafttreten deutlich einfacher – auch außerhalb von „angespannten Wohnungsmärkten". <strong>Mit Stamm-Auftraggebern jetzt Vorplanungen für Aufstockungen aufsetzen</strong>, um zum Inkrafttreten startklar zu sein. Bei Quartiersentwicklungen die einstufige Öffentlichkeitsbeteiligung im Hinterkopf behalten – Genehmigungsverfahren werden schneller.</div>
+    <div class="karte-fuss"><span>📅 Kabinett: Ende Mai 2026</span><span>📅 1. Lesung: vor Sommerpause</span></div>
   </div>
 </div>
 
@@ -180,11 +214,19 @@ function inhalt_18_2026() {
     <div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI – Honorarordnung</div></div>
   </div>
   <div class="karte karte-hoai">
-    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] HOAI-Reform</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
-    <div class="karte-body"><p>Stand des HOAI-Referentenentwurfs (laut Ausgabe 15 für Sommer 2026 erwartet). Aktuelle Honorargutachten und Verbandspositionen.</p></div>
-    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
-    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+    <div class="karte-kopf"><div class="karte-titel">HOAI-Novelle: Referentenentwurf weiter für Sommer 2026 angepeilt</div><span class="badge b-pend">AUSSTEHEND</span></div>
+    <div class="karte-body">
+      <p>Das BMWE hält am Zeitplan fest: Referentenentwurf bis Sommer 2026, Inkrafttreten frühestens Anfang 2027. Aktuell hat das Ministerium intern jedoch das Vergabebeschleunigungsgesetz priorisiert, wodurch die HOAI-Arbeit in den Hintergrund rückt. Die fachliche Vorarbeit ist abgeschlossen:</p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li>Honorargutachten (BMWK, März 2025, 619 Seiten) – Erhöhung der Tafelwerte um 16–67 % je nach Leistungsbild empfohlen</li>
+        <li>Beispiel Freianlagen 100k€ anrechenbare Kosten: HOAI 2021: 20.574–25.659 € → HOAI 202X: 28.502–35.547 €</li>
+        <li>Leistungsbilder modernisiert (BIM als Grundleistung, neue Phase Klimaanpassung)</li>
+        <li>Verbände drängen auf zügige Umsetzung – AHO, BAK, Bundesingenieurkammer geschlossen pro Novelle</li>
+      </ul>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Baukunst „HOAI Reform 2026" (baukunst.art) | GALK „HOAI-Novelle 2026" (galk.de) | BayIKA „HOAI-Honorargutachten" (bayika.de) | ing-net.de „HOAI-Reform und Vergabebeschleunigung im Fokus" | BDB (baumeister-online.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei laufenden Architekten- und Ingenieurverträgen prüfen, ob die Klausel „HOAI in der jeweils gültigen Fassung" steht – nur dann ziehen automatisch die neuen Honorare. Bei Neuabschlüssen 2026 diese Klausel <strong>verbindlich vereinbaren</strong>. Bei Pauschalhonoraren über lange Laufzeiten Anpassungsoption für Inkrafttreten der neuen HOAI vereinbaren.</div>
+    <div class="karte-fuss"><span>📅 RefE: Sommer 2026</span><span>📅 Inkrafttreten: frühestens Anfang 2027</span></div>
   </div>
 </div>
 
@@ -193,12 +235,30 @@ function inhalt_18_2026() {
     <div class="section-icon ic-din">📏</div>
     <div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div>
   </div>
+  <div class="karte karte-din" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ DIN 4108-2:2026-05 – Neufassung sommerlicher Wärmeschutz</div><span class="badge b-neu">NEU 05/2026</span></div>
+    <div class="karte-body">
+      <p>Die Mai-Ausgabe der DIN 4108-2 „Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 2: Wärmeschutz – Anforderungen, Berechnungsverfahren und Hinweise für Planung und Ausführung" löst die Ausgabe 2013-02 ab. Erarbeitet vom NA 005-56-91 AA „Wärmetransport" im DIN-Normenausschuss Bauwesen (NABau).</p>
+      <p><strong>Wesentliche Änderungen gegenüber 2013-02:</strong></p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li>Anpassungen und Korrekturen bei Begriffen</li>
+        <li>Neugestaltung der Tabelle 3 (Mindestwärmedurchlasswiderstände)</li>
+        <li>Aufnahme alternativer Nachweismöglichkeiten für den Mindestwärmeschutz</li>
+        <li>Aktualisierung des sommerlichen Wärmeschutz-Nachweises – wesentlich für Erfüllung der GModG-Referenzanforderungen</li>
+      </ul>
+      <p>Die neue Fassung wird im GModG-Entwurf explizit referenziert und ist damit künftiger Maßstab für die Anforderungen an die Gebäudehülle.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> DIN 4108-2:2026-05 (Beuth-Verlag/baunormenlexikon.de) | Öko-Zentrum NRW „Update zum Gebäudemodernisierungsgesetz" (oekozentrum.nrw, Mai 2026) | DIN-Normenausschuss Bauwesen (din.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei laufenden Neubauplanungen Energieberater/Planer kontaktieren und prüfen, ob die Bilanzierung schon nach der neuen Norm erfolgt. Bei Bestandssanierungen vor Sommer 2026 lieber noch die alte 2013er-Fassung anwenden, sofern vertraglich vereinbart. <strong>Sommerlichen Wärmeschutz frühzeitig denken</strong>: Klimaanpassung wird Bau-Standard und ist über die DIN bald zwingend.</div>
+    <div class="karte-fuss"><span>📅 Veröffentlicht: 05/2026</span><span>⚖️ DIN 4108-2:2026-05</span></div>
+  </div>
+
   <div class="karte karte-din">
-    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Neue DIN-Veröffentlichungen Mai 2026</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
-    <div class="karte-body"><p>Neue und überarbeitete DIN-Normen mit Baurelevanz. Zu prüfen u.a.: DIN 18065 (Treppen), DIN 4108 (Wärmeschutz), DIN EN 1090 (Stahlbau), DIN 18299 ff. (VOB Teil C).</p></div>
-    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
-    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+    <div class="karte-kopf"><div class="karte-titel">DIN/TS 18599:2025-10 – Berechnungsverfahren GModG-Referenz</div><span class="badge b-info">SEIT 10/2025</span></div>
+    <div class="karte-body"><p>Die DIN/TS 18599 in Fassung 2025-10 wird im GModG-Entwurf als Berechnungsverfahren angesetzt. Schwerpunkte: neues Berechnungsverfahren für Wärmepumpen (Teile 5 und 8), verbesserte PV-Standardwerte (Teil 9). Ergänzt die DIN 4108-2:2026-05 als Bilanzierungsgrundlage.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Öko-Zentrum NRW „Update zum GModG" (oekozentrum.nrw) | DIN (din.de) | Gebäudeforum klimaneutral (gebaeudeforum.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei PV- und Wärmepumpen-Projekten: Planer auf die neuen Standardwerte hinweisen – damit fällt die Bilanzierung typischerweise günstiger aus.</div>
+    <div class="karte-fuss"><span>📅 Seit 10/2025</span></div>
   </div>
 </div>
 
@@ -207,12 +267,36 @@ function inhalt_18_2026() {
     <div class="section-icon ic-arb">🦺</div>
     <div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div>
   </div>
+  <div class="karte karte-arb" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BG BAU: Zwei neue Arbeitsschutzprämien ab 1. Juli 2026</div><span class="badge b-neu">AB 01.07.</span></div>
+    <div class="karte-body">
+      <p>Die Berufsgenossenschaft der Bauwirtschaft erweitert ihr Förderprogramm ab 1.7.2026 um zwei neue Prämien:</p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li><strong>Drohnen</strong> für Kontroll- und Reinigungsarbeiten an schwer zugänglichen Stellen (Dächer, Fassaden, Schächte, Kanäle) – ersetzen riskante Höhenarbeiten</li>
+        <li><strong>Temporäre Absturzsicherungen</strong> für Schalungsarbeiten</li>
+        <li><strong>Temporäre Durchsturzsicherungen</strong> für Arbeiten an lichtdurchlässigen Dachbauteilen (Stichwort: Dachlichtbänder)</li>
+      </ul>
+      <p>Förderhöhe: beitragsabhängig bis 3.000 € pro Maßnahme, beitragsunabhängig bis 10.000 €. Das Antragsverfahren wird vereinfacht: statt fünf Förderstufen künftig eine neu strukturierte Förderung.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> grundrichtig „Einführung neuer Arbeitsschutzprämien durch die BG BAU" (20.5.2026, grundrichtig.de) | BG BAU (bgbau.de/praemien) | BG BAU Hauptabteilung Prävention (Hans-Jürgen Wellnhofer, kommissarischer Leiter)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Wer Dacharbeiten anbietet: <strong>Antrag auf Durchsturzsicherung vorbereiten</strong> – das ist eine der häufigsten Unfallursachen mit tödlichem Ausgang. Für die Drohnen-Prämie: Förderung nutzen, statt eigene Investition. Antrag direkt nach 1.7. einreichen, bevor das Budget vergeben ist. Ergibt schnell eine vier- bis fünfstellige Ersparnis.</div>
+    <div class="karte-fuss"><span>📅 Ab 1.7.2026</span><span>💰 bis 10.000 € beitragsunabhängig</span></div>
+  </div>
+
   <div class="karte karte-arb">
-    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Arbeitsschutz aktuell</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
-    <div class="karte-body"><p>Erwartete Folgethemen: BAuA Sommerhitze-Empfehlungen, DGUV V2 Reform Umsetzung, Asbestpflichten (TRGS 519), Lärm-Verordnung Baustelle, neue ASR-Veröffentlichungen.</p></div>
-    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
-    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+    <div class="karte-kopf"><div class="karte-titel">TRGS 519 „Asbest" – Neufassung in der zweiten Jahreshälfte erwartet</div><span class="badge b-pend">AUSSTEHEND</span></div>
+    <div class="karte-body"><p>Die Neufassung der Technischen Regel für Gefahrstoffe „Asbest" (TRGS 519) wird vom Ausschuss für Gefahrstoffe (AGS) bei der BAuA für die zweite Jahreshälfte 2026 angekündigt. Sie setzt die EU-Asbest-Richtlinie 2023/2668 um. Schon jetzt verschärft: erweiterte Anzeige- und Nachweispflichten (Namen der Beschäftigten, Fachkunde, arbeitsmedizinische Vorsorge), Genehmigungspflicht auch für Abbrucharbeiten im niedrigen/mittleren Risikobereich. Parallel: TRGS 505 „Blei" in Neufassung Februar 2026 erschienen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAuA TRGS 519 (baua.de) | bpz-online „Bauwirtschaft: neue Regeln ab 2026" (22.12.2025) | Recyclingportal „Neue Regeln ab 2026" (recyclingportal.eu) | EU-Richtlinie 2023/2668</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Bestandsobjekten vor 1995: Asbest-Erkundung schriftlich vom Bauherrn anfordern, sonst Auftrag ablehnen. Fachkunde-Nachweise für eingesetzte Mitarbeiter aktualisieren und in der Personalakte ablegen. <strong>Mit Inkrafttreten der TRGS-Neufassung wird die Bußgeld-Praxis verschärft</strong> – Vorbereitung jetzt.</div>
+    <div class="karte-fuss"><span>📅 TRGS 519: 2. HJ 2026</span><span>📅 TRGS 505: 02/2026</span></div>
+  </div>
+
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">BAuA: 5 %-Mindestbesichtigungsquote der Arbeitsschutzbehörden ab 2026</div><span class="badge b-info">VERBINDLICH</span></div>
+    <div class="karte-body"><p>Ab 2026 verbindlich: Jede Landes-Arbeitsschutzbehörde muss pro Jahr 5 % der Betriebe im Land kontrollieren. Baustellen-Kontrollen werden dadurch deutlich häufiger.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAuA „Mindestbesichtigungsquote ab 2026" (baua.de) | mi-bochum „Arbeitsschutz 2026: 4 Neuerungen" (Mai 2026, mi-bochum.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Mit Stichproben-Kontrollen rechnen. <strong>Gefährdungsbeurteilung aktuell halten</strong>, Sicherheits- und Gesundheitsschutz-Plan (SiGe-Plan) bei jeder größeren Baustelle griffbereit, Unterweisungs-Nachweise dokumentieren.</div>
+    <div class="karte-fuss"><span>📅 Verbindlich: 2026</span></div>
   </div>
 </div>
 
@@ -222,11 +306,27 @@ function inhalt_18_2026() {
     <div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH / OLG – Urteile</div></div>
   </div>
   <div class="karte karte-urt">
-    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Aktuelle Urteile</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
-    <div class="karte-body"><p>BGH-Pressemitteilungen Mai 2026 prüfen (Quelle 3 im Prompt). OLG-Entscheidungen zu Werkmängelhaftung, Abnahmeverweigerung, Behinderungsanzeigen, Bürgschaft auf erstes Anfordern.</p></div>
-    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
-    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+    <div class="karte-kopf"><div class="karte-titel">BGH: Keine Abnahme durch vereidigten Sachverständigen</div><span class="badge b-neu">VII ZR 108/24 · 26.03.</span></div>
+    <div class="karte-body"><p>Der VII. Zivilsenat des BGH hat mit Urteil vom 26.3.2026 entschieden: Ein vom Auftraggeber eingeschalteter <strong>vereidigter Sachverständiger kann die Abnahme nicht ersetzen</strong>. Die Sachverständigen-Begutachtung ist allein Beweismittel; die rechtsgeschäftliche Erklärung der Abnahme bleibt Sache des Auftraggebers. Konsequenz: Wer auf eine SV-Begutachtung statt formaler Abnahme verzichtet, bekommt die werkvertraglichen Folgen (Verjährungsbeginn, Beweislastumkehr) nicht – Werklohnanspruch wird nicht fällig.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH, Urteil vom 26.03.2026 - VII ZR 108/24 (dejure.org/gesetze/BGB/634a) | OLG Stuttgart, 06.06.2024 - 13 U 419/19 (Vorinstanz)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei streitigen Abnahmen: nicht auf ein Sachverständigen-Gutachten als „Abnahmesurrogat" verlassen. <strong>Förmliche Abnahme nach § 12 VOB/B bzw. § 640 BGB einfordern</strong>, gegebenenfalls mit Frist. Verweigert der AG die Abnahme zu Unrecht, gilt die Leistung fiktiv als abgenommen (§ 640 Abs. 2 BGB) – auch dafür ist eine schriftliche Aufforderung Voraussetzung.</div>
+    <div class="karte-fuss"><span>⚖️ VII ZR 108/24</span><span>📅 26.3.2026</span></div>
+  </div>
+
+  <div class="karte karte-urt">
+    <div class="karte-kopf"><div class="karte-titel">OLG München: Werklohn auch ohne Abnahme nur bei Abrechnungsverhältnis</div><span class="badge b-info">27 U 1708/25 · 21.01.</span></div>
+    <div class="karte-body"><p>Das OLG München (Urteil vom 21.1.2026, 27 U 1708/25 Bau) bestätigt: Werklohn wird grundsätzlich erst mit Abnahme fällig. Eine Abnahme ist nur entbehrlich, wenn das Vertragsverhältnis in ein Abrechnungsverhältnis übergegangen ist – etwa wenn der AG endgültig und ernsthaft die Nacherfüllung ablehnt oder ausschließlich Schadensersatz statt Leistung verlangt. Ein bloßer Streit über Mängel reicht nicht aus.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> OLG München, Urteil vom 21.01.2026, Az. 27 U 1708/25 Bau (schluender.info, April 2026) | Schlünder Rechtsanwälte, Bau- und Architektenrecht</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Wer Werklohn einklagen will, muss <strong>entweder eine Abnahme oder ein Abrechnungsverhältnis nachweisen</strong>. Schriftliche Korrespondenz so führen, dass eine endgültige Verweigerungshaltung des AG dokumentiert wird – Standard-Mängelrüge reicht nicht.</div>
+    <div class="karte-fuss"><span>⚖️ 27 U 1708/25</span><span>📅 21.1.2026</span></div>
+  </div>
+
+  <div class="karte karte-urt">
+    <div class="karte-kopf"><div class="karte-titel">BGH: Zuständigkeit für Balkonsanierung in der WEG (Folgeurteil)</div><span class="badge b-info">Nr. 72/2026 · 24.04.</span></div>
+    <div class="karte-body"><p>Bereits in Ausgabe 17 berichtet, aktuell mit neuen Begründungsdetails veröffentlicht: Der V. Zivilsenat des BGH hat die <strong>Beschlusskompetenz der WEG für die Balkonsanierung</strong> bekräftigt – auch wenn die Teilungserklärung Sondereigentumsregelungen enthält. Die GdWE kann die Erhaltungslast zwar delegieren, sich ihrer aber nicht entledigen. Negativbeschlüsse können durch Gerichtsentscheidung ersetzt werden.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH-Pressemitteilung Nr. 72/2026 (24.4.2026, bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2026/2026072.html)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei WEG-Aufträgen zur Balkonsanierung weiterhin: WEG-Beschluss (einfache Mehrheit reicht nach V ZR 7/25 ohnehin) als Grundlage nehmen, nicht Einzeleigentümer-Aufträge. <strong>Auftrag immer vom Verwalter zeichnen lassen.</strong></div>
+    <div class="karte-fuss"><span>⚖️ PM 72/2026</span><span>📅 24.4.2026</span></div>
   </div>
 </div>
 
@@ -235,12 +335,34 @@ function inhalt_18_2026() {
     <div class="section-icon ic-geg">🌿</div>
     <div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG / GModG</div></div>
   </div>
+  <div class="karte karte-geg" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ GModG – Inkrafttreten endgültig auf 1. November 2026 verschoben</div><span class="badge b-hot">REGIERUNGSENTWURF</span></div>
+    <div class="karte-body">
+      <p>Nach dem Kabinettsbeschluss vom 13.5.2026 (siehe Ausgabe 17) ist das Inkrafttreten des Gebäudemodernisierungsgesetzes (GModG, neuer voller Name: „Gesetz zur Einsparung von Energie und zur Modernisierung der Wärmeversorgung in Gebäuden") jetzt offiziell auf den <strong>1. November 2026</strong> verschoben – statt ursprünglich 1.7.2026.</p>
+      <p><strong>Konsequenz: Bis 31.10.2026 gilt das aktuelle GEG vollumfänglich</strong>, einschließlich der 65-%-EE-Pflicht ab kommunaler Wärmeplanung. Der Entwurf bedarf nicht der Zustimmung des Bundesrats und wird als „besonders eilbedürftig" nach Art. 76 Abs. 2 Satz 4 GG behandelt. Bundestags-Beratungen Juni–September 2026, Bundesrat im Oktober.</p>
+      <p><strong>Kernpunkte des Regierungsentwurfs:</strong></p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li>§§ 71 ff. GEG (65-%-EE-Pflicht) <strong>komplett gestrichen</strong></li>
+        <li>Neue §§ 42–46 GModG: technologieoffene Heizungsoptionen ohne Erfüllungs-Quoten</li>
+        <li><strong>„Bio-Treppe"</strong>: 10 % Biomethan ab 2029, 15 % ab 2030, 30 % ab 2035, 60 % ab 2040 – alternativ Hybridwärmepumpe oder Solarthermie bis Ende 2034</li>
+        <li>Mieterschutz: Vermieter beteiligt sich zur Hälfte an CO₂-Abgaben, Gasnetzentgelten und Biogas-Mehrkosten (Vereinbarung SPD/CDU vom 29.4.2026)</li>
+        <li>Evaluation des GModG erst 2030 (§ 9a GModG)</li>
+      </ul>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWE/BBSR GEG-Infoportal „Neuigkeiten zum GModG" (13.5.2026, bbsr-geg.bund.de) | Haufe „Kabinett beschließt GModG" (haufe.de) | gmg-aktuell.de „Update 13.5.2026" | Graf von Kerssenbrock „GModG 2026" (grafkerssenbrock.com) | energie-experten.org „Gebäudemodernisierungsgesetz" (Mai 2026) | on. ingenieurbüro „GModG nimmt nächste Hürde"</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bis 31.10.2026 läuft das GEG voll – <strong>Heizungstausch ohne 65-%-Pflicht ist bis Ende Oktober 2026 noch in der Mehrheit der Großstädte möglich</strong>, da die kommunalen Wärmepläne dort erst zum 30.6.2026 vorliegen müssen und dann eine Übergangsfrist greift. Kunden in Großstädten aktiv ansprechen. BEG-Förderung weiterhin nutzen, Anträge VOR Beauftragung. Kommunikation zu Kunden: Gas-/Ölheizungen bleiben grundsätzlich zulässig, aber „Bio-Treppe" ab 2029.</div>
+    <div class="karte-fuss"><span>📅 Kabinett: 13.5.2026</span><span>📅 Inkrafttreten: 1.11.2026</span></div>
+  </div>
+
   <div class="karte karte-geg">
-    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] GModG nach Kabinettsbeschluss</div><span class="badge b-hot">FOLGE 17/2026</span></div>
-    <div class="karte-body"><p>Erwartete Folgethemen: 1. Lesung GModG im Bundestag, BMWE-Energiewende-Newsletter, Verbandsstellungnahmen, kommunale Wärmeplanung (Frist 30.6.2026 für Großstädte), Förderkulisse BEG.</p></div>
-    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
-    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
-    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+    <div class="karte-kopf"><div class="karte-titel">Kommunale Wärmeplanung: 30. Juni 2026 rückt näher – viele Großstädte hinken hinterher</div><span class="badge b-frist">FRIST 30.06.</span></div>
+    <div class="karte-body">
+      <p>Sechs Wochen vor dem Stichtag des Wärmeplanungsgesetzes (WPG): Hamburg, München, Köln, Frankfurt und Stuttgart gelten als fortgeschritten. Mehrere Ruhrgebietsstädte sind in Verzug. Insgesamt müssen <strong>84 deutsche Großstädte mit mehr als 100.000 Einwohnern</strong> bis 30.6.2026 einen Wärmeplan vorlegen (§ 4 Abs. 1 WPG). Sechs haben beschlossen, vier in finaler Offenlage, drei schaffen es nur knapp.</p>
+      <p>Auswirkung auf Heizungstausch: Sobald die kommunale Wärmeplanung vorliegt (Großstadt-Stichtag 30.6.2026 / kleinere Kommunen 30.6.2028), greift die 65-%-EE-Pflicht beim Heizungstausch – allerdings nur bis zum Inkrafttreten des GModG am 1.11.2026, danach gilt die „Bio-Treppe".</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Dr. Web „Wärmeplan-Stichtag" (18.5.2026, drweb.de) | metxme.ai „Top 10 Großstädte" (14.5.2026) | Klimaschutz Niedersachsen WPG-Übersicht (klimaschutz-niedersachsen.de) | HVS Hausverwalterscout „Wärmeplanung 2026" (magazin.hausverwalterscout.de) | WPG § 4 Abs. 1</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span><strong>Wärmeplan der Kommunen prüfen, in denen Sie bauen</strong> (Stadt-Website oder direkt Stadtwerke fragen). Bei Heizungstausch-Projekten in Großstädten: Kunden auf das Zeitfenster bis Inkrafttreten der lokalen Wärmeplanung hinweisen – danach greift die 65-%-Pflicht des alten GEG, ab 1.11.2026 die Bio-Treppe. Fernwärme-Anschlusszwang in Heidelberg, Mannheim und mehreren bayerischen Großstädten beachten – dort ist die Wärmepumpen-Option im Bestand bei Anschlusszwang praktisch entwertet.</div>
+    <div class="karte-fuss"><span>📅 Frist Großstädte: 30.6.2026</span><span>📅 Kleinere Kommunen: 30.6.2028</span></div>
   </div>
 </div>
 
