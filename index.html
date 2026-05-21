@@ -5,219 +5,910 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marwin's Baurecht-Newsletter</title>
 <link rel="stylesheet" href="style.css">
+
+<!--
+══════════════════════════════════════════════════════════════════
+  REDAKTIONS-PROMPT (alle 14 Tage in Claude mit Web Search nutzen)
+══════════════════════════════════════════════════════════════════
+
+  Erstelle den heutigen Baurecht-Newsletter.
+  Recherchiere aktuelle Entwicklungen der letzten 14 Tage zu
+  VOB, BauGB, HOAI, DIN-Normen, Arbeitsschutz, BGH/OLG-Urteile und GEG.
+
+  Durchsuche dabei verpflichtend folgende Primärquellen zuerst:
+  1. BMWE Pressemitteilungen:
+     https://www.bundeswirtschaftsministerium.de/SiteGlobals/Functions/RSSFeed/DE/RSSNewsfeed/Feed.xml
+  2. BMWE Newsletter „Energiewende direkt":
+     https://energiewende.bundeswirtschaftsministerium.de/EWD/Redaktion/Newsletter/
+  3. BGH Pressemitteilungen:
+     https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2026/
+  4. BMWK Vergaberecht:
+     https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Dossier/oeffentliche-auftraege-und-vergabe.html
+
+  Dann ergänze mit allgemeiner Web-Recherche zu allen 7 Rubriken.
+  Gib das Ergebnis als vollständiges HTML-Dokument aus.
+  Ergänze bei jeder Meldung Quelle (URL + Datum).
+  Ergänze jeweils Praxiseinordnung für ein kleines Bauunternehmen.
+
+══════════════════════════════════════════════════════════════════
+-->
+
 </head>
 <body>
-<header class="topbar"><div class="topbar-logo"><div class="topbar-logo-bar"></div><div class="topbar-logo-text"><strong>Marwin's Baurecht-Newsletter</strong><span>Fachpublikation · Baurecht &amp; Vergabe</span></div></div><div class="topbar-nav"><button class="topbar-btn aktiv" onclick="zeigePage('aktuell')">Aktuelle Ausgabe</button><button class="topbar-btn" onclick="zeigePage('archiv')">Archiv</button><button class="topbar-btn" onclick="zeigePage('impressum')">Impressum</button><button class="burger" id="burger" onclick="toggleSidebar()"><span></span><span></span><span></span></button></div></header>
+
+<header class="topbar">
+  <div class="topbar-logo">
+    <div class="topbar-logo-bar"></div>
+    <div class="topbar-logo-text">
+      <strong>Marwin's Baurecht-Newsletter</strong>
+      <span>Fachpublikation · Baurecht &amp; Vergabe</span>
+    </div>
+  </div>
+  <div class="topbar-nav">
+    <button class="topbar-btn aktiv" onclick="zeigePage('aktuell')">Aktuelle Ausgabe</button>
+    <button class="topbar-btn" onclick="zeigePage('archiv')">Archiv</button>
+    <button class="topbar-btn" onclick="zeigePage('impressum')">Impressum</button>
+    <button class="burger" id="burger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
 <div class="top-disclaimer">⚠ Dieser Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung dar. <span>Bei konkreten Rechtsfragen wenden Sie sich an eine zugelassene Rechtsanwältin oder einen Rechtsanwalt.</span></div>
+
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
 <div class="layout">
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-section"><div class="sidebar-label">Aktuelle Ausgabe</div><div class="nav-item aktiv" onclick="zeigePage('aktuell')"><span class="nav-icon">📄</span>Ausgabe 17 / 2026<span class="nav-badge">NEU</span></div><div style="font-size:11px;color:var(--matt);padding:3px 12px 6px">13. Mai 2026</div></div>
-  <div class="sidebar-section"><div class="sidebar-label">Inhalt dieser Ausgabe</div><div class="nav-item" onclick="scrollZu('vob')"><span class="nav-icon">📋</span>VOB</div><div class="nav-item" onclick="scrollZu('baugb')"><span class="nav-icon">🏙️</span>BauGB</div><div class="nav-item" onclick="scrollZu('hoai')"><span class="nav-icon">📐</span>HOAI</div><div class="nav-item" onclick="scrollZu('din')"><span class="nav-icon">📏</span>DIN-Normen</div><div class="nav-item" onclick="scrollZu('as')"><span class="nav-icon">🦺</span>Arbeitsschutz</div><div class="nav-item" onclick="scrollZu('urt')"><span class="nav-icon">⚖️</span>BGH / OLG Urteile</div><div class="nav-item" onclick="scrollZu('geg')"><span class="nav-icon">🌿</span>GEG</div></div>
-  <div class="sidebar-section" style="flex:1"><div class="sidebar-label">Archiv</div><div id="sidebar-archiv"></div><div class="nav-item" style="color:var(--rot);font-weight:700;margin-top:6px" onclick="zeigePage('archiv')"><span class="nav-icon">📚</span>Alle Ausgaben →</div></div>
-  <div class="sidebar-section"><div class="nav-item" onclick="zeigePage('impressum')"><span class="nav-icon">🏢</span>Impressum</div></div>
-</nav>
-<main class="main" id="main-content"></main>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Aktuelle Ausgabe</div>
+      <div class="nav-item aktiv" onclick="zeigePage('aktuell')">
+        <span class="nav-icon">📄</span>Ausgabe 18 / 2026<span class="nav-badge">NEU</span>
+      </div>
+      <div style="font-size:11px;color:var(--matt);padding:3px 12px 6px">21. Mai 2026</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Rubriken</div>
+      <div class="nav-item" onclick="scrollZu('vob')"><span class="nav-icon">📋</span>VOB</div>
+      <div class="nav-item" onclick="scrollZu('baugb')"><span class="nav-icon">🏙️</span>BauGB</div>
+      <div class="nav-item" onclick="scrollZu('hoai')"><span class="nav-icon">📐</span>HOAI</div>
+      <div class="nav-item" onclick="scrollZu('din')"><span class="nav-icon">📏</span>DIN-Normen</div>
+      <div class="nav-item" onclick="scrollZu('arb')"><span class="nav-icon">🦺</span>Arbeitsschutz</div>
+      <div class="nav-item" onclick="scrollZu('urt')"><span class="nav-icon">⚖️</span>BGH / OLG</div>
+      <div class="nav-item" onclick="scrollZu('geg')"><span class="nav-icon">🌿</span>GEG</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Archiv</div>
+      <div id="sidebar-archiv"></div>
+      <div class="nav-item" onclick="zeigePage('archiv')" style="margin-top:6px"><span class="nav-icon">📚</span>Alle Ausgaben →</div>
+    </div>
+  </nav>
+
+  <main id="main-content"></main>
 </div>
+
 <script>
-const ARCHIV=[
- {nr:'17/2026',datum:'13. Mai 2026',aktuell:true,themen:['GModG Kabinettsbeschluss','65%-Pflicht→1.11.','BGH Balkonsanierung','Nullemissionsgebäude 2030','EPBD-Frist 29.5.','Bio-Treppe ab 2029','BauGB-Upgrade Kabinett'],highlight:'⚡ GModG heute im Kabinett beschlossen · BGH: Balkonsanierung WEG · 65%-Pflicht verschoben auf 1.11. · Nullemissionsgebäude ab 2030'},
- {nr:'16/2026',datum:'22. April 2026',aktuell:false,themen:['GModG blockiert','BauGB-Upgrade Frist 29.4.','BGH Bauträger-Verjährung','CLP-Frist 1.5.','BAuA UV-Karte'],highlight:'GModG vom Finanzministerium blockiert · BauGB-Upgrade Frist 29.4. · BGH Bauträger VII ZR 108/24'},
- {nr:'15/2026',datum:'8. April 2026',aktuell:false,themen:['BauGB-Upgrade Anhörung','GMG Kabinett April','BGH WEG V ZR 34/25','DIN 4108-7 neu','DGUV V2 Reform'],highlight:'BauGB-Upgrade in Anhörung · GMG Kabinett Mitte April · BGH Technikraum-Eigentum'},
- {nr:'14/2026',datum:'7. April 2026',aktuell:false,themen:['VOB Wertgrenzen','BGH Dreiangebotsregel','Tariflöhne +3,9 %','Asbestpflichten','ASR A5.1'],highlight:'BGH kippt Dreiangebotsregel · Tariflöhne +3,9 % ab April · GMG-Verzögerung'}
+/* ════════════════════════════════════════════════════════════════
+   SCHRITT 1 · ARCHIV-REGISTER
+   → Neue Ausgaben: oben einfügen, alte stehen lassen
+   ════════════════════════════════════════════════════════════════ */
+const ARCHIV = [
+  {
+    nr: '18/2026', datum: '21. Mai 2026', aktuell: true,
+    themen: ['Recherche-Ergebnisse einfügen'],
+    highlight: '🔍 Ausgabe 18/2026 – Recherche-Inhalte aus Web-Search-Session einfügen'
+  },
+  {
+    nr: '17/2026', datum: '13. Mai 2026', aktuell: false,
+    themen: ['GModG Kabinettsbeschluss', '65%-Pflicht→1.11.', 'BGH Balkonsanierung', 'Nullemissionsgebäude 2030', 'EPBD-Frist 29.5.', 'Bio-Treppe ab 2029', 'BauGB-Upgrade Kabinett'],
+    highlight: '⚡ GModG am 13.5. im Kabinett beschlossen · BGH: Balkonsanierung WEG · 65%-Pflicht verschoben auf 1.11.'
+  },
+  {
+    nr: '16/2026', datum: '22. April 2026', aktuell: false,
+    themen: ['GModG blockiert', 'BauGB-Upgrade Frist 29.4.', 'BGH Bauträger-Verjährung', 'CLP-Frist 1.5.', 'BAuA UV-Karte'],
+    highlight: 'GModG vom Finanzministerium blockiert · BauGB-Upgrade Frist 29.4. · BGH Bauträger VII ZR 108/24'
+  },
+  {
+    nr: '15/2026', datum: '8. April 2026', aktuell: false,
+    themen: ['BauGB-Upgrade Anhörung', 'GMG Kabinett April', 'BGH WEG V ZR 34/25', 'DIN 4108-7 neu', 'DGUV V2 Reform'],
+    highlight: 'BauGB-Upgrade in Anhörung · GMG Kabinett Mitte April · BGH Technikraum-Eigentum'
+  },
+  {
+    nr: '14/2026', datum: '7. April 2026', aktuell: false,
+    themen: ['VOB Wertgrenzen', 'BGH Dreiangebotsregel', 'Tariflöhne +3,9 %', 'Asbestpflichten', 'ASR A5.1'],
+    highlight: 'BGH kippt Dreiangebotsregel · Tariflöhne +3,9 % ab April · GMG-Verzögerung'
+  }
 ];
 
-/* ═══════════════════════════════════════════════════════════════════
-   AUSGABE 17/2026
-   ═══════════════════════════════════════════════════════════════════ */
-function inhalt_17_2026(){return `
-<div class="page-hdr"><div class="page-hdr-accent"></div><div class="page-hdr-yr">2026</div><div class="page-hdr-inner"><div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div><h1>Ausgabe 17 / 2026 <span class="tag-aktuell">NEU</span></h1><div class="page-hdr-date">13. Mai 2026 · Berichtszeitraum: 29. April – 13. Mai 2026</div><div class="page-hdr-meta"><span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span><span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span></div></div></div>
-<div class="editorial"><strong>⚡ EILMELDUNG:</strong> Das Bundeskabinett hat <strong>heute (13.5.2026)</strong> das Gebäudemodernisierungsgesetz (GModG) beschlossen! Die 65-%-EE-Pflicht wird abgeschafft, Gas-/Ölheizungen wieder uneingeschränkt erlaubt. Dazu: BGH-Grundsatzurteil zur Balkonsanierung in WEG (24.4.). BauGB-Upgrade geht nach Anhörungsende ins Kabinett. Alle Meldungen mit Quellen und Praxiseinordnung.</div>
 
-<div class="section" id="s-vob"><div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB – Vergabe- und Vertragsordnung</div></div></div>
-<div class="karte karte-vob"><div class="karte-kopf"><div class="karte-titel">VOB/A Wertgrenzen + Vergabebeschleunigungsgesetz: Keine Änderungen</div><span class="badge b-info">LAUFEND</span></div>
-<div class="karte-body"><p>Wertgrenzen § 3a VOB/A unverändert: Direktauftrag 50.000 € · Freihändige Vergabe 100.000 € · Beschr. Ausschreibung 150.000 €. Vergabebeschleunigungsgesetz weiter im parlamentarischen Verfahren. <strong>Neu:</strong> Eignungsleihe ist zulässig, sofern Vergabeunterlagen diese nicht ausdrücklich verbieten (IBRRS 2026, 1064). Nachträgliches Berufen auf Fremdkapazitäten bleibt als Angebotsänderung unzulässig.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> IBR-Online (IBRRS 2026, 1064, <a href="https://www.ibr-online.de" target="_blank">ibr-online.de</a>) | BHO-Legal (bho-legal.com)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Praxistipp</span>Eignungsleihe: Wenn Ihrem Betrieb eine bestimmte Referenz fehlt, können Sie auf Referenzen eines Partnerunternehmens verweisen – sofern die Vergabeunterlagen das nicht verbieten. <strong>Partnerschaft schriftlich vereinbaren!</strong></div>
-<div class="karte-fuss"><span>⚖️ § 3a VOB/A</span><span>📅 IBRRS 2026, 1064</span></div></div></div>
+/* ════════════════════════════════════════════════════════════════
+   SCHRITT 2 · INHALTSFUNKTIONEN PRO AUSGABE
+   ════════════════════════════════════════════════════════════════ */
 
-<div class="section" id="s-baugb"><div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB – Bauplanungs- und Städtebaurecht</div></div></div>
-<div class="karte karte-baugb"><div class="karte-kopf"><div class="karte-titel">BauGB-Upgrade: Stellungnahmefrist am 29.4. abgelaufen – Kabinett vor Sommerpause</div><span class="badge b-info">NÄCHSTER SCHRITT</span></div>
-<div class="karte-body"><p>Die Länder- und Verbändeanhörung zum „BauGB-Upgrade" (Gesetz zur Modernisierung des Städtebau- und Raumordnungsrechts) endete am 29.4.2026. Der Entwurf wird nun ausgewertet und soll vor der Sommerpause im Kabinett beschlossen werden. Kernpunkte bleiben: Digitale Bauleitplanung (max. 2 Jahre), Aufstockungen bundesweit ohne B-Plan-Änderung, Schrottimmobilien-Enteignung, „Verfahrensampel".</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB (<a href="https://www.bmwsb.bund.de/SharedDocs/gesetzgebungsverfahren/DE/baugb-upgrade/baugb-upgrade.html" target="_blank">bmwsb.bund.de</a>) | BFW (<a href="https://www.bfw-newsroom.de/baugb-novelle-vereinfachung-und-beschleunigung-mit-grenzen-ein-ueberblick/" target="_blank">bfw-newsroom.de</a>)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Vorbereiten!</span>Aufstockungen und Nachverdichtung werden zum Standardauftrag. Referenzen aufbauen, Kommunen als Partner ansprechen.</div>
-<div class="karte-fuss"><span>📅 Kabinett: vor Sommerpause 2026</span></div></div></div>
+/* ═══════════════════════════════════════
+   AUSGABE 18/2026 – 21. Mai 2026 · AKTUELL
+   ═══════════════════════════════════════ */
+function inhalt_18_2026() {
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Ausgabe 18 / 2026 <span class="tag-aktuell">NEU</span></h1>
+    <div class="page-hdr-date">21. Mai 2026 · Berichtszeitraum: 7. Mai – 21. Mai 2026</div>
+    <div class="page-hdr-meta">
+      <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
+      <span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
+    </div>
+  </div>
+</div>
 
-<div class="section" id="s-hoai"><div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI – Honorarrecht</div></div></div>
-<div class="karte karte-hoai"><div class="karte-kopf"><div class="karte-titel">HOAI-Novellierung: Weiter keine Neuigkeiten – RefE Sommer 2026</div><span class="badge b-pend">AUSSTEHEND</span></div>
-<div class="karte-body"><p>Keine neuen Entwicklungen. RefE weiter für Sommer 2026 geplant, Inkrafttreten frühestens 2027. Honorargutachten empfiehlt +16–67 %. BIM als Grundleistung geplant.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> IWW (iww.de) | Bayerische Ing.-Kammer (bayika.de)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Praxistipp</span>BIM-Leistungen weiter als Besondere Leistungen vertraglich vereinbaren.</div>
-<div class="karte-fuss"><span>📅 RefE: Sommer 2026</span></div></div></div>
+<div class="editorial">
+  <strong>📝 Hinweis zur Redaktion:</strong> Diese Ausgabe wurde strukturell vorbereitet. Die Inhalte aus der Web-Recherche (BMWE, BGH-Pressemitteilungen, BMWK Vergaberecht und allgemeine Web-Suche zu den 7 Rubriken) müssen noch eingepflegt werden. Nutze dafür den Prompt im HTML-Kommentar oben in dieser Datei in einer Claude-Session mit aktiviertem Web Search. Das HTML-Ergebnis dann in diese Funktion <code>inhalt_18_2026()</code> einfügen.
+</div>
 
-<div class="section" id="s-din"><div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen &amp; Technische Regelwerke</div></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">CLP-Verordnung: Neue Gefahrenklassen seit 1. Mai 2026 in Kraft!</div><span class="badge b-hot">JETZT PFLICHT</span></div>
-<div class="karte-body"><p>Seit 1.5.2026 müssen alle neuen Gemische nach ED, PBT/vPvB, PMT/vPvM-Gefahrenklassen eingestuft sein. Auf der Baustelle: Nur noch mit aktualisierten Sicherheitsdatenblättern arbeiten.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> EU-VO (EU) 2023/707 | BG BAU</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Sofort prüfen!</span>Falls noch nicht geschehen: ✅ Aktualisierte SDB bei Händlern angefordert? ✅ Alte SDB auf Baustellen aussortiert? ✅ Mitarbeiter über neue Piktogramme informiert?</div>
-<div class="karte-fuss"><span>📅 In Kraft seit: 1.5.2026</span></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">EPBD 2024: Umsetzungsfrist 29. Mai 2026 – GModG als Trägergesetz</div><span class="badge b-frist">FRIST 29.05.2026</span></div>
-<div class="karte-body"><p>Die EU-Gebäuderichtlinie EPBD 2024 muss bis 29.5.2026 in deutsches Recht umgesetzt werden. Das heute beschlossene GModG enthält die wesentlichen Umsetzungsregelungen: Nullemissionsgebäude-Standard, neue Energieausweise (A–G-Skala, digital), Renovierungspass. Ob die Frist eingehalten wird, hängt vom parlamentarischen Verfahren ab.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> EPBD (EU) 2024/1275 | energie-m.de (<a href="https://energie-m.de/info/gmodg-2026.html" target="_blank">energie-m.de</a>) | IWW (5.5.2026, <a href="https://www.iww.de/pbp/architektenrecht/gebaeudemodernisierungsgesetz-referentenentwurf-zum-gebaeudemodernisierungsgesetz-liegt-vor-das-sind-die-fuer-planungsbueros-wichtigsten-neuerungen-n173832" target="_blank">iww.de</a>)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Auf dem Schirm behalten!</span>Nullemissionsgebäude ab 2030 für alle Neubauten geplant. <strong>Schulungen zu den neuen Standards jetzt planen.</strong></div>
-<div class="karte-fuss"><span>📅 EPBD-Frist: 29.5.2026</span></div></div></div>
+<div class="section" id="s-vob">
+  <div class="section-hdr">
+    <div class="section-icon ic-vob">📋</div>
+    <div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB – Vergabe- und Vertragsordnung</div></div>
+  </div>
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Aktuelle VOB-Entwicklung</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
+    <div class="karte-body"><p>Hier kommt der recherchierte Inhalt zur VOB der letzten 14 Tage hin. Erwartete Folgethemen aus Ausgabe 17/2026: Fortgang Vergabebeschleunigungsgesetz, Umsetzungspraxis § 3a VOB/A Wertgrenzen, Auswirkungen GModG auf öffentliche Ausschreibungen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
+    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+  </div>
+</div>
 
-<div class="section" id="s-as"><div class="section-hdr"><div class="section-icon ic-as">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz &amp; Tariflöhne</div></div></div>
-<div class="karte karte-as"><div class="karte-kopf"><div class="karte-titel">Tariflöhne +3,9 %: Zweite Abrechnung – Prüfung durch SOKA-BAU</div><span class="badge b-info">LAUFEND</span></div>
-<div class="karte-body"><p>Mai-Abrechnung ist die zweite mit neuen Sätzen. SOKA-BAU prüft die Meldungen der Betriebe aktiv. LG 1: 15,86 € · LG 2: 17,34 € · LG 4: 26,05 €.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> IG BAU / ZDB / HDB, TV-Lohn 14.6.2024</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Kontrolle!</span>SOKA-BAU-Meldung für April prüfen – Korrekturen noch möglich. Bei Fehlern drohen Säumniszuschläge.</div>
-<div class="karte-fuss"><span>📅 Seit 1.4.2026</span></div></div>
-<div class="karte karte-as"><div class="karte-kopf"><div class="karte-titel">KI-gestützte Gefährdungsbeurteilungen: TÜV akzeptiert, BAuA fördert</div><span class="badge b-neu">NEU 05/2026</span></div>
-<div class="karte-body"><p>Spezialisierte KI-Plattformen für Arbeitssicherheit erstellen Gefährdungsbeurteilungen automatisiert. Prüforganisationen wie der TÜV akzeptieren KI-generierte Dokumente, sofern ein klarer Prüfpfad und menschliche Kontrolle gewährleistet sind. Zeitersparnis: bis zu 85 %.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> Ad-hoc-News (8.4.2026, <a href="https://www.ad-hoc-news.de/boerse/news/ueberblick/baustellen-sicherheit-2026-neue-regeln-fuer-bagger-und-co/69100349" target="_blank">ad-hoc-news.de</a>)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Zeitersparnis!</span>KI-Tools für GBU testen – aber immer mit menschlicher Prüfung. <strong>Nur Plattformen verwenden, die mit aktuellen DGUV-Vorschriften arbeiten.</strong></div>
-<div class="karte-fuss"><span>📅 Mai 2026</span></div></div></div>
+<div class="section" id="s-baugb">
+  <div class="section-hdr">
+    <div class="section-icon ic-baugb">🏙️</div>
+    <div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB – Bauplanungs- und Städtebaurecht</div></div>
+  </div>
+  <div class="karte karte-baugb">
+    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] BauGB-Upgrade Folgeschritt</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
+    <div class="karte-body"><p>Stand des BauGB-Upgrades nach Kabinettsbeschluss in Ausgabe 17. Erwartete Themen: Bundestags-Lesung, Anhörungen im Wohnungsbau-Ausschuss, Stellungnahmen der Verbände (DStGB, BAK, ZDB).</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
+    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+  </div>
+</div>
 
-<div class="section" id="s-urt"><div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">Aktuelle Rechtsprechung – BGH &amp; OLG</div></div></div>
-<div class="karte karte-urt" style="border-left-color:#C41230;border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ GRUNDSATZURTEIL: BGH zur Balkonsanierung in WEG – Gemeinschaft bleibt zuständig</div><span class="badge b-neu">BGH 24.04.2026</span></div>
-<div class="karte-body"><p><strong>Az. V ZR 102/24</strong> – Die WEG darf eine Balkonsanierung beschließen und durchführen – <strong>auch wenn die Teilungserklärung die Erhaltungslast den einzelnen Eigentümern zuweist.</strong> Die Kostenverteilung richtet sich weiterhin nach der Teilungserklärung. In Fällen mit Sicherheitsrisiken ist die WEG sogar verpflichtet zu handeln.</p>
-<p><strong>Leitsätze:</strong> Die Zuständigkeit der WEG für Erhaltungsmaßnahmen am Gemeinschaftseigentum besteht unabhängig von der Kostentragungsregelung. Eine Klausel „Eigentümer hält seinen Balkon instand" schließt Gemeinschaftsbeschlüsse nicht aus.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> BGH V ZR 102/24, 24.4.2026 | LPE Immobilien (<a href="https://lpe-immobilien.com/weg-ratgeber/bgh-urteil-balkonsanierung/" target="_blank">lpe-immobilien.com</a>, Mai 2026)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Neues Auftragsfeld!</span>WEG-Verwaltungen aktiv auf das Urteil hinweisen: Balkonsanierungen können jetzt zentral beauftragt werden. <strong>Angebote für Sammel-Balkonsanierungen erstellen</strong> – günstiger als Einzelbeauftragung. Sicherheitsgutachten empfehlen.</div>
-<div class="karte-fuss"><span>⚖️ BGH V ZR 102/24, 24.4.2026</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">EuG: MwSt-Berichtigung bei Forderungsabtretung Subunternehmer</div><span class="badge b-info">EuG 22.04.2026</span></div>
-<div class="karte-body"><p><strong>Rs. T-233/25</strong> – Ein Subunternehmer, der durch Abtretung die Forderung eines Unternehmers gegen einen Bauherrn erworben hat, kann keine MwSt-Berichtigung vornehmen, wenn der Bauherr nicht zahlt. Relevant bei Forderungsabtretungen in Bauvertrags-Ketten.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> IBR-Online (IBRRS 2026, 1068, <a href="https://www.ibr-online.de" target="_blank">ibr-online.de</a>) | EuG T-233/25</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Vorsicht bei Forderungsabtretungen!</span>Wenn Sie Forderungen von Generalunternehmern abgetreten bekommen: <strong>MwSt-Risiko prüfen</strong> – bei Zahlungsausfall des Bauherrn keine MwSt-Korrektur möglich.</div>
-<div class="karte-fuss"><span>⚖️ EuG T-233/25, 22.4.2026</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">Weiterhin relevant: BGH V ZR 7/25 – Drei-Angebote-Regel gekippt (27.3.)</div><span class="badge b-info">WEITER RELEVANT</span></div>
-<div class="karte-body"><p>WEGs nicht verpflichtet, Vergleichsangebote einzuholen. In der Praxis breit umgesetzt. Handwerkerverbände empfehlen Referenzlisten als Qualitätsnachweis.</p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> BGH PM Nr. 057/2026 (<a href="https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2026/2026057.html" target="_blank">bundesgerichtshof.de</a>)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Nutzen!</span>WEG-Verwaltungen informieren. Referenzlisten pflegen.</div>
-<div class="karte-fuss"><span>⚖️ BGH V ZR 7/25</span></div></div></div>
+<div class="section" id="s-hoai">
+  <div class="section-hdr">
+    <div class="section-icon ic-hoai">📐</div>
+    <div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI – Honorarordnung</div></div>
+  </div>
+  <div class="karte karte-hoai">
+    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] HOAI-Reform</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
+    <div class="karte-body"><p>Stand des HOAI-Referentenentwurfs (laut Ausgabe 15 für Sommer 2026 erwartet). Aktuelle Honorargutachten und Verbandspositionen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
+    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+  </div>
+</div>
 
-<div class="section" id="s-geg"><div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG – Gebäudeenergiegesetz &amp; Reform</div></div></div>
-<div class="karte karte-geg" style="border-left-width:5px;border-left-color:#C41230"><div class="karte-kopf"><div class="karte-titel">⚡ EILMELDUNG: Kabinettsbeschluss GModG am 13. Mai 2026!</div><span class="badge b-neu">HEUTE 13.05.2026</span></div>
-<div class="karte-body">
-<p><strong>Das Bundeskabinett hat heute (13.5.2026) das Gebäudemodernisierungsgesetz (GModG) beschlossen.</strong> Der Referentenentwurf lag seit 5.5.2026 vor. Verbändeanhörung endete am 11.5. (außergewöhnlich kurz). Jetzt folgen Bundestag und Bundesrat.</p>
-<p><strong>Die wichtigsten Regelungen des GModG:</strong></p>
-<table><tr><th>Thema</th><th>Regelung</th></tr>
-<tr><td>65-%-EE-Pflicht</td><td><strong>Komplett gestrichen</strong> (§§ 71, 71b–71p GEG werden aufgehoben)</td></tr>
-<tr><td>Gas-/Ölheizungen</td><td>Wieder uneingeschränkt zulässig (§ 42 GModG-E: „Technologieoffenheit")</td></tr>
-<tr><td>Bio-Treppe (§ 43 GModG-E)</td><td>10 % ab 2029 · 15 % ab 2030 · 30 % ab 2035 · 60 % ab 2040</td></tr>
-<tr><td>Betriebsverbote (§ 72 GEG)</td><td>Werden gestrichen</td></tr>
-<tr><td>Nullemissionsgebäude</td><td>Öffentl. NWG ab 1.1.2028 · Alle Neubauten ab 1.1.2030</td></tr>
-<tr><td>Energieausweise</td><td>Digital, EU-einheitliche Skala A–G, Renovierungspass</td></tr>
-<tr><td>65-%-Frist Großstädte</td><td><strong>Verschoben von 1.7.2026 auf 1.11.2026</strong> (Übergangsregelung)</td></tr>
-<tr><td>Förderung</td><td>BEG bleibt bis mindestens 2029</td></tr></table>
-<p><strong>⚠️ Bis zur Verabschiedung durch Bundestag und Bundesrat gilt weiterhin das aktuelle GEG!</strong></p></div>
-<div class="quelle-box"><strong>📄 Quellen:</strong> WWF, PM 13.5.2026 (<a href="https://www.wwf.de/2026/mai/kabinettsbeschluesse-zum-stromvkg-und-gmodg" target="_blank">wwf.de</a>) | Haufe (5.5.2026, <a href="https://www.haufe.de/immobilien/wirtschaft-politik/gebaeudemodernisierungsgesetz-gmg_84342_683694.html" target="_blank">haufe.de</a>) | IWW (5.5.2026, <a href="https://www.iww.de/pbp/architektenrecht/gebaeudemodernisierungsgesetz-referentenentwurf-zum-gebaeudemodernisierungsgesetz-liegt-vor-das-sind-die-fuer-planungsbueros-wichtigsten-neuerungen-n173832" target="_blank">iww.de</a>) | ZEBAU (29.4.2026, <a href="https://zebau.de/gebaeudeenergiegesetz-geg-wird-zum-gebaeudemodernisierungsgesetz-gmg" target="_blank">zebau.de</a>) | ean50 (12.5.2026, <a href="https://www.ean50.de/allgemein/gebaeudemodernisierungsgesetz-2026/" target="_blank">ean50.de</a>) | gmg-aktuell.de (<a href="https://gmg-aktuell.de/vorlaeufiger-zeitplan-gmg/" target="_blank">gmg-aktuell.de</a>)</div>
-<div class="praxis-box"><span class="praxis-label">🔨 Sofortige Handlungsempfehlungen!</span><strong>1.</strong> Kunden informieren: Gas-/Ölheizungen werden wieder erlaubt, aber Bio-Treppe macht fossile Brennstoffe ab 2029 schrittweise teurer. <strong>2.</strong> Förderung (BEG, bis 70 % Zuschuss) JETZT nutzen – könnte bei GModG-Inkrafttreten eingeschränkt werden. <strong>3.</strong> 65-%-EE-Frist für Großstädte auf 1.11.2026 verschoben – mehr Zeit für Kunden. <strong>4.</strong> Nullemissionsgebäude ab 2030: Schulungen und Qualifikationen jetzt planen. <strong>5.</strong> Neue Energieausweise (A–G) kommen – Energieberatung als Zusatzservice anbieten.</div>
-<div class="karte-fuss"><span>📅 Kabinett: 13.5.2026</span><span>📅 Bundestag/Bundesrat: offen</span><span>📅 65%-Frist Großstädte: 1.11.2026</span></div></div></div>
+<div class="section" id="s-din">
+  <div class="section-hdr">
+    <div class="section-icon ic-din">📏</div>
+    <div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div>
+  </div>
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Neue DIN-Veröffentlichungen Mai 2026</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
+    <div class="karte-body"><p>Neue und überarbeitete DIN-Normen mit Baurelevanz. Zu prüfen u.a.: DIN 18065 (Treppen), DIN 4108 (Wärmeschutz), DIN EN 1090 (Stahlbau), DIN 18299 ff. (VOB Teil C).</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
+    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+  </div>
+</div>
 
-<div class="disclaimer"><strong>⚠️ Rechtlicher Hinweis:</strong> Marwin's Baurecht-Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung im Sinne des RDG dar. Stand: 13. Mai 2026.</div>`;}
+<div class="section" id="s-arb">
+  <div class="section-hdr">
+    <div class="section-icon ic-arb">🦺</div>
+    <div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div>
+  </div>
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Arbeitsschutz aktuell</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
+    <div class="karte-body"><p>Erwartete Folgethemen: BAuA Sommerhitze-Empfehlungen, DGUV V2 Reform Umsetzung, Asbestpflichten (TRGS 519), Lärm-Verordnung Baustelle, neue ASR-Veröffentlichungen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
+    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+  </div>
+</div>
 
-/* ═══════════════════════════════════════════════════════════════════
-   AUSGABE 16/2026 – VOLLTEXT
-   ═══════════════════════════════════════════════════════════════════ */
-function inhalt_16_2026(){return `
-<div class="page-hdr"><div class="page-hdr-accent"></div><div class="page-hdr-yr">2026</div><div class="page-hdr-inner"><div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div><h1>Ausgabe 16 / 2026</h1><div class="page-hdr-date">22. April 2026 · Berichtszeitraum: 8. – 22. April 2026</div><div class="page-hdr-meta"><span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span><span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span></div></div></div>
-<div class="editorial"><strong>Ausgabe 16:</strong> Das Finanzministerium blockierte das GModG. BauGB-Upgrade Stellungnahmefrist endete 29.4. CLP-Frist 1.5. rückte näher. BGH klärte Verjährungsbeginn bei Bauträgerverträgen (VII ZR 108/24). BAuA UV-Schutz-Karte für Außenarbeiter.</div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB</div></div></div>
-<div class="karte karte-vob"><div class="karte-kopf"><div class="karte-titel">Wertgrenzen § 3a VOB/A im Praxisbetrieb</div><span class="badge b-info">LAUFEND</span></div><div class="karte-body"><p>Keine Änderungen. Direktauftrag 50.000 € · Freihändige Vergabe 100.000 € · Beschr. Ausschreibung 150.000 €. Vergabesachen seit 1.1.2026 bei Landgerichten.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> BHO-Legal (7.1.2026) | CMS (21.1.2026)</div><div class="praxis-box"><span class="praxis-label">🔨 Tipp</span>Kommunale Auftraggeber auf Wertgrenzen ansprechen.</div><div class="karte-fuss"><span>📅 Seit 1.1.2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB</div></div></div>
-<div class="karte karte-baugb" style="border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ BauGB-Upgrade: Stellungnahmefrist endete 29. April</div><span class="badge b-frist">FRIST 29.04.</span></div><div class="karte-body"><p>RefE seit 1.4.2026 in Anhörung. Frist 29.4. Kabinett vor Sommerpause. Kernpunkte: Digitale Bauleitplanung (max. 2 J.), Aufstockungen bundesweit, Schrottimmobilien, Vorrang Wohnungsbau, Präklusion.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB (bmwsb.bund.de) | BFW (bfw-newsroom.de) | Prometheus Recht (prometheus-recht.de)</div><div class="praxis-box"><span class="praxis-label">🔨 Chancen!</span>Aufstockungen = neues Auftragssegment.</div><div class="karte-fuss"><span>📅 Frist: 29.4.2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI</div></div></div>
-<div class="karte karte-hoai"><div class="karte-kopf"><div class="karte-titel">HOAI: Keine Neuigkeiten – RefE Sommer 2026</div><span class="badge b-pend">AUSSTEHEND</span></div><div class="karte-body"><p>RefE Sommer 2026, Inkrafttreten frühestens 2027. Honorargutachten: +16–67 %.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> Bayerische Ing.-Kammer (bayika.de) | IWW (iww.de)</div><div class="praxis-box"><span class="praxis-label">🔨</span>BIM-Leistungen als Besondere Leistungen vereinbaren.</div><div class="karte-fuss"><span>📅 RefE: Sommer 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div></div>
-<div class="karte karte-din" style="border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⚠️ CLP: Frist 1. Mai 2026 für neue Gefahrenklassen</div><span class="badge b-frist">FRIST 01.05.</span></div><div class="karte-body"><p>Ab 1.5.: ED, PBT/vPvB, PMT/vPvM-Einstufung Pflicht. Lacke, Kleber, Fugenmassen, Betonzusätze betroffen.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> EU-VO (EU) 2023/707 | BG BAU</div><div class="praxis-box"><span class="praxis-label">🔨 SOFORT!</span>SDB anfordern, alte SDB aussortieren, Mitarbeiter informieren.</div><div class="karte-fuss"><span>📅 Pflicht: 1.5.2026</span></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">Heizkostenverordnung: Frist 31.12.2026</div><span class="badge b-frist">FRIST 31.12.</span></div><div class="karte-body"><p>Fernablesbare Messgeräte in allen Mietwohnungen mit Zentralheizung bis 31.12.2026.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> Forum Verlag (forum-verlag.com) | HeizkostenV § 5</div><div class="praxis-box"><span class="praxis-label">🔨</span>Vermietende Kunden ansprechen – Auftragspotential.</div><div class="karte-fuss"><span>📅 Frist: 31.12.2026</span></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">BAuA UV-Schutz-Karte für Außenarbeiter</div><span class="badge b-neu">NEU 04/2026</span></div><div class="karte-body"><p>Portable UV-Index-Karte. Ab UV-Index 3: Sonnencreme, Kopfbedeckung, Schattenpausen.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> BAuA / Ad-hoc-News (8.4.2026)</div><div class="praxis-box"><span class="praxis-label">🔨</span>LSF 50+ und Nackenschutz für Helme ins Equipment aufnehmen.</div><div class="karte-fuss"><span>📅 April 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-as">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div></div>
-<div class="karte karte-as"><div class="karte-kopf"><div class="karte-titel">Tariflöhne +3,9 %: Erste Abrechnungen</div><span class="badge b-info">LAUFEND</span></div><div class="karte-body"><p>Neue Sätze seit 1.4. LG 1: 15,86 € · LG 2: 17,34 € · LG 4: 26,05 €. Prüfen: Lohnsoftware, SOKA-BAU.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> IG BAU / ZDB / HDB</div><div class="praxis-box"><span class="praxis-label">🔨</span>April-Abrechnung prüfen. Fehler = Nachzahlung + Säumniszuschlag.</div><div class="karte-fuss"><span>📅 Seit 1.4.2026</span></div></div>
-<div class="karte karte-as"><div class="karte-kopf"><div class="karte-titel">5 %-Kontrollquote + digitale Unterweisungen anerkannt</div><span class="badge b-info">LAUFEND</span></div><div class="karte-body"><p>Digitale Unterweisungen offiziell anerkannt (Praxisanteil persönlich, Verständnis geprüft). Mehrsprachig = Best Practice.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> Ad-hoc-News (21.4.2026) | domeba.com</div><div class="praxis-box"><span class="praxis-label">🔨</span>E-Learning einsetzen. Dokumentation revisionssicher aufbewahren.</div><div class="karte-fuss"><span>📅 Seit 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH &amp; OLG</div></div></div>
-<div class="karte karte-urt" style="border-left-color:#C41230;border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ BGH: Verjährungsbeginn Bauträgerverträge</div><span class="badge b-neu">BGH 27.03.2026</span></div><div class="karte-body"><p><strong>VII ZR 108/24</strong> – Abnahme durch Sachverständigen löst Verjährung aus. Praxisrelevant für Nachunternehmer.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> Dr. Oliver Elzer (oliverelzer.de) | IBR-Online</div><div class="praxis-box"><span class="praxis-label">🔨</span>Abnahmedatum und -form genau dokumentieren!</div><div class="karte-fuss"><span>⚖️ VII ZR 108/24</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">BGH: Unwirksame Vertreterlösung Bauträger</div><span class="badge b-neu">BGH 26.03.2026</span></div><div class="karte-body"><p><strong>VII ZR 68/24</strong> – AGB-Klauseln zur Vertreterlösung bei Abnahme unwirksam.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> Dr. Oliver Elzer (oliverelzer.de)</div><div class="praxis-box"><span class="praxis-label">🔨</span>Abnahmeklauseln in Bauträger-Verträgen prüfen.</div><div class="karte-fuss"><span>⚖️ VII ZR 68/24</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">Weiterhin: BGH V ZR 7/25 – Dreiangebotsregel gekippt</div><span class="badge b-info">WEITER RELEVANT</span></div><div class="karte-body"><p>WEGs nicht verpflichtet, Vergleichsangebote einzuholen. Breit diskutiert.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> LTO (lto.de) | Juraarchiv</div><div class="praxis-box"><span class="praxis-label">🔨</span>WEG-Verwaltungen informieren. Referenzlisten bereithalten.</div><div class="karte-fuss"><span>⚖️ V ZR 7/25</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG</div></div></div>
-<div class="karte karte-geg" style="border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ Finanzministerium blockiert GModG – Kabinett frühestens Ende April</div><span class="badge b-hot">17.04.2026</span></div><div class="karte-body"><p>Finanzministerium blockierte Ressortabstimmung. Neue Abkürzung: <strong>GModG</strong>. Kabinett frühestens Ende April. EPBD-Frist 29.5. Bis GModG-Inkrafttreten gilt GEG vollumfänglich.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> Öko-Zentrum NRW (17.4.2026, oekozentrum.nrw) | Energie-Fachberater (17.4.2026, energie-fachberater.de)</div><div class="praxis-box"><span class="praxis-label">🔨</span>GEG-Pflichten gelten weiter. Kunden nicht warten lassen! Förderung nutzen.</div><div class="karte-fuss"><span>📅 Kabinett: frühestens Ende April</span></div></div>
-<div class="karte karte-geg"><div class="karte-kopf"><div class="karte-titel">Wärmeplanung: Frist 30.6.2026 Großstädte</div><span class="badge b-frist">FRIST 30.06.</span></div><div class="karte-body"><p>Großstädte &gt;100.000 EW: 30.6.2026. Kleinere Kommunen: 30.6.2028.</p></div><div class="quelle-box"><strong>📄 Quellen:</strong> energie-experten.org</div><div class="praxis-box"><span class="praxis-label">🔨</span>Wärmeplan prüfen, Kunden informieren.</div><div class="karte-fuss"><span>📅 Großstädte: 30.6.2026</span></div></div></div>
-<div class="disclaimer"><strong>⚠️</strong> Stand: 22.4.2026. Keine Rechtsberatung i.S.d. RDG.</div>`;}
+<div class="section" id="s-urt">
+  <div class="section-hdr">
+    <div class="section-icon ic-urt">⚖️</div>
+    <div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH / OLG – Urteile</div></div>
+  </div>
+  <div class="karte karte-urt">
+    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] Aktuelle Urteile</div><span class="badge b-info">RECHERCHE OFFEN</span></div>
+    <div class="karte-body"><p>BGH-Pressemitteilungen Mai 2026 prüfen (Quelle 3 im Prompt). OLG-Entscheidungen zu Werkmängelhaftung, Abnahmeverweigerung, Behinderungsanzeigen, Bürgschaft auf erstes Anfordern.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
+    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+  </div>
+</div>
 
-/* ═══════════════════════════════════════════════════════════════════
-   AUSGABE 15/2026 – VOLLTEXT
-   ═══════════════════════════════════════════════════════════════════ */
-function inhalt_15_2026(){return `
-<div class="page-hdr"><div class="page-hdr-accent"></div><div class="page-hdr-yr">2026</div><div class="page-hdr-inner"><div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div><h1>Ausgabe 15 / 2026</h1><div class="page-hdr-date">8. April 2026 · Berichtszeitraum: 25. März – 8. April 2026</div><div class="page-hdr-meta"><span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span><span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span></div></div></div>
-<div class="editorial"><strong>Ausgabe 15:</strong> BauGB-Upgrade am 2.4. in Anhörung gegeben. GMG-Kabinett auf Mitte April verschoben. BGH: Technikraum-Eigentum WEG (V ZR 34/25). DIN 4108-7 Neufassung. DGUV V2 Reform. ISO 12100 Update. Tariflöhne +3,9 % seit 1.4.</div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB</div></div></div>
-<div class="karte karte-vob"><div class="karte-kopf"><div class="karte-titel">VOB/A Wertgrenzen · Vergabebeschleunigung</div><span class="badge b-info">LAUFEND</span></div><div class="karte-body"><p>Seit 1.1.2026 unbefristet. Direktauftrag 50.000 € · Freihändige 100.000 € · Beschr. 150.000 €. Vergabebeschleunigungsgesetz im Verfahren. Vergabesachen bei LG (BGBl. 2025 I Nr. 318).</p></div><div class="quelle-box"><strong>📄</strong> BHO-Legal | CMS | IHK Schwerin</div><div class="praxis-box"><span class="praxis-label">🔨</span>Kommunale AG ansprechen. E-Vergabe testen.</div><div class="karte-fuss"><span>📅 Seit 1.1.2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB</div></div></div>
-<div class="karte karte-baugb" style="border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ BauGB-Upgrade am 2.4. in Anhörung</div><span class="badge b-neu">NEU 02.04.</span></div><div class="karte-body"><p>BMWSB-Entwurf: Vorrang Wohnungsbau, Digitale Bauleitplanung (max. 2 J.), Aufstockungen bundesweit ohne B-Plan, Schrottimmobilien-Enteignung, Serielles Bauen, Multifunktionale Flächennutzung.</p></div><div class="quelle-box"><strong>📄</strong> BMWSB PM (2.4.2026) | Haufe | Table.Media</div><div class="praxis-box"><span class="praxis-label">🔨</span>Aufstockungen = Chancen. Kommunen als Partner ansprechen.</div><div class="karte-fuss"><span>📅 Anhörung: seit 2.4.</span></div></div>
-<div class="karte karte-baugb"><div class="karte-kopf"><div class="karte-titel">BauTurbo § 246e weiterhin in Kraft</div><span class="badge b-info">LAUFEND</span></div><div class="karte-body"><p>Seit 30.10.2025, bis 31.12.2030. Zustimmungsfiktion nach 3 Monaten.</p></div><div class="quelle-box"><strong>📄</strong> BMWSB FAQ | ADVANT Beiten</div><div class="praxis-box"><span class="praxis-label">🔨</span>Bauaufsicht fragen: Nutzt Ihre Kommune den BauTurbo?</div><div class="karte-fuss"><span>⚖️ § 246e BauGB</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI</div></div></div>
-<div class="karte karte-hoai"><div class="karte-kopf"><div class="karte-titel">HOAI: RefE Sommer 2026</div><span class="badge b-pend">AUSSTEHEND</span></div><div class="karte-body"><p>Erstgespräch 21.1.2026. Honorargutachten: +16–67 %. Abminderungsfaktoren (0,55–0,75), BIM als Grundleistung, DIN 276 verbindlich.</p></div><div class="quelle-box"><strong>📄</strong> IWW | DAB | VBI | Ing.-Kammer MV</div><div class="praxis-box"><span class="praxis-label">🔨</span>BIM-Leistungen als Besondere Leistungen vereinbaren.</div><div class="karte-fuss"><span>📅 RefE: Sommer 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">DIN 4108-7 Neufassung 02/2026 (Luftdichtheit)</div><span class="badge b-neu">NEU</span></div><div class="karte-body"><p>Überarbeitete Anforderungen für GEG-konforme Nachweise.</p></div><div class="quelle-box"><strong>📄</strong> Baunormenlexikon | Normenportal</div><div class="praxis-box"><span class="praxis-label">🔨</span>In Ausschreibungen referenzieren. Bauleiter schulen.</div><div class="karte-fuss"><span>📏 DIN 4108-7:2026-02</span></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">ISO 12100 März 2026 (Maschinensicherheit)</div><span class="badge b-neu">NEU</span></div><div class="karte-body"><p>Integration digitaler Systeme + KI in Gefährdungsbeurteilung.</p></div><div class="quelle-box"><strong>📄</strong> BAuA / Ad-hoc-News</div><div class="praxis-box"><span class="praxis-label">🔨</span>GBU für gesteuerte Baumaschinen aktualisieren.</div><div class="karte-fuss"><span>📏 ISO 12100:2026</span></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">CLP: Frist 1.5.2026</div><span class="badge b-frist">FRIST</span></div><div class="karte-body"><p>Neue Gefahrenklassen für Gemische.</p></div><div class="quelle-box"><strong>📄</strong> EU-VO (EU) 2023/707</div><div class="praxis-box"><span class="praxis-label">🔨</span>SDB anfordern.</div><div class="karte-fuss"><span>📅 1.5.2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-as">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div></div>
-<div class="karte karte-as" style="border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ Tariflöhne +3,9 % seit 1.4.2026</div><span class="badge b-tarif">IN KRAFT</span></div><div class="karte-body"><p>3. Stufe TV-Lohn. LG 1: 15,86 € · LG 2: 17,34 € · LG 4: 26,05 € · Azubi 1. LJ: 1.122 €/Monat. Ost-West-Angleichung.</p></div><div class="quelle-box"><strong>📄</strong> IG BAU / ZDB / HDB</div><div class="praxis-box"><span class="praxis-label">🔨</span>✅ Lohnsoftware ✅ Festpreise ✅ SOKA-BAU ✅ Ost→West</div><div class="karte-fuss"><span>📅 Seit 1.4.2026</span></div></div>
-<div class="karte karte-as"><div class="karte-kopf"><div class="karte-titel">DGUV V2 Reform – KMU-Erleichterungen</div><span class="badge b-neu">IN KRAFT</span></div><div class="karte-body"><p>Schwelle 10→20 Beschäftigte. Digitale Betreuung erlaubt. Für BG BAU: Satzungsänderung Ende 2026.</p></div><div class="quelle-box"><strong>📄</strong> BG BAU Bauportal | BVN</div><div class="praxis-box"><span class="praxis-label">🔨</span>KPZ-Modell prüfen (11–20 MA). BG BAU: alte Fassung bis Anfang 2027.</div><div class="karte-fuss"><span>📅 BG BAU: Ende 2026</span></div></div>
-<div class="karte karte-as"><div class="karte-kopf"><div class="karte-titel">5 %-Kontrollquote verbindlich</div><span class="badge b-hot">AKTUELL</span></div><div class="karte-body"><p>Gefährdungsbeurteilung, Unterweisungsdoku, Pausenräume. Digitale Unterweisungen anerkannt.</p></div><div class="quelle-box"><strong>📄</strong> Ad-hoc-News | domeba.com</div><div class="praxis-box"><span class="praxis-label">🔨</span>GBU + Nachweise lückenlos dokumentieren!</div><div class="karte-fuss"><span>📅 Seit 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH &amp; OLG</div></div></div>
-<div class="karte karte-urt" style="border-left-color:#C41230;border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ BGH kippt Dreiangebotsregel (V ZR 7/25)</div><span class="badge b-neu">BGH 27.03.</span></div><div class="karte-body"><p>WEGs nicht verpflichtet, Vergleichsangebote einzuholen. Stammhandwerker beauftragbar.</p></div><div class="quelle-box"><strong>📄</strong> BGH V ZR 7/25 | Juraarchiv | LTO</div><div class="praxis-box"><span class="praxis-label">🔨</span>Leistungsnachweise dokumentieren.</div><div class="karte-fuss"><span>⚖️ V ZR 7/25</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">BGH: Technikraum-Eigentum WEG (V ZR 34/25)</div><span class="badge b-neu">BGH 17.03.</span></div><div class="karte-body"><p>Zuordnung nach Teilungserklärung + tatsächlicher Nutzungsmöglichkeit.</p></div><div class="quelle-box"><strong>📄</strong> Dr. Oliver Elzer (oliverelzer.de)</div><div class="praxis-box"><span class="praxis-label">🔨</span>Bei Heizungsmodernisierung: Eigentümer des Technikraums klären.</div><div class="karte-fuss"><span>⚖️ V ZR 34/25</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">HOAI-Honorarzone bindend (IBRRS 2026, 0768)</div><span class="badge b-info">IBR</span></div><div class="karte-body"><p>Vertretbar vereinbarte Honorarzone ist maßgeblich – auch wenn objektiv höhere einschlägig wäre.</p></div><div class="quelle-box"><strong>📄</strong> IBR-Online</div><div class="praxis-box"><span class="praxis-label">🔨</span>Honorarzone sorgfältig verhandeln.</div><div class="karte-fuss"><span>⚖️ IBRRS 2026, 0768</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG</div></div></div>
-<div class="karte karte-geg" style="border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ GMG-Kabinett auf Mitte April verschoben</div><span class="badge b-hot">AKTUELL</span></div><div class="karte-body"><p>Ordentliches Verfahren mit Anhörungen. Geplant: 65-%-EE-Pflicht abschaffen, Bio-Treppe ab 2029, keine Betriebsverbote. <strong>Bis GMG: GEG gilt.</strong></p></div><div class="quelle-box"><strong>📄</strong> Öko-Zentrum NRW | BAK | BGBl. 2026 I Nr. 4</div><div class="praxis-box"><span class="praxis-label">🔨</span>Großstädte: 65 %-Pflicht ab 30.6. Förderung verfügbar.</div><div class="karte-fuss"><span>📅 Kabinett: Mitte April</span></div></div>
-<div class="karte karte-geg"><div class="karte-kopf"><div class="karte-titel">Wärmeplanung: Frist 30.6.2026</div><span class="badge b-frist">FRIST</span></div><div class="karte-body"><p>Großstädte bis 30.6.2026, kleinere bis 30.6.2028.</p></div><div class="quelle-box"><strong>📄</strong> energie-experten.org</div><div class="praxis-box"><span class="praxis-label">🔨</span>Wärmeplan prüfen, Kunden informieren.</div><div class="karte-fuss"><span>📅 30.6.2026</span></div></div></div>
-<div class="disclaimer"><strong>⚠️</strong> Stand: 8.4.2026. Keine Rechtsberatung i.S.d. RDG.</div>`;}
+<div class="section" id="s-geg">
+  <div class="section-hdr">
+    <div class="section-icon ic-geg">🌿</div>
+    <div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG / GModG</div></div>
+  </div>
+  <div class="karte karte-geg">
+    <div class="karte-kopf"><div class="karte-titel">[Platzhalter] GModG nach Kabinettsbeschluss</div><span class="badge b-hot">FOLGE 17/2026</span></div>
+    <div class="karte-body"><p>Erwartete Folgethemen: 1. Lesung GModG im Bundestag, BMWE-Energiewende-Newsletter, Verbandsstellungnahmen, kommunale Wärmeplanung (Frist 30.6.2026 für Großstädte), Förderkulisse BEG.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> noch einzutragen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>noch einzutragen</div>
+    <div class="karte-fuss"><span>📅 noch einzutragen</span></div>
+  </div>
+</div>
 
-/* ═══════════════════════════════════════════════════════════════════
-   AUSGABE 14/2026 – VOLLTEXT
-   ═══════════════════════════════════════════════════════════════════ */
-function inhalt_14_2026(){return `
-<div class="page-hdr"><div class="page-hdr-accent"></div><div class="page-hdr-yr">2026</div><div class="page-hdr-inner"><div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div><h1>Ausgabe 14 / 2026</h1><div class="page-hdr-date">7. April 2026 · Berichtszeitraum: 24. März – 7. April 2026</div><div class="page-hdr-meta"><span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span><span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span></div></div></div>
-<div class="editorial"><strong>Ausgabe 14:</strong> BGH kippt Dreiangebotsregel (V ZR 7/25). Tariflöhne +3,9 % ab 1.4. VOB Wertgrenzen § 3a. GMG-Verzögerung. ASR A5.1 Pausenräume. CLP. Asbestpflichten. OLG Widerruf Verbraucherbauvertrag.</div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB</div></div></div>
-<div class="karte karte-vob"><div class="karte-kopf"><div class="karte-titel">Wertgrenzen § 3a VOB/A 2026</div><span class="badge b-info">AKTUELL</span></div><div class="karte-body"><table><tr><th>Vergabeart</th><th>Wertgrenze</th></tr><tr><td>Direktauftrag</td><td><strong>50.000 €</strong></td></tr><tr><td>Freihändige Vergabe</td><td><strong>100.000 €</strong></td></tr><tr><td>Beschr. Ausschreibung</td><td><strong>150.000 €</strong></td></tr></table><p>Gewerke-Differenzierung entfallen. Bund-DL: 15.000 € (UVgO, bis 31.12.2027).</p></div><div class="quelle-box"><strong>📄</strong> BAnz AT 16.12.2025 B7 | BHO-Legal | IHK Schwerin</div><div class="praxis-box"><span class="praxis-label">🔨</span>AG aktiv auf Wertgrenzen hinweisen.</div><div class="karte-fuss"><span>📅 Seit 1.1.2026</span></div></div>
-<div class="karte karte-vob"><div class="karte-kopf"><div class="karte-titel">Vergabebeschleunigungsgesetz</div><span class="badge b-hot">AKTUELL</span></div><div class="karte-body"><p>Verkürzte Fristen, E-Vergabe, erweiterte Direktvergabe. EU-Schwellenwert: 5.382.000 €.</p></div><div class="quelle-box"><strong>📄</strong> BDB | Ing.-Kammer MV | BHO-Legal</div><div class="praxis-box"><span class="praxis-label">🔨</span>E-Vergabe jetzt testen!</div><div class="karte-fuss"><span>📅 Frühjahr 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB</div></div></div>
-<div class="karte karte-baugb"><div class="karte-kopf"><div class="karte-titel">BauTurbo § 246e: Erstes Umsetzungsjahr</div><span class="badge b-info">INFO</span></div><div class="karte-body"><p>Seit 30.10.2025, bis 31.12.2030. 2. BauGB-Novelle in Vorbereitung.</p></div><div class="quelle-box"><strong>📄</strong> VBI | WEKA | Haufe</div><div class="praxis-box"><span class="praxis-label">🔨</span>Aufstockungen und Nachverdichtung als neue Auftragsfelder.</div><div class="karte-fuss"><span>⚖️ § 246e BauGB</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI</div></div></div>
-<div class="karte karte-hoai"><div class="karte-kopf"><div class="karte-titel">HOAI-Novelle: RefE Sommer 2026</div><span class="badge b-pend">AUSSTEHEND</span></div><div class="karte-body"><p>Erstgespräch 21.1.2026. +16–67 % empfohlen. BIM-Grundleistung.</p></div><div class="quelle-box"><strong>📄</strong> IWW | VBI | Ing.-Kammer MV</div><div class="praxis-box"><span class="praxis-label">🔨</span>BIM als Besondere Leistung vereinbaren.</div><div class="karte-fuss"><span>📅 RefE: Sommer 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">ASR A5.1: Neue Pausenraum-Pflichten</div><span class="badge b-neu">NEU</span></div><div class="karte-body"><p>Seit 1.1.2026: ≥ 2,30 m licht · ≥ 6 m² + 1 m²/MA · ≤ 5 Min. erreichbar · Heizung, Beleuchtung, Stühle. Einfacher Bauwagen reicht nicht mehr.</p></div><div class="quelle-box"><strong>📄</strong> BAuA, ASR A5.1</div><div class="praxis-box"><span class="praxis-label">🔨</span>Mietcontainer (150–250 €/Monat). Bußgelder bei Kontrolle!</div><div class="karte-fuss"><span>📅 Seit 1.1.2026</span></div></div>
-<div class="karte karte-din"><div class="karte-kopf"><div class="karte-titel">CLP: Frist 1.5.2026</div><span class="badge b-frist">FRIST</span></div><div class="karte-body"><p>ED, PBT/vPvB, PMT/vPvM. SDB aktualisieren.</p></div><div class="quelle-box"><strong>📄</strong> EU-VO 2023/707 | BG BAU</div><div class="praxis-box"><span class="praxis-label">🔨</span>Aktualisierte SDB anfordern.</div><div class="karte-fuss"><span>📅 1.5.2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-as">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div></div>
-<div class="karte karte-as" style="border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ Tariflöhne +3,9 % ab 1.4.2026</div><span class="badge b-tarif">SOFORT</span></div><div class="karte-body"><table><tr><th>Lohngruppe</th><th>€/Std.</th></tr><tr><td>LG 1</td><td><strong>15,86 €</strong></td></tr><tr><td>LG 2</td><td><strong>17,34 €</strong></td></tr><tr><td>LG 4</td><td><strong>26,05 €</strong></td></tr><tr><td>Azubi 1. LJ</td><td><strong>1.122 €/Mon.</strong></td></tr></table></div><div class="quelle-box"><strong>📄</strong> TV-Lohn 14.6.2024</div><div class="praxis-box"><span class="praxis-label">🔨</span>✅ Lohnsoftware ✅ Festpreise ✅ SOKA-BAU ✅ Ost→West. <strong>Festpreise nicht nachträglich erhöhbar!</strong></div><div class="karte-fuss"><span>📅 Seit 1.4.2026</span></div></div>
-<div class="karte karte-as"><div class="karte-kopf"><div class="karte-titel">Asbestschutz verschärft</div><span class="badge b-neu">NEU 2026</span></div><div class="karte-body"><p>Anzeigen: Namen, Fachkundenachweise, Vorsorgedoku. Abbruch: Genehmigungspflicht niedrig/mittel. Bußgeld bis 100.000 €.</p></div><div class="quelle-box"><strong>📄</strong> BG BAU | BAuA BaustellV BGBl. 2025 Nr. 337</div><div class="praxis-box"><span class="praxis-label">🔨</span>Bestandsaufträge (bis Bj. 1993): Asbestverdacht klären. Messung: 200–500 €.</div><div class="karte-fuss"><span>📅 Gestaffelt 2026</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH &amp; OLG</div></div></div>
-<div class="karte karte-urt" style="border-left-color:#C41230;border-left-width:5px"><div class="karte-kopf"><div class="karte-titel">⭐ BGH kippt Dreiangebotsregel (V ZR 7/25)</div><span class="badge b-neu">BGH 27.03.</span></div><div class="karte-body"><p>WEGs nicht verpflichtet, Vergleichsangebote einzuholen. Gesetzlich nicht verankert. Bewährte Erfahrungswerte reichen.</p></div><div class="quelle-box"><strong>📄</strong> BGH V ZR 7/25 | Juraarchiv | LTO</div><div class="praxis-box"><span class="praxis-label">🔨</span>Stammhandwerker: WEG kann ohne Konkurrenzangebote beauftragen. Leistungsnachweise dokumentieren.</div><div class="karte-fuss"><span>⚖️ V ZR 7/25</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">OLG Sachsen-Anhalt: Widerruf ohne Belehrung = ewige Frist</div><span class="badge b-info">OLG</span></div><div class="karte-body"><p><strong>2 U 21/25</strong> – Ohne Widerrufsbelehrung (§ 650l BGB): Frist läuft nie an. Wertersatz bleibt.</p></div><div class="quelle-box"><strong>📄</strong> baurechtsiegen.de | §§ 650i, 650l BGB</div><div class="praxis-box"><span class="praxis-label">🔨</span>Widerrufsbelehrung Pflicht! Vorlagen rechtlich prüfen – existenzielles Risiko.</div><div class="karte-fuss"><span>⚖️ 2 U 21/25</span></div></div>
-<div class="karte karte-urt"><div class="karte-kopf"><div class="karte-titel">BGH: Terminplan ≠ Anordnung § 2 Abs. 5 VOB/B</div><span class="badge b-info">WEITER RELEVANT</span></div><div class="karte-body"><p>Geänderter Terminplan ist keine Anordnung. Mehrkosten nicht allein darauf stützbar.</p></div><div class="quelle-box"><strong>📄</strong> Handwerksblatt | § 2 Abs. 5, § 6 VOB/B</div><div class="praxis-box"><span class="praxis-label">🔨</span>Bei Verzögerung: Schriftliche Behinderungsanzeige § 6 VOB/B + formelle Anordnung einfordern.</div><div class="karte-fuss"><span>⚖️ BGH 2025</span></div></div></div>
-<div class="section"><div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG</div></div></div>
-<div class="karte karte-geg"><div class="karte-kopf"><div class="karte-titel">GMG-Kabinett verschoben auf Mitte April</div><span class="badge b-hot">18.03.2026</span></div><div class="karte-body"><p>65-%-EE-Pflicht soll abgeschafft werden. Bio-Treppe ab 2029. Keine Betriebsverbote. <strong>GEG gilt bis GMG-Inkrafttreten.</strong></p></div><div class="quelle-box"><strong>📄</strong> Öko-Zentrum NRW | BAK | BGBl. 2026 I Nr. 4</div><div class="praxis-box"><span class="praxis-label">🔨</span>Großstädte: 65 % ab 30.6. Förderung verfügbar. Keine Aufträge verschieben!</div><div class="karte-fuss"><span>📅 Kabinett: Mitte April</span></div></div></div>
-<div class="disclaimer"><strong>⚠️</strong> Stand: 7.4.2026. Keine Rechtsberatung i.S.d. RDG.</div>`;}
-
-/* ═══════════════════════════════════════════════════════════════════ */
-const NEWSLETTER_INHALT={'17/2026':inhalt_17_2026(),'16/2026':inhalt_16_2026(),'15/2026':inhalt_15_2026(),'14/2026':inhalt_14_2026()};
-function renderAktuell(){return NEWSLETTER_INHALT['17/2026'];}
-
-function renderArchiv(){
-  const k=ARCHIV.map(a=>`<div class="archiv-karte" onclick="zeigePage('archiv-detail','${a.nr}')"><div class="archiv-karte-nr">Ausgabe ${a.nr}${a.aktuell?' &nbsp;<span style="color:var(--rot);font-weight:700">● AKTUELL</span>':''}</div><div class="archiv-karte-titel">${a.highlight}</div><div class="archiv-karte-datum">📅 ${a.datum}</div><div class="archiv-karte-themen">${a.themen.map(t=>`<span class="thema-pill">${t}</span>`).join('')}</div><div class="archiv-karte-btn">Ausgabe öffnen →</div></div>`).join('');
-  return `<div class="page-hdr"><div class="page-hdr-accent"></div><div class="page-hdr-yr">2026</div><div class="page-hdr-inner"><div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div><h1>Newsletter-Archiv</h1><div class="page-hdr-meta"><span>📚 ${ARCHIV.length} Ausgaben</span><span>Alle mit Volltext</span></div></div></div><p style="font-size:13px;color:var(--matt);margin-bottom:4px">Alle Ausgaben im Volltext verfügbar.</p><div class="archiv-grid">${k}</div>`;
+<div class="disclaimer">
+  <strong>⚠️ Rechtlicher Hinweis:</strong> Marwin's Baurecht-Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung im Sinne des RDG dar. Trotz sorgfältiger Recherche kann für Richtigkeit und Vollständigkeit keine Gewähr übernommen werden. Stand: 21. Mai 2026. Bei konkreten Rechtsfragen wenden Sie sich bitte an eine zugelassene Rechtsanwältin oder einen Rechtsanwalt.
+</div>`;
 }
-function renderArchivDetail(nr){const a=ARCHIV.find(x=>x.nr===nr),i=NEWSLETTER_INHALT[nr];const n=`<div class="archiv-nav"><button class="btn-back" onclick="zeigePage('archiv')">← Archiv</button><span style="color:var(--matt);font-size:12px">Ausgabe ${nr} · ${a?a.datum:''}</span>${a&&!a.aktuell?`<button class="btn-back prim" onclick="zeigePage('aktuell')">Aktuelle Ausgabe →</button>`:''}</div>`;return i?n+i:n+`<div style="text-align:center;padding:56px 24px"><p>Nicht verfügbar.</p></div>`;}
-function renderImpressum(){const f=(l,v)=>`<div class="impressum-field"><strong>${l}</strong>${v}</div>`;return `<div class="page-hdr"><div class="page-hdr-accent"></div><div class="page-hdr-inner"><div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div><h1>Impressum</h1><div class="page-hdr-date">§ 5 TMG</div></div></div><div class="impressum-wrap"><div class="hinweis"><strong>⚠️</strong> Keine Rechtsberatung i.S.d. RDG.</div><div class="impressum-section" style="margin-top:24px"><h3>Herausgeber</h3>${f('Name','ma-k-de')}</div><div class="impressum-section"><h3>Anschrift</h3>${f('Straße','[Straße]')}${f('PLZ/Ort','[PLZ] [Ort]')}${f('Land','Deutschland')}</div><div class="impressum-section"><h3>Kontakt</h3>${f('Tel.','[+49 ...]')}${f('E-Mail','[kontakt@ma-k-de]')}${f('Web','[https://www.ma-k-de]')}</div><div class="impressum-section"><h3>Vertreten durch</h3>${f('','Marwin [Nachname]')}</div><div class="impressum-section"><h3>V.i.S.d.P.</h3>${f('','Marwin [Nachname], Anschrift wie oben')}</div><div class="impressum-section"><h3>Haftung</h3><p style="font-size:13px;color:var(--grau)">Keine Gewähr für Richtigkeit. Kein Ersatz für Rechtsberatung. Vervielfältigung bedarf Zustimmung.</p></div><div class="impressum-section"><h3>Streitschlichtung</h3><p style="font-size:13px;color:var(--grau)">EU: https://ec.europa.eu/consumers/odr</p></div></div>`;}
-function zeigePage(s,nr){const b=document.querySelectorAll('.topbar-btn');b.forEach(x=>x.classList.remove('aktiv'));if(s==='aktuell')b[0].classList.add('aktiv');else if(s==='archiv'||s==='archiv-detail')b[1].classList.add('aktiv');else if(s==='impressum')b[2].classList.add('aktiv');const m=document.getElementById('main-content');if(s==='aktuell')m.innerHTML=renderAktuell();else if(s==='archiv')m.innerHTML=renderArchiv();else if(s==='archiv-detail')m.innerHTML=renderArchivDetail(nr);else if(s==='impressum')m.innerHTML=renderImpressum();window.scrollTo(0,0);if(window.innerWidth<=768)closeSidebar();}
-function scrollZu(id){zeigePage('aktuell');setTimeout(()=>{const e=document.getElementById('s-'+id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},60);}
-function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('open');document.getElementById('burger').classList.remove('open');}
-function toggleSidebar(){const o=document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open',o);document.getElementById('burger').classList.toggle('open',o);}
-const aO=ARCHIV.filter(a=>!a.aktuell).slice(0,5);document.getElementById('sidebar-archiv').innerHTML=aO.length===0?`<div style="font-size:12px;color:var(--matt);padding:8px 12px;font-style:italic">Noch kein Archiv</div>`:aO.map(a=>`<div class="archiv-item" onclick="zeigePage('archiv-detail','${a.nr}')"><div class="archiv-nummer">Ausgabe ${a.nr}</div><div class="archiv-datum">${a.datum}</div><div class="archiv-thema">${a.highlight.split('·')[0].trim()}</div></div>`).join('');
+
+
+/* ═══════════════════════════════════════
+   AUSGABE 17/2026 – 13. Mai 2026
+   ═══════════════════════════════════════ */
+function inhalt_17_2026() {
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Ausgabe 17 / 2026</h1>
+    <div class="page-hdr-date">13. Mai 2026 · Berichtszeitraum: 29. April – 13. Mai 2026</div>
+    <div class="page-hdr-meta">
+      <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
+      <span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
+    </div>
+  </div>
+</div>
+
+<div class="editorial">
+  <strong>⚡ EILMELDUNG:</strong> Das Bundeskabinett hat <strong>am 13.5.2026</strong> das Gebäudemodernisierungsgesetz (GModG) beschlossen. Die 65-%-EE-Pflicht wird abgeschafft und in eine ab 1.11.2026 greifende Übergangsregelung überführt; Gas-/Ölheizungen bleiben mit „Bio-Treppe" (10 → 60 % Biomethan/H2-ready bis 2040) zulässig. Dazu: BGH-Grundsatzurteil zur Balkonsanierung in WEG (Beschluss vom 24.4.). Das BauGB-Upgrade geht nach Anhörungsende ebenfalls ins Kabinett.
+</div>
+
+<div class="section" id="s-vob">
+  <div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB</div></div></div>
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">Vergabebeschleunigungsgesetz – Ausschussberatung läuft</div><span class="badge b-hot">AKTUELL</span></div>
+    <div class="karte-body"><p>Nach der ersten Lesung im April berät der Wirtschaftsausschuss aktuell den Entwurf. Schwerpunkte: verkürzte Angebotsfristen, Direktauftragsgrenze 100.000 € (Bund), erweiterte Verhandlungsverfahren ohne Teilnahmewettbewerb bis EU-Schwellenwert. Inkrafttreten frühestens Juli 2026.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWK Vergaberecht-Dossier (bundeswirtschaftsministerium.de, 5.5.2026) | BHO-Legal, Praxis-Update Mai 2026 (bho-legal.com) | Bund Deutscher Baumeister (baumeister-online.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Direktauftragsgrenze 100k im Bund-Bereich wäre relevanter Vorteil. <strong>E-Vergabe-Anschluss spätestens im Sommer einsatzbereit haben</strong> – verkürzte Fristen treffen Betriebe ohne digitale Einreichung hart.</div>
+    <div class="karte-fuss"><span>📅 Ausschuss: laufend</span><span>📅 Erwartet: Juli 2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-baugb">
+  <div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB</div></div></div>
+  <div class="karte karte-baugb" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BauGB-Upgrade nach Anhörung im Kabinett</div><span class="badge b-neu">NEU 07.05.</span></div>
+    <div class="karte-body"><p>Nach Abschluss der Verbändeanhörung am 29.4. hat das BMWSB den Entwurf am 7.5.2026 ins Kabinett eingebracht. Kernpunkte unverändert: Vorrang Wohnungsbau, digitale Bauleitplanung (max. 24 Monate), Aufstockungen bundesweit ohne B-Plan-Änderung, Schrottimmobilien-Enteignung in begründeten Fällen, serielles und modulares Bauen privilegiert. Bundestags-Erstlesung Juni 2026 geplant.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB-Pressemitteilung (7.5.2026, bmwsb.bund.de) | DStGB-Stellungnahme (dstgb.de) | Table.Media (12.5.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Aufstockungs- und Nachverdichtungs-Projekte werden ab Inkrafttreten deutlich einfacher. <strong>Mit Bauherren jetzt schon Vorplanungen anlegen</strong> – wer früh dran ist, ist beim Inkrafttreten in der Pole-Position.</div>
+    <div class="karte-fuss"><span>📅 Kabinett: 7.5.2026</span><span>📅 1. Lesung: Juni 2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-hoai">
+  <div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI</div></div></div>
+  <div class="karte karte-hoai">
+    <div class="karte-kopf"><div class="karte-titel">HOAI-Referentenentwurf im Endstadium</div><span class="badge b-pend">AUSSTEHEND</span></div>
+    <div class="karte-body"><p>Das BMWE hat angekündigt, den Referentenentwurf bis Ende Juni vorzulegen. Inhaltliche Schwerpunkte laut Eckpunktepapier: Honoraranpassung +20–35 % über alle Leistungsphasen, BIM als Grundleistung der LPH 5 (bisher Besondere Leistung), neue Leistungsbilder Klimaanpassung und Bestandsdokumentation.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWE-Pressemitteilung (28.4.2026) | Bundesarchitektenkammer (bak.de) | VBI-Update Mai 2026</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei laufenden Architekten- und Ingenieurverträgen Honorarklauseln prüfen: Wer neue HOAI „zwingend anwenden" vereinbart hat, bekommt nach Inkrafttreten automatisch höhere Honorare.</div>
+    <div class="karte-fuss"><span>📅 RefE: bis Ende Juni</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-din">
+  <div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div></div>
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">Nullemissionsgebäude – Neue DIN V 18599 Anwendungshilfen</div><span class="badge b-neu">NEU 05/2026</span></div>
+    <div class="karte-body"><p>Zur Umsetzung der EU-Gebäuderichtlinie (EPBD) mit Nullemissions-Pflicht für Neubau ab 2030 hat das DIN überarbeitete Berechnungsregeln zur DIN V 18599 (Energetische Bewertung) veröffentlicht. Neu: Bilanzierung von Eigenstromnutzung, Quartierslösungen und Lastmanagement.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> DIN-Pressemitteilung (5.5.2026, din.de) | EU-EPBD 2024/1275 | BMWE Energiewende direkt (Mai 2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Neubau-Planungen ab 2028 schon jetzt mit dem Energieberater die Nullemissions-Bilanzierung üben. <strong>Wer 2030 startet ohne Erfahrung, kalkuliert sich schief.</strong></div>
+    <div class="karte-fuss"><span>📅 EPBD-Frist: 29.5.2026</span><span>📅 Nullemission Neubau: 2030</span></div>
+  </div>
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">DIN 18065 – Treppenbau in Überarbeitung („Bio-Treppe")</div><span class="badge b-pend">ENTWURF 2029</span></div>
+    <div class="karte-body"><p>Die Neufassung der DIN 18065 (Gebäudetreppen) bringt neben geänderten Steigungsverhältnissen erstmals Anforderungen an Materialökobilanzen. Inkrafttreten frühestens 2029.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> DIN-Normenausschuss Bauwesen (din.de) | bauen.de (10.5.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Noch kein Handlungsdruck. Bei Treppen-Beauftragungen über 2029 hinaus die Klausel „Norm bei Abnahme" prüfen.</div>
+    <div class="karte-fuss"><span>📅 Inkrafttreten: ~2029</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-arb">
+  <div class="section-hdr"><div class="section-icon ic-arb">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div></div>
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">BAuA: Hitzeschutz auf der Baustelle – aktualisierte Handlungsempfehlung</div><span class="badge b-neu">NEU 09.05.</span></div>
+    <div class="karte-body"><p>Die Bundesanstalt für Arbeitsschutz und Arbeitsmedizin (BAuA) hat ihre Handlungsempfehlung zu Hitze auf der Baustelle für 2026 fortgeschrieben. Ab 30 °C: Trinkpausen alle 60 Minuten, ab 32 °C: organisatorische Maßnahmen (Arbeitszeitverlagerung, Pausen, Beschattung), ab 35 °C: Tätigkeitsstopp prüfen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAuA-Pressemitteilung (9.5.2026, baua.de) | DGUV Information 215-510 | BG BAU (bgbau.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Gefährdungsbeurteilung für Sommermonate jetzt anpassen. <strong>Trinkwasserversorgung dokumentieren</strong> – ohne Nachweis im Streitfall mit der BG BAU mühsam.</div>
+    <div class="karte-fuss"><span>📅 BAuA: 9.5.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-urt">
+  <div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH / OLG – Urteile</div></div></div>
+  <div class="karte karte-urt" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BGH: Balkonsanierung ist Grundsatzentscheidung der WEG</div><span class="badge b-neu">BGH V ZR 42/25 · 24.4.</span></div>
+    <div class="karte-body"><p>Der V. Zivilsenat hat entschieden: Die <strong>Sanierung von Balkonen</strong> in einer Wohnungseigentümergemeinschaft ist regelmäßig eine <strong>Erhaltungsmaßnahme nach § 19 Abs. 2 Nr. 2 WEG</strong> – unabhängig davon, ob einzelne Balkonteile zum Sondereigentum gehören. Folge: Beschluss mit einfacher Mehrheit, Kostenverteilung nach WEG-Quote.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH-Pressemitteilung Nr. 78/2026 (24.4.2026, bundesgerichtshof.de) | BGH V ZR 42/25 | NJW-aktuell 19/2026</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei WEG-Aufträgen für Balkonsanierung: Beschluss-Existenz prüfen (einfache Mehrheit reicht). <strong>Vor Auftragsannahme den WEG-Beschluss kopieren lassen</strong> – das sichert die Zahlung der gesamten Gemeinschaft, nicht nur einzelner Eigentümer.</div>
+    <div class="karte-fuss"><span>⚖️ V ZR 42/25</span><span>📅 24.4.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-geg">
+  <div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG / GModG</div></div></div>
+  <div class="karte karte-geg" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ GModG vom Kabinett beschlossen – 65-%-Pflicht auf 1.11.2026 verschoben</div><span class="badge b-hot">13.05.2026</span></div>
+    <div class="karte-body">
+      <p>Das Bundeskabinett hat am <strong>13.5.2026</strong> das Gebäudemodernisierungsgesetz (GModG) beschlossen. Kernpunkte des verabschiedeten Entwurfs:</p>
+      <ul style="margin:8px 0 8px 18px;line-height:1.7">
+        <li><strong>65-%-EE-Pflicht</strong> entfällt nicht ersatzlos, sondern wird in eine technologieoffene Übergangsregelung überführt – wirksam erst <strong>ab 1.11.2026</strong> (vorher: 30.6.2026 für Großstädte).</li>
+        <li><strong>Gas-/Ölheizungen</strong> bleiben zulässig, müssen aber an die „Bio-Treppe" andocken: 10 % Biomethan/grünem H2 ab 2029, ansteigend auf 60 % bis 2040.</li>
+        <li><strong>Nullemissionsgebäude</strong> als EU-Vorgabe (EPBD): Neubau ab 2030, Bestand ab 2050. Umsetzungsfrist EPBD: <strong>29.5.2026</strong>.</li>
+        <li>Funktionierende Heizungen müssen nicht ausgetauscht werden, Betriebsverbote werden gestrichen.</li>
+      </ul>
+      <p>Bundestags-Erstlesung Juni 2026, Inkrafttreten zum 1.11.2026 angestrebt.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWE-Pressemitteilung Nr. 042/2026 (13.5.2026, bundeswirtschaftsministerium.de) | BMWE Newsletter „Energiewende direkt" (Mai 2026) | Öko-Zentrum NRW (oekozentrum.nrw)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bis 1.11.2026 läuft das alte GEG weiter. <strong>Heizungstausch im Bestand bis Ende Oktober 2026 noch ohne 65-%-Pflicht möglich</strong> – Kunden in Großstädten aktiv ansprechen. BEG-Förderung weiter verfügbar, Anträge vor Auftragsbeauftragung.</div>
+    <div class="karte-fuss"><span>📅 Kabinett: 13.5.2026</span><span>📅 Inkrafttreten: 1.11.2026</span></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>⚠️ Rechtlicher Hinweis:</strong> Marwin's Baurecht-Newsletter dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung im Sinne des RDG dar. Trotz sorgfältiger Recherche kann für Richtigkeit und Vollständigkeit keine Gewähr übernommen werden. Stand: 13. Mai 2026. Bei konkreten Rechtsfragen wenden Sie sich bitte an eine zugelassene Rechtsanwältin oder einen Rechtsanwalt.
+</div>`;
+}
+
+
+/* ═══════════════════════════════════════
+   AUSGABE 16/2026 – 22. April 2026
+   ═══════════════════════════════════════ */
+function inhalt_16_2026() {
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Ausgabe 16 / 2026</h1>
+    <div class="page-hdr-date">22. April 2026 · Berichtszeitraum: 8. – 22. April 2026</div>
+    <div class="page-hdr-meta">
+      <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
+      <span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
+    </div>
+  </div>
+</div>
+
+<div class="editorial">
+  <strong>Zur Ausgabe 16:</strong> Das GModG ist überraschend vom Finanzministerium blockiert worden – der Kabinettsbeschluss verschiebt sich erneut. Beim BauGB-Upgrade endet die Verbändeanhörung am 29.4. (Frist). BGH-Urteil zur Verjährung im Bauträgerrecht (VII ZR 108/24). Außerdem CLP-Frist 1.5.2026 und neue BAuA-UV-Belastungskarte.
+</div>
+
+<div class="section" id="s-vob">
+  <div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB</div></div></div>
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">Vergabebeschleunigungsgesetz: Erste Lesung im Bundestag</div><span class="badge b-hot">AKTUELL</span></div>
+    <div class="karte-body"><p>Das Gesetz hat die erste Lesung passiert. Kernpunkte inhaltlich unstrittig: verkürzte Angebotsfristen, vereinfachte Direktvergabe, verbindliche E-Vergabe. Inkrafttreten Sommer 2026 erwartet. UVgO wird angepasst.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Bundestag-Plenarprotokoll (bundestag.de) | BHO-Legal Praxisupdate April 2026 | VBI (vbi.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>E-Vergabe-Fähigkeit prüfen. Kostenfreie Plattformen testen: DTVP, subreport.</div>
+    <div class="karte-fuss"><span>📅 1. Lesung: April 2026</span><span>📅 Inkrafttreten: Sommer 2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-baugb">
+  <div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB</div></div></div>
+  <div class="karte karte-baugb" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BauGB-Upgrade: Anhörungsfrist endet am 29.4.</div><span class="badge b-frist">FRIST 29.04.</span></div>
+    <div class="karte-body"><p>Die Verbändeanhörung zum Referentenentwurf endet am 29.4.2026. Geplant: Vorrang Wohnungsbau, digitale Bauleitplanung (max. 24 Monate), Aufstockungen ohne B-Plan-Änderung, Schrottimmobilien-Enteignung, serielles Bauen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB (bmwsb.bund.de) | DStGB | Haufe.de (15.4.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Stellungnahme über Innungsverband mitzeichnen. Aufstockungs-Projekte vorbereiten.</div>
+    <div class="karte-fuss"><span>📅 Anhörungsende: 29.4.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-hoai">
+  <div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI</div></div></div>
+  <div class="karte karte-hoai">
+    <div class="karte-kopf"><div class="karte-titel">HOAI-Erstgespräch: Honorarerhöhung 16–67 % auf dem Tisch</div><span class="badge b-info">LAUFEND</span></div>
+    <div class="karte-body"><p>Erstes Fachgespräch BMWE/Verbände am 21.1.2026. Honorargutachten zeigt Erhöhungsbedarf zwischen 16 und 67 % je nach Leistungsphase. BIM soll Grundleistung werden.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAK (bak.de) | VBI | BMWE-Newsletter</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Architekten- und Ingenieurverträge auf „zwingende HOAI-Anwendung" prüfen.</div>
+    <div class="karte-fuss"><span>📅 RefE: Sommer 2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-din">
+  <div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div></div>
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">CLP-Verordnung: Übergangsfrist endet am 1.5.2026</div><span class="badge b-frist">FRIST 01.05.</span></div>
+    <div class="karte-body"><p>Übergangsfrist der CLP-Verordnung (EG 1272/2008, Änderung 2024/2865) für Gefahrstoff-Kennzeichnung endet am 1.5.2026. Betroffen: viele Bauchemie-Produkte (Reiniger, Imprägnierungen, Beschichtungen).</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAuA (baua.de) | ECHA (echa.europa.eu) | BG BAU CLP-Praxishilfe (April 2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Lagerbestand prüfen: Alte Kennzeichnungen ab 1.5. nicht mehr verkehrsfähig. <strong>Sicherheitsdatenblätter neu anfordern.</strong></div>
+    <div class="karte-fuss"><span>📅 Frist: 1.5.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-arb">
+  <div class="section-hdr"><div class="section-icon ic-arb">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div></div>
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">BAuA: Neue UV-Belastungskarte für Bauarbeiter</div><span class="badge b-neu">NEU 04/2026</span></div>
+    <div class="karte-body"><p>Die BAuA hat eine interaktive UV-Belastungskarte für Außenarbeit veröffentlicht. Sie zeigt monatsgenau für jede Postleitzahl den UV-Index und empfiehlt Schutzmaßnahmen (Sonnenschutz, Bekleidung, Arbeitszeitverlagerung).</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAuA-Pressemitteilung (10.4.2026, baua.de/uv-karte) | DGUV Information 203-082</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>In Gefährdungsbeurteilung Sommer einbinden. <strong>UV-Schutzbekleidung als Pflichtausstattung dokumentieren.</strong></div>
+    <div class="karte-fuss"><span>📅 BAuA: 10.4.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-urt">
+  <div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH / OLG</div></div></div>
+  <div class="karte karte-urt" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BGH: Verjährung beim Bauträgervertrag beginnt mit Übergabe – nicht Abnahme</div><span class="badge b-neu">VII ZR 108/24 · 17.4.</span></div>
+    <div class="karte-body"><p>Der VII. Zivilsenat hat klargestellt: Beim Bauträgervertrag beginnt die 5-Jahres-Frist für Mängelansprüche gegen den Bauträger <strong>mit Übergabe an den Erwerber</strong>, nicht erst mit der förmlichen Abnahme – sofern eine Abnahme ohne Vorbehalt durchgeführt wurde.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH-Pressemitteilung Nr. 64/2026 (17.4.2026, bundesgerichtshof.de) | BGH VII ZR 108/24 | IBR-online (April 2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Wer als Subunternehmer für Bauträger arbeitet: Eigene Gewährleistungsfristen können enger laufen als die des Bauträgers. <strong>Schriftliche Abnahme mit Datum dokumentieren.</strong></div>
+    <div class="karte-fuss"><span>⚖️ VII ZR 108/24</span><span>📅 17.4.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-geg">
+  <div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG / GModG</div></div></div>
+  <div class="karte karte-geg" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ GModG vom Finanzministerium blockiert – Kabinettsbeschluss verschoben</div><span class="badge b-hot">BLOCKADE</span></div>
+    <div class="karte-body"><p>Der für Mitte April geplante Kabinettsbeschluss zum GModG ist durch Veto des Finanzministeriums geplatzt. Streitpunkte: Förderkulisse (BEG) für die „Bio-Treppe", Mehrkosten der Stützstoffe (Biomethan, H2). Neuer Termin ungewiss – das Inkrafttreten zum 1.7.2026 ist gefährdet.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Reuters Deutschland (18.4.2026) | Tagesspiegel Background Energie &amp; Klima (19.4.2026) | BMWE-Pressemitteilung (BMWE.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Aktuelles GEG gilt weiter. <strong>65-%-Pflicht in Großstädten ab 30.6.2026</strong> nach wie vor wahrscheinlich. Heizungstausch-Projekte vorher noch sicher.</div>
+    <div class="karte-fuss"><span>📅 Kabinett: offen</span><span>📅 GEG gilt weiter</span></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>⚠️ Rechtlicher Hinweis:</strong> Stand: 22. April 2026. Keine Rechtsberatung i.S.d. RDG.
+</div>`;
+}
+
+
+/* ═══════════════════════════════════════
+   AUSGABE 15/2026 – 8. April 2026
+   ═══════════════════════════════════════ */
+function inhalt_15_2026() {
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Ausgabe 15 / 2026</h1>
+    <div class="page-hdr-date">8. April 2026 · Berichtszeitraum: 24. März – 8. April 2026</div>
+    <div class="page-hdr-meta">
+      <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
+      <span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
+    </div>
+  </div>
+</div>
+
+<div class="editorial">
+  <strong>Zur Ausgabe 15:</strong> BauGB-Upgrade seit 2.4.2026 in Verbändeanhörung – Vorrang Wohnungsbau, digitale Bauleitplanung, Aufstockungen ohne B-Plan. GMG-Kabinett auf Mitte April verschoben. BGH V ZR 34/25 zum Technikraum-Eigentum in WEG. DIN 4108-7 Neufassung 02/2026 (Luftdichtheit). DGUV V2 Reform mit KMU-Erleichterungen. ISO 12100 Update.
+</div>
+
+<div class="section" id="s-vob">
+  <div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB</div></div></div>
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">VOB/A Wertgrenzen · Vergabebeschleunigung</div><span class="badge b-info">LAUFEND</span></div>
+    <div class="karte-body"><p>Seit 1.1.2026 unbefristet in Kraft: Direktauftrag 50.000 € · Freihändige Vergabe 100.000 € · Beschränkte Ausschreibung 150.000 €. Vergabebeschleunigungsgesetz im parlamentarischen Verfahren. Vergabesachen werden bei den Landgerichten konzentriert.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BHO-Legal (bho-legal.com) | CMS Hasche Sigle | IHK Schwerin (ihk.de/schwerin)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Öffentliche Stamm-Auftraggeber auf Direktauftrag-Möglichkeit hinweisen. E-Vergabe-System testen.</div>
+    <div class="karte-fuss"><span>📅 Seit 1.1.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-baugb">
+  <div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB</div></div></div>
+  <div class="karte karte-baugb" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BauGB-Upgrade am 2.4. in Anhörung</div><span class="badge b-neu">NEU 02.04.</span></div>
+    <div class="karte-body"><p>BMWSB-Referentenentwurf seit 2.4.2026 in Verbändeanhörung. Kernpunkte: Vorrang Wohnungsbau, digitale Bauleitplanung (max. 24 Monate), Aufstockungen bundesweit ohne B-Plan-Änderung, Schrottimmobilien-Enteignung in begründeten Fällen, serielles Bauen, multifunktionale Flächen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB-Pressemitteilung (2.4.2026, bmwsb.bund.de) | Haufe.de (3.4.2026) | Table.Media (4.4.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Aufstockungen sind die nächste große Chance. Kommunen als Partner aufbauen.</div>
+    <div class="karte-fuss"><span>📅 Anhörung: seit 2.4.</span></div>
+  </div>
+  <div class="karte karte-baugb">
+    <div class="karte-kopf"><div class="karte-titel">BauTurbo § 246e weiterhin in Kraft</div><span class="badge b-info">LAUFEND</span></div>
+    <div class="karte-body"><p>Seit 30.10.2025 in Kraft, befristet bis 31.12.2030. Zustimmungsfiktion der Bauaufsicht nach 3 Monaten.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB FAQ (bmwsb.bund.de) | ADVANT Beiten (advant-beiten.com)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bauaufsicht fragen: Nutzt Ihre Kommune den BauTurbo? Wenn ja: Vorhaben aktiv vermarkten.</div>
+    <div class="karte-fuss"><span>⚖️ § 246e BauGB</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-hoai">
+  <div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI</div></div></div>
+  <div class="karte karte-hoai">
+    <div class="karte-kopf"><div class="karte-titel">HOAI: Referentenentwurf für Sommer 2026 angekündigt</div><span class="badge b-pend">AUSSTEHEND</span></div>
+    <div class="karte-body"><p>Erstgespräch am 21.1.2026. Honorargutachten empfiehlt Erhöhungen zwischen 16 und 67 %. BIM soll Grundleistung werden (bisher Besondere Leistung).</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAK Eckpunktepapier (bak.de) | VBI Newsletter (vbi.de) | DAB online (12.3.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Verträge mit Architekten/Ingenieuren prüfen: Klausel „HOAI in jeweils gültiger Fassung" sichert spätere Honorar-Updates.</div>
+    <div class="karte-fuss"><span>📅 RefE: Sommer 2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-din">
+  <div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div></div>
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">DIN 4108-7 Neufassung 02/2026 – Luftdichtheit</div><span class="badge b-neu">NEU 02/2026</span></div>
+    <div class="karte-body"><p>Die DIN 4108-7 (Wärmeschutz – Luftdichtheit von Gebäuden) ist in Neufassung 02/2026 erschienen. Aktualisierte Prüfverfahren (Blower-Door), neue Anforderungen an Anschlussdetails (Fenster, Dach, Bodenplatte), Klimaanpassungsklauseln.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> DIN (din.de) | Beuth-Verlag (beuth.de) | Energie Fachberater (energie-fachberater.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Neubau und Sanierung Anschlussdetails nach neuer Norm prüfen lassen. Blower-Door-Tester über aktuelle Anforderungen informieren.</div>
+    <div class="karte-fuss"><span>📅 Veröffentlicht: 02/2026</span></div>
+  </div>
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">ISO 12100 überarbeitet 03/2026 – Maschinensicherheit</div><span class="badge b-neu">NEU 03/2026</span></div>
+    <div class="karte-body"><p>Die ISO 12100 (Sicherheit von Maschinen – Allgemeine Gestaltungsleitsätze) wurde im März 2026 überarbeitet. Relevant für Baumaschinen-Einsatz, Werkstattausrüstung, mobile Anlagen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> ISO (iso.org) | Beuth-Verlag | DGUV Fachbereich Maschinenbau</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Maschinenpark-Dokumentation auf neue Anforderungen prüfen.</div>
+    <div class="karte-fuss"><span>📅 03/2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-arb">
+  <div class="section-hdr"><div class="section-icon ic-arb">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div></div>
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">Tariflöhne Bauhauptgewerbe +3,9 % seit 1.4.2026</div><span class="badge b-hot">SEIT 01.04.</span></div>
+    <div class="karte-body"><p>Lohnerhöhung im Bauhauptgewerbe um +3,9 % zum 1.4.2026 in Kraft. Mindestlohn West/Ost angeglichen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> IG BAU (igbau.de) | HDB (hauptverband-bau.de) | Handelsblatt (1.4.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Laufende Aufträge nachkalkulieren. Bei Festpreisverträgen: Anpassungsklausel prüfen.</div>
+    <div class="karte-fuss"><span>📅 Seit 1.4.2026</span></div>
+  </div>
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">DGUV V2 Reform – KMU-Erleichterungen</div><span class="badge b-neu">NEU 03/2026</span></div>
+    <div class="karte-body"><p>Die Reform der DGUV V2 (Betriebsärzte und Sifa) bringt KMU-Erleichterungen: digitale Betreuung möglich, vereinfachte Dokumentation, 5-%-Kontrollquote verbindlich.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> DGUV (dguv.de) | BG BAU (bgbau.de) | Arbeitsschutz aktuell (April 2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Betriebsarzt- und Sifa-Vertrag prüfen: Digitale Betreuung kann Stunden und Kosten sparen.</div>
+    <div class="karte-fuss"><span>📅 03/2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-urt">
+  <div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH / OLG</div></div></div>
+  <div class="karte karte-urt" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BGH V ZR 34/25 – Technikraum gehört zum Gemeinschaftseigentum</div><span class="badge b-neu">25.03.2026</span></div>
+    <div class="karte-body"><p>Der V. Zivilsenat hat entschieden: Technikräume (Heizung, Wasser, Strom) in einer WEG gehören regelmäßig zum Gemeinschaftseigentum, unabhängig von der Teilungserklärung. Folge: Sanierungskosten trägt die Gemeinschaft.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH-Pressemitteilung Nr. 48/2026 (25.3.2026, bundesgerichtshof.de) | BGH V ZR 34/25 | NJW-aktuell 14/2026</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei WEG-Aufträgen Heizungs-/Technikraum-Sanierung: Auftrag immer von der Gemeinschaft (Verwalter), nicht von einzelnen Eigentümern. Verwalter-Vollmacht prüfen.</div>
+    <div class="karte-fuss"><span>⚖️ V ZR 34/25</span><span>📅 25.3.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-geg">
+  <div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG</div></div></div>
+  <div class="karte karte-geg">
+    <div class="karte-kopf"><div class="karte-titel">GMG-Kabinettsbeschluss auf Mitte April verschoben</div><span class="badge b-hot">VERZÖGERUNG</span></div>
+    <div class="karte-body"><p>Der für Ende März geplante Kabinettsbeschluss verschiebt sich auf Mitte April 2026. Geplant: Abschaffung der 65-%-EE-Pflicht, Bio-Treppe ab 2029, keine Betriebsverbote, keine Austauschpflicht für funktionierende Heizungen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Öko-Zentrum NRW Update 18.3.2026 (oekozentrum.nrw) | BAK Eckpunktepapier (18.2.2026) | GEG (BGBl. 2026 I Nr. 4)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>GEG gilt bis Inkrafttreten GMG voll. Großstädte (&gt; 100.000 EW): 65 % ab 30.6.2026. Heizungswechsel davor noch ohne EE-Pflicht.</div>
+    <div class="karte-fuss"><span>📅 Kabinett: Mitte April</span></div>
+  </div>
+  <div class="karte karte-geg">
+    <div class="karte-kopf"><div class="karte-titel">Kommunale Wärmeplanung: Frist 30.6.2026 für Großstädte</div><span class="badge b-frist">FRIST 30.06.</span></div>
+    <div class="karte-body"><p>Kommunen mit mehr als 100.000 Einwohnern müssen bis 30.6.2026 eine Wärmeplanung vorlegen. Übrige Kommunen: bis 30.6.2028. Ab Vorliegen der Wärmeplanung gilt die 65-%-EE-Pflicht beim Heizungswechsel.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> energie-experten.org | UM Baden-Württemberg (27.2.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Wärmeplan der Kommunen prüfen. <strong>Kunden in Großstädten proaktiv auf die Frist hinweisen</strong> – Heizungstausch vor 30.6.2026 noch ohne EE-Pflicht.</div>
+    <div class="karte-fuss"><span>📅 Frist Großstädte: 30.6.2026</span></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>⚠️ Rechtlicher Hinweis:</strong> Stand: 8. April 2026. Keine Rechtsberatung i.S.d. RDG.
+</div>`;
+}
+
+
+/* ═══════════════════════════════════════
+   AUSGABE 14/2026 – 7. April 2026
+   ═══════════════════════════════════════ */
+function inhalt_14_2026() {
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Ausgabe 14 / 2026</h1>
+    <div class="page-hdr-date">7. April 2026 · Berichtszeitraum: 24. März – 7. April 2026</div>
+    <div class="page-hdr-meta">
+      <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
+      <span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
+    </div>
+  </div>
+</div>
+
+<div class="editorial">
+  <strong>Zur Ausgabe 14:</strong> Der BGH hat die jahrzehntelange „Drei-Angebote-Regel" bei WEG-Erhaltungsmaßnahmen abgeschafft (V ZR 7/25). Die Tariflohnerhöhung im Bauhauptgewerbe (+3,9 % ab 1.4.) erfordert sofortigen Kalkulationshandlungsbedarf. Im GEG-Bereich verzögert sich der Kabinettsbeschluss erneut.
+</div>
+
+<div class="section" id="s-vob">
+  <div class="section-hdr"><div class="section-icon ic-vob">📋</div><div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB – Vergabe- und Vertragsordnung</div></div></div>
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">VOB/A: Neue Wertgrenzen § 3a seit 1.1.2026 unbefristet</div><span class="badge b-info">IN KRAFT</span></div>
+    <div class="karte-body">
+      <p>Seit 1.1.2026 gelten die zuvor befristeten Wertgrenzen unbefristet:</p>
+      <table style="width:100%;margin-top:6px;border-collapse:collapse;font-size:13px">
+        <tr><td style="padding:3px 8px"><strong>Direktauftrag</strong></td><td>50.000 €</td><td>§ 3a Abs. 4 VOB/A</td></tr>
+        <tr><td style="padding:3px 8px"><strong>Freihändige Vergabe</strong></td><td>100.000 €</td><td>§ 3a Abs. 3 VOB/A</td></tr>
+        <tr><td style="padding:3px 8px"><strong>Beschränkte Ausschreibung</strong></td><td>150.000 €</td><td>§ 3a Abs. 2 Nr. 1 VOB/A</td></tr>
+      </table>
+      <p style="margin-top:6px">Die Differenzierung nach Gewerken bei der Beschränkten Ausschreibung ist entfallen. Bund-Direktaufträge für Liefer-/DL bis 15.000 € (UVgO, gültig bis 31.12.2027).</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB, BAnz AT 16.12.2025 B7 | BHO-Legal (7.1.2026, bho-legal.com) | IHK Schwerin (ihk.de/schwerin)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Öffentliche Auftraggeber können Sie bis 50.000 € ohne Vergabeverfahren direkt beauftragen. <strong>Stamm-Auftraggeber aktiv auf neue Wertgrenzen aufmerksam machen.</strong></div>
+    <div class="karte-fuss"><span>📅 In Kraft: 1.1.2026</span><span>⚖️ § 3a VOB/A</span></div>
+  </div>
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">Vergabebeschleunigungsgesetz im parlamentarischen Verfahren</div><span class="badge b-hot">AKTUELL</span></div>
+    <div class="karte-body"><p>Das nationale Vergabebeschleunigungsgesetz im parlamentarischen Verfahren (Zieltermin: Frühjahr 2026). Geplant: verkürzte Angebotsfristen, erweiterte Direkt- und Verhandlungsoptionen, verbindlichere E-Vergabe. EU-Schwellenwert Bauleistungen: 5.404.000 € (unverändert).</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Bund Deutscher Baumeister (8.1.2026, baumeister-online.de) | Ingenieurkammer MV (ingenieurkammer-mv.de) | BHO-Legal (bho-legal.com)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Noch keine Handlungspflicht – aber jetzt ist der Zeitpunkt, ein E-Vergabe-System zu testen. <strong>Ohne digitale Einreichung riskieren Sie, von kürzeren Deadlines überrollt zu werden.</strong></div>
+    <div class="karte-fuss"><span>📅 Geplant: Frühjahr 2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-baugb">
+  <div class="section-hdr"><div class="section-icon ic-baugb">🏙️</div><div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB</div></div></div>
+  <div class="karte karte-baugb">
+    <div class="karte-kopf"><div class="karte-titel">BauTurbo § 246e BauGB: Erstes volles Umsetzungsjahr – 2. Novelle Ende Mai im Kabinett</div><span class="badge b-info">INFO</span></div>
+    <div class="karte-body"><p>Der BauTurbo (in Kraft seit 30.10.2025, befristet bis 31.12.2030) ermöglicht Kommunen Abweichungen vom Bauplanungsrecht für Wohnbauprojekte ohne B-Plan-Änderung. Die Ressortabstimmung für die 2. BauGB-Novelle läuft; Kabinett Ende Mai 2026 geplant.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BMWSB FAQ (bmwsb.bund.de) | ADVANT Beiten (advant-beiten.com) | Haufe.de Praxiswissen</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bauaufsicht fragen: Nutzt die Kommune den BauTurbo? <strong>Bei Wohnungsbau-Projekten als Beschleuniger einsetzen.</strong></div>
+    <div class="karte-fuss"><span>⚖️ § 246e BauGB</span><span>📅 Bis 31.12.2030</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-hoai">
+  <div class="section-hdr"><div class="section-icon ic-hoai">📐</div><div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI</div></div></div>
+  <div class="karte karte-hoai">
+    <div class="karte-kopf"><div class="karte-titel">HOAI-Erstgespräch BMWE – RefE für Sommer angekündigt</div><span class="badge b-pend">AUSSTEHEND</span></div>
+    <div class="karte-body"><p>Erstgespräch BMWE/Verbände am 21.1.2026. Honorargutachten zeigt Erhöhungsbedarf 16–67 %. Referentenentwurf für Sommer 2026 erwartet.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAK (bak.de) | VBI (vbi.de) | BMWE</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Verträge mit Planern auf HOAI-Klauseln prüfen.</div>
+    <div class="karte-fuss"><span>📅 RefE: Sommer 2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-din">
+  <div class="section-hdr"><div class="section-icon ic-din">📏</div><div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen</div></div></div>
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">Asbest-Erkundungspflicht TRGS 519 verschärft</div><span class="badge b-info">SEIT 2025</span></div>
+    <div class="karte-body"><p>Seit Januar 2025 verschärfte Asbest-Erkundungspflichten für Bauten vor 1995. Erkundung vor Abbruch und Sanierung verpflichtend. Verstoß: Bußgeld bis 50.000 €.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAuA TRGS 519 (baua.de) | BG BAU (bgbau.de) | DGUV Information 201-012</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Bestandsobjekten vor 1995: Asbest-Erkundung schriftlich vom Bauherrn anfordern. Ohne Erkundung Auftrag ablehnen.</div>
+    <div class="karte-fuss"><span>📅 Seit 2025</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-arb">
+  <div class="section-hdr"><div class="section-icon ic-arb">🦺</div><div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div></div>
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">⭐ Tariflöhne Bauhauptgewerbe +3,9 % ab 1.4.2026</div><span class="badge b-hot">SEIT 01.04.</span></div>
+    <div class="karte-body"><p>Lohnerhöhung im Bauhauptgewerbe um +3,9 % zum 1.4.2026. Mindestlöhne West/Ost angeglichen. Tarifeinigung IG BAU/HDB Februar 2026.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> IG BAU (igbau.de) | HDB (hauptverband-bau.de) | Handelsblatt (1.4.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Laufende Aufträge nachkalkulieren. <strong>Bei Festpreisverträgen: Anpassungsklausel sofort prüfen lassen.</strong></div>
+    <div class="karte-fuss"><span>📅 Seit 1.4.2026</span></div>
+  </div>
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">ASR A5.1 – Verkehrswege auf Baustellen aktualisiert</div><span class="badge b-info">02/2026</span></div>
+    <div class="karte-body"><p>Die ASR A5.1 (Verkehrswege auf Baustellen) wurde im Februar 2026 aktualisiert. Schwerpunkte: Beleuchtung, Mindestbreiten, Absturzsicherung an Verkehrswegen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BAuA (baua.de) | DGUV Regel 101-039</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Baustellen-Einrichtungspläne überprüfen.</div>
+    <div class="karte-fuss"><span>📅 02/2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-urt">
+  <div class="section-hdr"><div class="section-icon ic-urt">⚖️</div><div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH / OLG</div></div></div>
+  <div class="karte karte-urt" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ BGH kippt „Drei-Angebote-Regel" bei WEG-Erhaltungsmaßnahmen</div><span class="badge b-neu">V ZR 7/25 · 21.3.</span></div>
+    <div class="karte-body"><p>Der V. Zivilsenat hat entschieden: WEG-Verwalter müssen vor Beauftragung von Erhaltungsmaßnahmen <strong>nicht zwingend drei Vergleichsangebote einholen</strong>. Maßgeblich ist die ordnungsmäßige Verwaltung – bei einfach gelagerten Maßnahmen reicht ein Angebot. Damit wird die jahrzehntelange „Drei-Angebote-Regel" aufgegeben.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH-Pressemitteilung Nr. 52/2026 (21.3.2026, bundesgerichtshof.de) | BGH V ZR 7/25 | NJW-aktuell 13/2026</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei WEG-Aufträgen leichter zum Zuschlag kommen. <strong>Stammverwalter aktiv ansprechen</strong> – die Regel des „immer drei Angebote" gilt nicht mehr.</div>
+    <div class="karte-fuss"><span>⚖️ V ZR 7/25</span><span>📅 21.3.2026</span></div>
+  </div>
+  <div class="karte karte-urt">
+    <div class="karte-kopf"><div class="karte-titel">BGH: Terminplan ≠ Anordnung nach § 2 Abs. 5 VOB/B</div><span class="badge b-info">WEITER RELEVANT</span></div>
+    <div class="karte-body"><p>Ein geänderter Terminplan stellt keine Anordnung im Sinne § 2 Abs. 5 VOB/B dar. Mehrkosten lassen sich allein darauf nicht stützen. Behinderungsanzeige nach § 6 VOB/B bleibt das richtige Instrument.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Handwerksblatt | § 2 Abs. 5, § 6 VOB/B</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Verzögerungen sofort schriftliche Behinderungsanzeige (§ 6 VOB/B) und formelle Anordnung einfordern.</div>
+    <div class="karte-fuss"><span>⚖️ BGH 2025</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-geg">
+  <div class="section-hdr"><div class="section-icon ic-geg">🌿</div><div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG</div></div></div>
+  <div class="karte karte-geg">
+    <div class="karte-kopf"><div class="karte-titel">GMG-Kabinettsbeschluss erneut verschoben</div><span class="badge b-hot">18.03.2026</span></div>
+    <div class="karte-body">
+      <p>Das ordentliche Gesetzgebungsverfahren mit Verbändeanhörungen soll eingehalten werden. Das Inkrafttreten zum 1. Juli 2026 gerät in Gefahr.</p>
+      <p><strong>Geplante GMG-Kernpunkte (Entwurf 24.2.2026 – noch kein geltendes Recht):</strong> Abschaffung der 65-%-EE-Pflicht für neue Heizungen; Gas-/Ölheizungen wieder ohne EE-Mindestanteil zulässig; „Bio-Treppe" ab 2029 (10–15 % Biomethan, steigend auf 60 % bis 2040); Streichung Betriebsverbote; keine Austauschpflicht für funktionierende Heizungen.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Öko-Zentrum NRW Update 18.3.2026 (oekozentrum.nrw) | Bundesarchitektenkammer Eckpunktepapier (18.2.2026, bak.de) | handwerk.cloud | GEG zuletzt geändert Art. 3 G v. 9.1.2026, BGBl. 2026 I Nr. 4 (gesetze-im-internet.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span><strong>Bis zum GMG-Inkrafttreten gilt das aktuelle GEG vollumfänglich.</strong> In Großstädten (&gt; 100.000 EW) greift die 65-%-EE-Pflicht beim Heizungswechsel ab 30.6.2026. Förderanträge (BEG) VOR Beauftragung stellen. Rechtsunsicherheit transparent zu Kunden kommunizieren.</div>
+    <div class="karte-fuss"><span>📅 Kabinett: Mitte April 2026</span><span>📅 GMG-Inkrafttreten: 1.7.2026 (gefährdet)</span></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>⚠️ Rechtlicher Hinweis:</strong> Stand: 7. April 2026. Keine Rechtsberatung i.S.d. RDG.
+</div>`;
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   SCHRITT 3 · INHALTSSPEICHER
+   → Neue Ausgabe oben einfügen
+   ════════════════════════════════════════════════════════════════ */
+const NEWSLETTER_INHALT = {
+  '18/2026': inhalt_18_2026(),
+  '17/2026': inhalt_17_2026(),
+  '16/2026': inhalt_16_2026(),
+  '15/2026': inhalt_15_2026(),
+  '14/2026': inhalt_14_2026()
+};
+
+
+/* ════════════════════════════════════════════════════════════════
+   SCHRITT 4 · AKTUELLE AUSGABE UMSCHALTEN
+   ════════════════════════════════════════════════════════════════ */
+function renderAktuell() {
+  return NEWSLETTER_INHALT['18/2026']; /* ← nur diese Nr. ändern */
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   AB HIER NICHTS ÄNDERN
+   ════════════════════════════════════════════════════════════════ */
+
+function hatInhalt(nr) { return !!NEWSLETTER_INHALT[nr]; }
+
+function renderArchiv() {
+  const karten = ARCHIV.map(a => `
+    <div class="archiv-karte" onclick="zeigePage('archiv-detail','${a.nr}')">
+      <div class="archiv-karte-nr">Ausgabe ${a.nr}${a.aktuell ? ' &nbsp;<span style="color:var(--rot);font-weight:700">● AKTUELL</span>' : ''}</div>
+      <div class="archiv-karte-titel">${a.highlight}</div>
+      <div class="archiv-karte-datum">📅 ${a.datum}</div>
+      <div class="archiv-karte-themen">${a.themen.map(t => `<span class="thema-pill">${t}</span>`).join('')}</div>
+      <div class="archiv-karte-btn">${hatInhalt(a.nr) ? 'Ausgabe öffnen →' : '⏳ Inhalt folgt'}</div>
+    </div>`).join('');
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Newsletter-Archiv</h1>
+    <div class="page-hdr-meta">
+      <span>📚 ${ARCHIV.length} Ausgabe${ARCHIV.length !== 1 ? 'n' : ''}</span>
+      <span>${Object.keys(NEWSLETTER_INHALT).length} mit Volltext</span>
+    </div>
+  </div>
+</div>
+<p style="font-size:13px;color:var(--matt);margin-bottom:4px">Alle Ausgaben mit Volltext sind direkt aufrufbar. Neue Ausgaben erscheinen alle 14 Tage.</p>
+<div class="archiv-grid">${karten}</div>`;
+}
+
+function renderArchivDetail(nr) {
+  const a = ARCHIV.find(x => x.nr === nr);
+  const inhalt = NEWSLETTER_INHALT[nr];
+  const navBar = `
+    <div class="archiv-nav">
+      <button class="btn-back" onclick="zeigePage('archiv')">← Zurück zum Archiv</button>
+      <span style="color:var(--matt);font-size:12px">Ausgabe ${nr} · ${a ? a.datum : ''}</span>
+      ${a && !a.aktuell ? `<button class="btn-back prim" onclick="zeigePage('aktuell')">Aktuelle Ausgabe →</button>` : ''}
+    </div>`;
+  if (inhalt) return navBar + inhalt;
+  return navBar + `
+    <div style="text-align:center;padding:56px 24px;background:var(--weiss);border-radius:12px;border:1px solid var(--rand)">
+      <div style="font-size:40px;margin-bottom:16px">📄</div>
+      <h2 style="font-size:17px;color:var(--anthrazit);margin-bottom:8px">Ausgabe ${nr}</h2>
+      <p style="font-size:13.5px;color:var(--matt);max-width:400px;margin:0 auto">
+        Der Volltext dieser Ausgabe ist noch nicht hinterlegt.<br>
+        Funktion <code>inhalt_${nr.replace('/','_')}()</code> anlegen und in <code>NEWSLETTER_INHALT</code> eintragen.
+      </p>
+    </div>`;
+}
+
+function renderImpressum() {
+  const f = (label, value) => `<div class="impressum-row"><div class="impressum-label">${label}</div><div class="impressum-value">${value}</div></div>`;
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Marwin's Baurecht-Newsletter</div>
+    <h1>Impressum</h1>
+    <div class="page-hdr-date">Angaben gemäß § 5 TMG</div>
+  </div>
+</div>
+<div class="impressum-grid">
+  <div class="impressum-section">
+    <h3>Diensteanbieter</h3>
+    ${f('Name', 'Marwin [Nachname]')}
+    ${f('Anschrift', '[Straße, Hausnummer]<br>[PLZ Ort]')}
+    ${f('Kontakt', '[E-Mail-Adresse]')}
+  </div>
+  <div class="impressum-section">
+    <h3>Verantwortlich i.S.d. § 18 Abs. 2 MStV</h3>
+    ${f('', 'Marwin [Nachname], Anschrift wie oben')}
+  </div>
+  <div class="impressum-section">
+    <h3>Haftungsausschluss</h3>
+    <div style="font-size:13.5px;color:var(--grau);line-height:1.75">
+      <p style="margin-bottom:10px"><strong>Haftung für Inhalte:</strong> Die Inhalte dieses Newsletters wurden mit größter Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden.</p>
+      <p style="margin-bottom:10px"><strong>Kein Ersatz für Rechtsberatung:</strong> Die Inhalte stellen keine Rechtsberatung im Sinne des RDG dar und begründen kein Mandatsverhältnis.</p>
+      <p><strong>Urheberrecht:</strong> Die erstellten Inhalte unterliegen dem deutschen Urheberrecht. Vervielfältigung und Verbreitung bedürfen der schriftlichen Zustimmung des Herausgebers.</p>
+    </div>
+  </div>
+  <div class="impressum-section">
+    <h3>Streitschlichtung</h3>
+    <p style="font-size:13.5px;color:var(--grau)">Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: https://ec.europa.eu/consumers/odr – Wir nehmen nicht an Streitbeilegungsverfahren vor Verbraucherschlichtungsstellen teil.</p>
+  </div>
+</div>`;
+}
+
+function zeigePage(seite, nr) {
+  const btns = document.querySelectorAll('.topbar-btn');
+  btns.forEach(b => b.classList.remove('aktiv'));
+  if (seite === 'aktuell') btns[0].classList.add('aktiv');
+  else if (seite === 'archiv' || seite === 'archiv-detail') btns[1].classList.add('aktiv');
+  else if (seite === 'impressum') btns[2].classList.add('aktiv');
+
+  const main = document.getElementById('main-content');
+  if (seite === 'aktuell') main.innerHTML = renderAktuell();
+  else if (seite === 'archiv') main.innerHTML = renderArchiv();
+  else if (seite === 'archiv-detail') main.innerHTML = renderArchivDetail(nr);
+  else if (seite === 'impressum') main.innerHTML = renderImpressum();
+
+  window.scrollTo(0, 0);
+  if (window.innerWidth <= 768) closeSidebar();
+}
+
+function scrollZu(id) {
+  zeigePage('aktuell');
+  setTimeout(() => {
+    const el = document.getElementById('s-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 60);
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('burger').classList.remove('open');
+}
+
+function toggleSidebar() {
+  const open = document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open', open);
+  document.getElementById('burger').classList.toggle('open', open);
+}
+
+/* Sidebar-Archiv-Liste rendern (max. 5 letzte Ausgaben ohne die aktuelle) */
+const archivOhneAktuell = ARCHIV.filter(a => !a.aktuell).slice(0, 5);
+document.getElementById('sidebar-archiv').innerHTML = archivOhneAktuell.length === 0
+  ? `<div style="font-size:12px;color:var(--matt);padding:8px 12px;font-style:italic">Erste Ausgabe – noch kein Archiv</div>`
+  : archivOhneAktuell.map(a => `
+      <div class="archiv-item" onclick="zeigePage('archiv-detail','${a.nr}')">
+        <div class="archiv-nummer">Ausgabe ${a.nr}</div>
+        <div class="archiv-datum">${a.datum}</div>
+        <div class="archiv-thema">${a.highlight.split('·')[0].trim()}</div>
+      </div>`).join('');
+
 zeigePage('aktuell');
 </script>
 </body>
