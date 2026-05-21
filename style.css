@@ -181,7 +181,10 @@ body{
 
 /* ── MAIN ──────────────────────────────────────────────────────── */
 /* WICHTIG: KEIN overflow-x:hidden hier!
-   Würde Sidebar-Positionierung verfälschen */
+   Würde Sidebar-Positionierung verfälschen.
+   Selektor targetet sowohl <main> als auch .main – die index.html
+   verwendet das HTML5-Element <main id="main-content"> ohne Klasse */
+main,
 .main{
   margin-left:var(--nav-w);
   flex:1;
@@ -445,7 +448,7 @@ tr:last-child td{border-bottom:none}
 
 /* ── Tablet / kleines Desktop ── */
 @media(max-width:900px){
-  .main{padding:0 24px 80px}
+  main,.main{padding:0 24px 80px}
   .page-hdr{padding:24px 24px 20px}
   .page-hdr h1{font-size:22px}
   .page-hdr-yr{font-size:60px;right:16px}
@@ -465,7 +468,7 @@ tr:last-child td{border-bottom:none}
     box-shadow:4px 0 24px rgba(0,0,0,.15);
   }
   .sidebar.open{transform:translateX(0)}
-  .main{margin-left:0;padding:0 16px 80px}
+  main,.main{margin-left:0;padding:0 16px 80px}
   .layout{padding-top:calc(var(--hdr-h) + 32px)}
   .top-disclaimer{font-size:10px;padding:6px 16px}
   .page-hdr{padding:20px 20px 16px;border-radius:8px}
@@ -484,7 +487,7 @@ tr:last-child td{border-bottom:none}
   .topbar-logo-text span{display:none}
   .topbar-nav{gap:2px}
   .topbar-btn.aktiv{padding:7px 10px;font-size:11px}
-  .main{padding:0 12px 80px}
+  main,.main{padding:0 12px 80px}
   .page-hdr{padding:16px 16px 14px}
   .section-title{font-size:17px}
   .karte-body p{font-size:13px}
