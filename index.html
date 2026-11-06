@@ -61,9 +61,9 @@
     <div class="sidebar-section">
       <div class="sidebar-label">Aktuelle Ausgabe</div>
       <div class="nav-item aktiv" onclick="zeigePage('aktuell')">
-        <span class="nav-icon">📄</span>Ausgabe 18 / 2026<span class="nav-badge">NEU</span>
+        <span class="nav-icon">📄</span>Ausgabe 19 / 2026<span class="nav-badge">NEU</span>
       </div>
-      <div style="font-size:11px;color:var(--matt);padding:3px 12px 6px">21. Mai 2026</div>
+      <div style="font-size:11px;color:var(--matt);padding:3px 12px 6px">5. November 2026</div>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-label">Rubriken</div>
@@ -92,7 +92,12 @@
    ════════════════════════════════════════════════════════════════ */
 const ARCHIV = [
   {
-    nr: '18/2026', datum: '21. Mai 2026', aktuell: true,
+    nr: '19/2026', datum: '5. November 2026', aktuell: true,
+    themen: ['Vergabebeschleunigung in Kraft', 'BTTG ohne Bau-VO', 'BauGB-Upgrade Anhörung', 'HOAI ohne RefE', 'Gebäudetyp E RefE', 'Asbest-Frist 19.12.', 'GModG seit 29.7.'],
+    highlight: '⚡ Gebäudetyp E: BMJV-Entwurf vom 26.10. (Frist 9.11.) · GModG seit 29.7. in Kraft · Korrekturen VII ZR 108/24 und V ZR 102/24'
+  },
+  {
+    nr: '18/2026', datum: '21. Mai 2026', aktuell: false,
     themen: ['Vergabebeschleunigungsgesetz im BGBl.', 'BTTG seit 1.5.', 'GModG → 1.11.', 'BauGB-Upgrade Kabinett', 'DIN 4108-2:2026-05', 'BG BAU Drohnen-Prämie', 'Wärmeplanung 30.6.'],
     highlight: '⚡ Vergabebeschleunigungsgesetz verkündet (18.5.) · BTTG seit 1.5. · GModG → 1.11. · DIN 4108-2 neu'
   },
@@ -124,7 +129,259 @@ const ARCHIV = [
    ════════════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════
-   AUSGABE 18/2026 – 21. Mai 2026 · AKTUELL
+   AUSGABE 19/2026 · 5. November 2026 · AKTUELL
+   ═══════════════════════════════════════ */
+function inhalt_19_2026() {
+  return `
+<div class="page-hdr">
+  <div class="page-hdr-accent"></div>
+  <div class="page-hdr-yr">2026</div>
+  <div class="page-hdr-inner">
+    <div class="page-hdr-kicker">Grundstein - Newsletter für Baurecht</div>
+    <h1>Ausgabe 19 / 2026 <span class="tag-aktuell">NEU</span></h1>
+    <div class="page-hdr-date">5. November 2026 · Berichtszeitraum: 22. Oktober bis 5. November 2026</div>
+    <div class="page-hdr-meta">
+      <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
+      <span>📏 DIN</span><span>🦺 Arbeitsschutz</span><span>⚖️ BGH/OLG</span><span>🌿 GEG</span>
+    </div>
+  </div>
+</div>
+
+<div class="editorial">
+  <strong>Zur Ausgabe 19:</strong> Seit Ausgabe 18 sind über fünf Monate vergangen. Diese Ausgabe berichtet über die letzten 14 Tage und ordnet ein, was aus den im Mai angekündigten Vorhaben geworden ist. Das Vergabebeschleunigungsgesetz gilt seit 1.7.2026, das Bundestariftreuegesetz seit 1.5.2026 (für den Bau mangels Branchenverordnung noch ohne praktische Wirkung) und das Gebäudemodernisierungsgesetz bereits seit 29.7.2026, nicht erst ab 1.11.2026. Neu im Berichtszeitraum ist der Referentenentwurf des BMJV zum Gebäudetyp E vom 26.10.2026, Stellungnahmen bis 9.11.2026. Zwei Angaben aus früheren Ausgaben haben wir anhand der BGH-Originalquellen korrigiert (Rubrik BGH/OLG).
+</div>
+
+<div class="section" id="s-vob">
+  <div class="section-hdr">
+    <div class="section-icon ic-vob">📋</div>
+    <div><div class="section-nr">Abschnitt 1</div><div class="section-title">VOB / Vergaberecht</div></div>
+  </div>
+
+  <div class="karte karte-vob" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">Vergabebeschleunigungsgesetz seit 1. Juli 2026 in Kraft</div><span class="badge b-info">IN KRAFT</span></div>
+    <div class="karte-body">
+      <p>Das Gesetz zur Beschleunigung der Vergabe öffentlicher Aufträge vom 12.5.2026 wurde am 18.5.2026 verkündet (BGBl. 2026 I Nr. 137) und ist am 1.7.2026 in Kraft getreten. Die Änderungen betreffen vor allem GWB Teil 4 und die VgV, also Vergaben oberhalb der EU-Schwellenwerte.</p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li><strong>Leistungsbeschreibung</strong> nach § 121 GWB n.F. nur noch „eindeutig“, nicht mehr „eindeutig und erschöpfend“; mehr funktionale Ausschreibungen möglich</li>
+        <li><strong>Eignung:</strong> zunächst Eigenerklärungen, Belege nur von aussichtsreichen Bietern (§ 122 Abs. 3 GWB n.F., § 48 Abs. 1 VgV n.F.)</li>
+        <li><strong>Losgrundsatz</strong> bleibt (jetzt § 97a GWB); Gesamtvergabe aus Zeitgründen bei dringlichen Vorhaben aus dem Sondervermögen und bei Verkehrsinfrastruktur ab dem Zweifachen des EU-Schwellenwerts</li>
+        <li><strong>Bund:</strong> Direktauftrag bis 50.000 € netto (§ 55 BHO); Wettbewerbsregisterabfrage und Vergabestatistik erst ab 50.000 €</li>
+      </ul>
+      <p>Unterhalb der Schwellenwerte gelten für Bauleistungen weiter VOB/A Abschnitt 1 und Landesrecht (Niedersachsen: NTVergG). Die Wertgrenzen des § 3a VOB/A (Direktauftrag 50.000 €, Freihändige Vergabe 100.000 €, Beschränkte Ausschreibung 150.000 €) gelten seit 1.1.2026. Der VOB-Text ist kostenpflichtig über DIN Media erhältlich.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> DTVP Info-Center „Vergabebeschleunigungsgesetz tritt in Kraft“ (10.6.2026, dtvp.de/info-center/aktuelles/vergabebeschleunigung-tritt-in-kraft/) | kommunen.nrw „Vergabebeschleunigungsgesetz im Bundesgesetzblatt verkündet“ (19.5.2026) | AHO Mitgliederinformation (1.7.2026, aho.de/aktuelles-presse/)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei EU-Vergaben genügen zunächst Eigenerklärungen. Präqualifikation, Referenzen und Unbedenklichkeitsbescheinigungen (Finanzamt, SOKA-BAU, Krankenkassen, BG BAU) trotzdem so bereithalten, dass sie innerhalb der gesetzten Frist nachgereicht werden können. Funktionale Leistungsbeschreibungen verlagern Mengen- und Planungsrisiken auf den Bieter: vorsichtig kalkulieren, Bieterfragen schriftlich stellen. Bei Bundesverkehrsprojekten ab 10,8 Mio. € netto ist die Gesamtvergabe an Generalunternehmer leichter geworden; dort bleibt oft nur die Rolle als Nachunternehmer.</div>
+    <div class="karte-fuss"><span>⚖️ BGBl. 2026 I Nr. 137</span><span>📅 In Kraft: 1.7.2026</span></div>
+  </div>
+
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">Bundestariftreuegesetz: in Kraft, aber noch keine Bau-Verordnung</div><span class="badge b-pend">OFFEN</span></div>
+    <div class="karte-body">
+      <p>Das BTTG (BGBl. 2026 I Nr. 119) gilt seit 1.5.2026 für Bau- und Dienstleistungsaufträge sowie Konzessionen des Bundes ab 50.000 € netto (§ 1 BTTG). Bundesauftraggeber müssen ein Tariftreueversprechen als Ausführungsbedingung vorgeben (§ 3 BTTG); es erstreckt sich auf Nachunternehmer und Verleiher, für die der Hauptauftragnehmer haftet (§ 12 BTTG), außer bei zertifizierten Nachunternehmern (§ 10 BTTG).</p>
+      <p>Die konkret einzuhaltenden Arbeitsbedingungen legt das BMAS erst per Rechtsverordnung nach § 5 BTTG fest. Nach einer Auswertung von Bird &amp; Bird vom 28.10.2026 war bis Mitte Oktober 2026 für keine Branche eine solche Verordnung erlassen, auch nicht für das Bauhauptgewerbe. Das BMAS hat im September 2026 Entwürfe für drei Verfahrensverordnungen vorgelegt (Clearingstelle, Prüfstelle, Zertifizierung).</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BTTG (gesetze-im-internet.de/bttg/) | Bird &amp; Bird „Tariftreue bei Bundesaufträgen: Heute versprochen, später wirksam“ (28.10.2026, twobirds.com) | cosinex-Blog „Das steht im Bundestariftreuegesetz“ (Update 9.9.2026) | IG BAU, Stellungnahme zum Entwurf der Zertifizierungsverordnung (21.9.2026, igbau.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Das BTTG betrifft nur Bundesaufträge (z. B. Autobahn GmbH, BImA, Bundeswehr). Für Gemeinden, Landkreise und das Land Niedersachsen gilt Landesrecht. Konkrete Lohnwerte nach BTTG gibt es erst mit der Bau-Verordnung. Nachunternehmerverträge schon jetzt um Nachweis- und Freistellungsklauseln ergänzen.</div>
+    <div class="karte-fuss"><span>⚖️ BGBl. 2026 I Nr. 119</span><span>📅 Bau-Verordnung § 5 BTTG: ausstehend</span></div>
+  </div>
+
+  <div class="karte karte-vob">
+    <div class="karte-kopf"><div class="karte-titel">EU-Schwellenwerte 2026/2027 und Entwurf eines EU-Vergabegesetzes</div><span class="badge b-info">INFO</span></div>
+    <div class="karte-body">
+      <p>Seit 1.1.2026 gelten für zwei Jahre: Bauaufträge und Konzessionen 5.404.000 €, Liefer- und Dienstleistungen 216.000 € (oberste und obere Bundesbehörden 140.000 €), Sektorenauftraggeber 432.000 € (jeweils netto). Die Kommission hat am 9.9.2026 den Entwurf einer unmittelbar geltenden EU-Vergabeverordnung („Public Procurement Act“) vorgelegt. Der AHO fordert in seiner Stellungnahme vom 29.9.2026 eine nationale Öffnungsklausel zum Erhalt des Losgrundsatzes. Das EU-Gesetzgebungsverfahren steht am Anfang.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Bundesarchitektenkammer „Neue EU-Schwellenwerte ab 1.1.2026“ (bak.de) | vergabe24.de „Neue EU-Schwellenwerte 2026“ | AHO, Stellungnahme zum Entwurf der EU-Vergabeverordnung (29.9.2026, aho.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Maßgeblich ist der geschätzte Gesamtwert der Baumaßnahme über alle Lose, nicht das eigene Los. Ein kleines Los kann deshalb EU-weit ausgeschrieben sein, mit Rechtsschutz vor der Vergabekammer. Die EU-Reform derzeit nur beobachten.</div>
+    <div class="karte-fuss"><span>📅 Gültig 1.1.2026 bis 31.12.2027</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-baugb">
+  <div class="section-hdr">
+    <div class="section-icon ic-baugb">🏙️</div>
+    <div><div class="section-nr">Abschnitt 2</div><div class="section-title">BauGB - Bauplanungs- und Städtebaurecht</div></div>
+  </div>
+
+  <div class="karte karte-baugb">
+    <div class="karte-kopf"><div class="karte-titel">BauGB-Upgrade: Anhörung abgeschlossen, Beschluss im Bundestag steht aus</div><span class="badge b-pend">IM VERFAHREN</span></div>
+    <div class="karte-body">
+      <p>Das Kabinett hat den Entwurf eines Gesetzes zur Modernisierung des Städtebau- und Raumordnungsrechts am 27.5.2026 beschlossen (BT-Drs. 21/6588), erste Lesung am 25.6.2026. Bundesrat-Stellungnahme und Gegenäußerung liegen als BT-Drs. 21/7735 vor. Die öffentliche Anhörung im Bauausschuss fand am 23.9.2026 statt. Einen Beschluss in 2./3. Lesung konnten wir bis Redaktionsschluss nicht feststellen; geplant ist ein Inkrafttreten zum 1.1.2027.</p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li>überragendes öffentliches Interesse am Wohnungsbau in angespannten Wohnungsmärkten</li>
+        <li>Fristen für Stellungnahmen der Behörden und Träger öffentlicher Belange (höchstens 60 Tage, § 4 Abs. 2 BauGB-E)</li>
+        <li>verpflichtend digitale Bauleitplanverfahren (XPlanung)</li>
+        <li>sozialer Flächenbeitrag bei der Umlegung (§ 58a BauGB-E), neuer Enteignungszweck bei Schrottimmobilien (§ 85 Abs. 1 Nr. 8 BauGB-E)</li>
+      </ul>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Deutscher Bundestag, Textarchiv „Unterschiedliche Bewertungen der Baugesetzbuch-Novelle“ (Anhörung 23.9.2026, bundestag.de) | BMWSB Gesetzgebungsverfahren BauGB-Upgrade (bmwsb.bund.de) | CMS Hasche Sigle „Bauturbo &amp; BauGB-Upgrade“ (Juni 2026, cms.law)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Planungsrecht, keine Änderung an Bauverträgen. Kürzere Bauleitplanverfahren können ab 2027 schneller baureife Grundstücke bringen. Bis zum Bundestagsbeschluss sind Änderungen möglich; eigene Planungen auf Basis des Entwurfs lohnen noch nicht.</div>
+    <div class="karte-fuss"><span>⚖️ BT-Drs. 21/6588</span><span>📅 Geplant: 1.1.2027</span></div>
+  </div>
+
+  <div class="karte karte-baugb">
+    <div class="karte-kopf"><div class="karte-titel">Bau-Turbo § 246e BauGB: ein Jahr in Anwendung</div><span class="badge b-info">IN KRAFT</span></div>
+    <div class="karte-body"><p>Seit 30.10.2025 kann mit Zustimmung der Gemeinde bis Ende 2030 zugunsten des Wohnungsbaus vom Bauplanungsrecht abgewichen werden, im Einzelfall auch ohne Bebauungsplan. Das BauGB-Upgrade soll diese befristete Sonderregel ergänzen, nicht ersetzen.</p></div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> CMS Hasche Sigle (Juni 2026, cms.law) | Deutscher Bundestag, Textarchiv 25.6.2026 (bundestag.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Nachverdichtung und Aufstockung privater Bauherren fragen, ob die Gemeinde nach § 246e BauGB zustimmt. Einen Anspruch gibt es nicht. Auftrag erst nach Baugenehmigung verbindlich werden lassen (Genehmigungsvorbehalt im Vertrag).</div>
+    <div class="karte-fuss"><span>⚖️ § 246e BauGB</span><span>📅 Bis 31.12.2030</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-hoai">
+  <div class="section-hdr">
+    <div class="section-icon ic-hoai">📐</div>
+    <div><div class="section-nr">Abschnitt 3</div><div class="section-title">HOAI - Honorarordnung</div></div>
+  </div>
+  <div class="karte karte-hoai">
+    <div class="karte-kopf"><div class="karte-titel">HOAI-Novelle: weiterhin kein Referentenentwurf veröffentlicht</div><span class="badge b-pend">AUSSTEHEND</span></div>
+    <div class="karte-body">
+      <p>Einen veröffentlichten Referentenentwurf des BMWE haben wir bis Redaktionsschluss nicht gefunden; es gilt die HOAI 2021. Angekündigt war ein Entwurf für Sommer 2026. Der AHO hat am 29.10.2026 eine Befragung von 4.859 Planungsbüros veröffentlicht: Im Durchschnitt werden 51 % der Leistungen nach HOAI abgerechnet (Architekturbüros 59 %, Ingenieurbüros 45 %). Die AHO-Herbsttagung am 24.11.2026 steht unter dem Titel „HOAI 2027 auf der Zielgeraden“; ob bis dahin ein Entwurf vorliegt, ist offen.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> AHO, Aktuelles &amp; Presse (Meldungen 7.10.2026 und 29.10.2026, aho.de/aktuelles-presse/) | IWW PBP „HOAI-Novellierung noch dieses Jahr möglich“ (8.4.2026, iww.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Relevant, wo Sie Planungsleistungen erbringen oder einkaufen (Tragwerksplanung, Schlüsselfertigbau). Die HOAI-Tafeln sind nur Orientierung, Honorare sind frei verhandelbar. Bei Verträgen mit Laufzeit über 2027 hinaus ausdrücklich regeln, ob eine neue HOAI angewendet wird.</div>
+    <div class="karte-fuss"><span>⚖️ HOAI 2021 gilt</span><span>📅 AHO-Tagung: 24.11.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-din">
+  <div class="section-hdr">
+    <div class="section-icon ic-din">📏</div>
+    <div><div class="section-nr">Abschnitt 4</div><div class="section-title">DIN-Normen / anerkannte Regeln der Technik</div></div>
+  </div>
+
+  <div class="karte karte-din" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ Gebäudetyp E: Referentenentwurf des BMJV vom 26. Oktober 2026</div><span class="badge b-frist">FRIST 09.11.</span></div>
+    <div class="karte-body">
+      <p>Das BMJV hat am 26.10.2026 den Entwurf eines Gesetzes zur Regelung des gesetzlichen Basisstandards (Gebäudetyp E) im BGB vorgelegt, abgestimmt mit dem BMWSB. Stellungnahmen sind bis 9.11.2026 möglich. Der Entwurf ersetzt den nicht verabschiedeten Ansatz von 2024.</p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li><strong>Opt-in in Textform (§ 650a Abs. 2 BGB-E):</strong> Die Parteien eines Bauvertrags können den „gesetzlichen Basisstandard“ vereinbaren, gegenüber Verbrauchern und Unternehmern; E-Mail genügt (§ 126b BGB).</li>
+        <li><strong>Maßstab (§ 650a Abs. 3 BGB-E):</strong> Abweichend von § 633 Abs. 2 Satz 2 BGB ist das Gebäude in den Bereichen der Technischen Baubestimmungen mangelfrei, wenn deren Anforderungen erfüllt sind. Höhere Standards, etwa erhöhter Schallschutz, müssen ausdrücklich vereinbart werden.</li>
+        <li><strong>Übrige Bereiche (§ 650a Abs. 4, 5 BGB-E):</strong> Unterschreitung des üblichen Standards mit hervorgehobenem Hinweis in Textform vor Vertragsschluss.</li>
+        <li><strong>Verbraucherbauvertrag (Art. 249 § 2 Abs. 3 EGBGB-E):</strong> Die Baubeschreibung muss auf den Basisstandard hinweisen und Angaben zum Schallschutz sowie zu den ersparten Kosten enthalten.</li>
+        <li><strong>Inkrafttreten:</strong> erster Tag des dritten Monats nach Verkündung, nur für danach geschlossene Verträge; über § 650q BGB auch für Planerverträge, über § 650u BGB für Bauträgerverträge.</li>
+      </ul>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> HOAI.de „Gebäudetyp-E-Gesetz 2026: Der neue Referentenentwurf des BMJV“ (30.10.2026, hoai.de, mit Verweis auf BMJV-Pressemitteilung Nr. 72/2026 vom 26.10.2026) | AHO, Pressemitteilung (29.10.2026, aho.de) | Wirtschaft und Industrie „Gebäudetyp E: DIN sieht im Referentenentwurf mehr Rechtssicherheit“ (wirtschaft-und-industrie.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Noch Entwurf, für laufende Verträge ändert sich nichts. Nach geltendem Recht gilt: Wer unterhalb der anerkannten Regeln der Technik bauen will, muss den Bauherrn über Bedeutung, Folgen und Risiken aufklären (BGH, Urteil vom 14.11.2017, VII ZR 65/14) und das dokumentieren. Kommt das Gesetz wie geplant, braucht es ein eigenes Vertragsmuster für Verbraucher: Vereinbarung in Textform, hervorgehobene Liste der Abweichungen, Schallschutz und Kostenersparnis in der Baubeschreibung. Vereinbarten Standard an Nachunternehmer weitergeben. Stellungnahmen laufen in der Regel über ZDB und Landesverband.</div>
+    <div class="karte-fuss"><span>📅 RefE: 26.10.2026</span><span>📅 Stellungnahmen bis 9.11.2026</span></div>
+  </div>
+
+  <div class="karte karte-din">
+    <div class="karte-kopf"><div class="karte-titel">Normen-Monitor: Wärmeschutz, Energiebilanz, E-Rechnung, VOB/C</div><span class="badge b-info">INFO</span></div>
+    <div class="karte-body">
+      <p>Im Berichtszeitraum haben wir keine neue Ausgabe der Reihen DIN 4108, der VOB/C oder eines Eurocode-Teils gefunden. Aktuelle Stände: DIN 4108-2:2026-05 (Mindestwärmeschutz), DIN 4108-7:2026-04 (Luftdichtheit), DIN/TS 18599:2025-10 (ab 1.1.2027 Bilanzierungsgrundlage nach GModG), DIN EN 16931-1:2026-10 (E-Rechnung, deutsche Fassung). Die VOB/C liegt weiter in der Gesamtausgabe 2019 mit Ergänzungsband 2023 vor. Eurocodes der 2. Generation gelten erst nach bauaufsichtlicher Einführung über die MVV TB. DIN-Normen, Eurocodes und VOB/C sind kostenpflichtig über DIN Media erhältlich.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> DIN Media, DIN 4108-2 und DIN 4108-7 (dinmedia.de) | Bauverbände NRW „Neue DIN-Norm zur E-Rechnung veröffentlicht“ (15.9.2026, bauverbaende.nrw) | Effizienzpioniere „GEG oder GModG“ (Stand 8.8.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Geschuldet sind die anerkannten Regeln der Technik zum Zeitpunkt der Abnahme (§ 633 BGB, § 13 Abs. 1 VOB/B). Ändern sie sich während der Bauzeit, Auftraggeber schriftlich hinweisen; das kann einen Nachtrag auslösen (§ 650b BGB, § 1 Abs. 3, 4, § 2 Abs. 5, 6 VOB/B). Mit dem Softwareanbieter klären, ob Abschlags- und Schlussrechnungen samt Einbehalten als E-Rechnung sauber abgebildet werden.</div>
+    <div class="karte-fuss"><span>📅 Stand: 5.11.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-arb">
+  <div class="section-hdr">
+    <div class="section-icon ic-arb">🦺</div>
+    <div><div class="section-nr">Abschnitt 5</div><div class="section-title">Arbeitsschutz</div></div>
+  </div>
+
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">Asbest: TRGS 519 noch nicht neu gefasst, Übergangsfristen laufen ab</div><span class="badge b-frist">FRIST 19.12.</span></div>
+    <div class="karte-body">
+      <p>Seit der Änderung der GefStoffV zum 21.12.2025 brauchen Abbrucharbeiten mit Asbest auch im niedrigen und mittleren Risikobereich eine behördliche Genehmigung, die im Rahmen der Anzeige erteilt wird. In der Anzeige sind die eingesetzten Beschäftigten namentlich mit Nachweis der Grundkenntnisse Asbest und der arbeitsmedizinischen Vorsorge anzugeben. Die Neufassung der TRGS 519 liegt noch nicht vor; es gilt die Ausgabe 2014 mit den Änderungen vom 28.2.2025. Das BMAS hat am 21.5.2026 aktualisierte Hinweise und Musterformulare zu TRGS 517 und 519 bekannt gemacht. Nach Angaben von Fachverbänden müssen genehmigungspflichtige Betriebe die Genehmigung bis Ablauf des 19.12.2026 nachweisen; die Fachkundenachweise sind ab 5.12.2027 vorzulegen.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BG BAU Bauportal 1/2026 „Neuerungen beim Arbeiten mit Asbest“ (bauportal.bgbau.de) | Gewerbeaufsicht Baden-Württemberg zu den BMAS-Bekanntmachungen vom 21.5.2026 (10.7.2026, gewerbeaufsicht.baden-wuerttemberg.de) | Fristen: DELA-Akademie (Sekundärquelle, dela-akademie.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Umbau und Abbruch in Gebäuden mit Baujahr vor 1993 trifft den Veranlasser die Erkundungspflicht (§ 5a GefStoffV). Vor Vertragsschluss schriftlich bestätigen lassen, was zu Asbest bekannt ist; sonst Schadstofferkundung als vergütete Position vereinbaren. Bis Jahresende prüfen, ob Anzeigen, Genehmigungen und Grundkenntnis-Nachweise der Beschäftigten vollständig sind. Bei Nachunternehmern dieselben Unterlagen anfordern.</div>
+    <div class="karte-fuss"><span>⚖️ GefStoffV i.d.F. ab 21.12.2025</span><span>📅 Nachweis Genehmigung: 19.12.2026</span></div>
+  </div>
+
+  <div class="karte karte-arb">
+    <div class="karte-kopf"><div class="karte-titel">Tarif Bauhauptgewerbe: einheitliche Löhne seit April, nächste Runde 2027</div><span class="badge b-info">INFO</span></div>
+    <div class="karte-body">
+      <p>Seit 1.4.2026 gilt die letzte Stufe des Abschlusses von 2024 (plus 3,9 % West, Angleichung Ost an West). Erstmals gelten bundesweit einheitliche Tariflöhne; der Gesamttarifstundenlohn in Lohngruppe 4 beträgt 26,05 €. Der Abschluss läuft bis 31.3.2027, die nächste Tarifrunde beginnt voraussichtlich im März 2027. Der gesetzliche Mindestlohn steigt zum 1.1.2027 von 13,90 € auf 14,60 €.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> IG BAU „Bauhauptgewerbe: Ein historischer Schritt“ (igbau.de) | B_I baumagazin „Bautarif 2026“ (bau.bi) | baulinks.de (30.3.2026)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Angebote mit Ausführung ab Frühjahr 2027 mit einer noch offenen Lohnsteigerung kalkulieren. Ohne Lohngleitklausel besteht kein Anpassungsanspruch. Bei Nachunternehmern bleibt die Auftraggeberhaftung für Mindestlohn und SOKA-BAU-Beiträge (§ 14 AEntG, § 13 MiLoG); Unbedenklichkeitsbescheinigungen regelmäßig anfordern.</div>
+    <div class="karte-fuss"><span>📅 Laufzeit bis 31.3.2027</span><span>📅 Mindestlohn 14,60 € ab 1.1.2027</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-urt">
+  <div class="section-hdr">
+    <div class="section-icon ic-urt">⚖️</div>
+    <div><div class="section-nr">Abschnitt 6</div><div class="section-title">BGH / OLG - Urteile</div></div>
+  </div>
+
+  <div class="karte karte-urt">
+    <div class="karte-kopf"><div class="karte-titel">BGH, 26.3.2026, VII ZR 68/24 und VII ZR 108/24: unwirksame Abnahmeklauseln, Haftung bis zu 30 Jahre</div><span class="badge b-info">NACHTRAG / KORREKTUR</span></div>
+    <div class="karte-body">
+      <p>Im Berichtszeitraum haben wir keine Pressemitteilung des VII. Zivilsenats zum Bauvertragsrecht gefunden. Wir tragen deshalb zwei Grundsatzentscheidungen nach, die in früheren Ausgaben mit falschen Daten erschienen sind.</p>
+      <p>In zwei Parallelverfahren war in Bauträgerverträgen die Abnahme durch drei Erwerbervertreter (VII ZR 68/24) bzw. durch einen bevollmächtigten vereidigten Sachverständigen (VII ZR 108/24) vorgesehen. Beide Klauseln sind nach § 9 AGBG (heute § 307 BGB) unwirksam, weil sie dem Erwerber die eigene Beurteilung der Abnahmereife nehmen. Ohne wirksame Abnahme hat die fünfjährige Verjährung (§ 634a Abs. 1 Nr. 2, Abs. 2 BGB) nicht begonnen. Der BGH begrenzt die Haftung auf eine Höchstfrist von 30 Jahren (Gesamtanalogie zu §§ 197, 199, 202 Abs. 2 BGB, jedenfalls § 242 BGB).</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH, Urteil vom 26.3.2026, VII ZR 108/24 (bundesgerichtshof.de, Entscheidungsdatenbank) | Bacher, MDR-Blog „Montagsblog: Neues vom BGH“ (17.4.2026, blog.otto-schmidt.de) | ARGE Baurecht zu VII ZR 68/24 (fachanwaltbau.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Gilt für jeden Unternehmer mit eigenen Abnahmeklauseln. Ohne wirksame Abnahme läuft keine Gewährleistungsfrist. Keine AGB verwenden, nach denen ein vom Auftragnehmer bestimmter Sachverständiger verbindlich abnimmt. Förmliche Abnahme mit Protokoll (§ 12 Abs. 4 VOB/B). Beim BGB-Vertrag Abnahmefiktion nutzen: nach Fertigstellung angemessene Frist setzen (§ 640 Abs. 2 BGB); gegenüber Verbrauchern nur mit Hinweis in Textform auf die Rechtsfolge. Abnahmeprotokolle über die gesamte Gewährleistungszeit archivieren.</div>
+    <div class="karte-fuss"><span>⚖️ VII ZR 68/24, VII ZR 108/24</span><span>📅 26.3.2026</span></div>
+  </div>
+
+  <div class="karte karte-urt">
+    <div class="karte-kopf"><div class="karte-titel">BGH, 24.4.2026, V ZR 102/24: Gemeinschaft darf Balkonsanierung beschließen</div><span class="badge b-info">NACHTRAG / KORREKTUR</span></div>
+    <div class="karte-body">
+      <p>Die Gemeinschaft der Wohnungseigentümer darf eine Balkonsanierung beschließen und muss es unter Umständen sogar, auch wenn die Teilungserklärung die Instandhaltung den einzelnen Eigentümern auferlegt. Sie kann die Erhaltungslast delegieren, sich ihrer aber nicht vollständig entledigen, weil sie verkehrssicherungspflichtig bleibt (§ 18 Abs. 1, § 19 Abs. 2 Nr. 2 WEG). Der BGH hat einen Grundlagenbeschluss nach § 44 Abs. 1 Satz 2 WEG ersetzt. Die Sanierungsvariante wählen weiterhin die Eigentümer; die Kosten trägt nach der Teilungserklärung der jeweilige Balkoneigentümer.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH-Pressemitteilung Nr. 072/2026 vom 24.4.2026, Versäumnisurteil V ZR 102/24 (bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2026/2026072.html)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Vertragspartner für Balkonsanierungen ist in der Regel die Gemeinschaft, vertreten durch den Verwalter, auch wenn die Kosten einzelnen Eigentümern zugewiesen sind. Vor Auftragsannahme den Beschluss über Maßnahme und Finanzierung vorlegen lassen. Ohne Beschluss ist der Werklohn gefährdet.</div>
+    <div class="karte-fuss"><span>⚖️ V ZR 102/24</span><span>📅 24.4.2026</span></div>
+  </div>
+
+  <div class="karte karte-urt">
+    <div class="karte-kopf"><div class="karte-titel">Korrekturhinweis zu früheren Ausgaben</div><span class="badge b-hot">KORREKTUR</span></div>
+    <div class="karte-body">
+      <p>VII ZR 108/24 ist das Urteil vom 26.3.2026 zur Abnahme durch einen Sachverständigen. Ein BGH-Urteil vom 17.4.2026 zur Bauträger-Verjährung unter diesem Aktenzeichen (Ausgabe 16) gibt es nicht; der 17.4.2026 ist das Datum eines Fachbeitrags. Die Balkonsanierungs-Entscheidung hat das Aktenzeichen V ZR 102/24 und die Pressemitteilungsnummer 072/2026, nicht V ZR 42/25 bzw. Nr. 78/2026 (Ausgabe 17).</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BGH-Pressemitteilung Nr. 072/2026 (bundesgerichtshof.de) | BGH, VII ZR 108/24 (bundesgerichtshof.de)</div>
+    <div class="karte-fuss"><span>📅 Korrektur: 5.11.2026</span></div>
+  </div>
+</div>
+
+<div class="section" id="s-geg">
+  <div class="section-hdr">
+    <div class="section-icon ic-geg">🌿</div>
+    <div><div class="section-nr">Abschnitt 7</div><div class="section-title">GEG / GModG</div></div>
+  </div>
+
+  <div class="karte karte-geg" style="border-left-width:5px">
+    <div class="karte-kopf"><div class="karte-titel">⭐ Gebäudemodernisierungsgesetz seit 29. Juli 2026 in Kraft</div><span class="badge b-hot">IN KRAFT</span></div>
+    <div class="karte-body">
+      <p>Das GModG (Gesetz vom 23.7.2026, BGBl. 2026 I Nr. 226) ist mit Art. 1 am 29.7.2026 in Kraft getreten; Bundestag und Bundesrat hatten am 10.7.2026 beschlossen. Das GEG wurde umbenannt und neu gegliedert. Der in Ausgabe 18 genannte 1.11.2026 war die verschobene 65-%-Frist des alten § 71 GEG; sie ist gegenstandslos.</p>
+      <ul style="margin:6px 0 6px 18px;line-height:1.7">
+        <li>§§ 71 bis 73 GEG (65-%-Regel, Betriebsverbote) gestrichen; technologieoffenes Heizungsrecht (§§ 42 bis 46 GModG)</li>
+        <li>„Bio-Treppe“ für nach dem 29.7.2026 eingebaute fossile Heizungen ab 2029 (§ 43 GModG); maßgeblich ist der Einbau</li>
+        <li>Gesetz zur Grüngas- bzw. Treibhausgasminderungsquote bis 1.12.2026 vorzulegen</li>
+        <li>kommunale Wärmeplanung nach WPG von der Heizungspflicht entkoppelt</li>
+      </ul>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> BBSR GModG-Infoportal, Meldung 28.7.2026 (gmodg.bund.de) | GModG auf gesetze-im-internet.de | Görg „GModG schafft GEG ab“ (17.7.2026, goerg.de) | BDEW (21.7.2026, bdew.de)</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>In Verträgen vor dem 29.7.2026 mit Bezug auf „GEG 2024“ oder die 65-%-Regel prüfen, ob die vereinbarte Heizungstechnik noch gewollt ist; eine Änderung ist nur per Nachtrag möglich (§ 650b BGB, § 1 Abs. 3, § 2 Abs. 5 VOB/B). Private Bauherren mit Wunsch nach neuer Gas- oder Ölheizung schriftlich auf die Bio-Treppe hinweisen.</div>
+    <div class="karte-fuss"><span>⚖️ BGBl. 2026 I Nr. 226</span><span>📅 In Kraft: 29.7.2026</span></div>
+  </div>
+
+  <div class="karte karte-geg">
+    <div class="karte-kopf"><div class="karte-titel">Nächste GModG-Stufe am 1. Januar 2027</div><span class="badge b-frist">01.01.2027</span></div>
+    <div class="karte-body">
+      <p>Zum 1.1.2027 treten weitere Teile in Kraft: Anforderungen bei Renovierungen (§§ 40, 41 GModG), Solarpflicht (§ 106 GModG, gestaffelt 2027 bis 2031), Bilanzierung nach DIN/TS 18599:2025-10, digitaler Energieausweis für Nichtwohngebäude. Die Ökobilanzpflicht (§ 88b GModG) folgt 2028, der Nullemissionsstandard ab 1.1.2028 für neue Behördengebäude und ab 1.1.2030 für alle Neubauten. Ob laufende Bauanträge nach altem Recht zu Ende geführt werden, beantworten die Quellen unterschiedlich (§ 111 GModG); im Zweifel mit der Bauaufsicht klären. Geänderte BEG-Richtlinien konnten wir für den Berichtszeitraum nicht nachweisen.</p>
+    </div>
+    <div class="quelle-box"><strong>📄 Quellen:</strong> Effizienzpioniere „GEG oder GModG: Was gilt jetzt?“ (Stand 8.8.2026) | § 111 GModG (gesetze-im-internet.de) | baukostenplan.de „GModG Inkrafttreten 29. Juli 2026“</div>
+    <div class="praxis-box"><span class="praxis-label">🔨 Was bedeutet das für Ihren Betrieb?</span>Bei Neubau und Dachsanierung mit Baubeginn ab 2027 kann die Solarpflicht greifen: früh klären, wer die PV-Anlage liefert, ob Dachaufbau und Statik vorbereitet werden und wie Gewährleistung an der Schnittstelle abgegrenzt ist. In Sanierungsangeboten ab 2027 den geschuldeten energetischen Standard ausdrücklich festhalten.</div>
+    <div class="karte-fuss"><span>📅 1.1.2027 / 1.1.2028 / 1.1.2030</span></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>⚠️ Rechtlicher Hinweis:</strong> Grundstein - Newsletter für Baurecht dient ausschließlich der allgemeinen Information und stellt keine Rechtsberatung im Sinne des RDG dar. Trotz sorgfältiger Recherche kann für Richtigkeit und Vollständigkeit keine Gewähr übernommen werden. Wo nur Sekundärquellen vorlagen, ist dies vermerkt. Stand: 5. November 2026. Bei konkreten Rechtsfragen wenden Sie sich bitte an eine zugelassene Rechtsanwältin oder einen Rechtsanwalt.
+</div>`;
+}
+
+
+/* ═══════════════════════════════════════
+   AUSGABE 18/2026 – 21. Mai 2026
    ═══════════════════════════════════════ */
 function inhalt_18_2026() {
   return `
@@ -133,7 +390,7 @@ function inhalt_18_2026() {
   <div class="page-hdr-yr">2026</div>
   <div class="page-hdr-inner">
     <div class="page-hdr-kicker">Grundstein - Newsletter für Baurecht</div>
-    <h1>Ausgabe 18 / 2026 <span class="tag-aktuell">NEU</span></h1>
+    <h1>Ausgabe 18 / 2026</h1>
     <div class="page-hdr-date">21. Mai 2026 · Berichtszeitraum: 7. Mai – 21. Mai 2026</div>
     <div class="page-hdr-meta">
       <span>📋 VOB</span><span>🏙️ BauGB</span><span>📐 HOAI</span>
@@ -877,6 +1134,7 @@ function inhalt_14_2026() {
    → Neue Ausgabe oben einfügen
    ════════════════════════════════════════════════════════════════ */
 const NEWSLETTER_INHALT = {
+  '19/2026': inhalt_19_2026(),
   '18/2026': inhalt_18_2026(),
   '17/2026': inhalt_17_2026(),
   '16/2026': inhalt_16_2026(),
@@ -889,7 +1147,7 @@ const NEWSLETTER_INHALT = {
    SCHRITT 4 · AKTUELLE AUSGABE UMSCHALTEN
    ════════════════════════════════════════════════════════════════ */
 function renderAktuell() {
-  return NEWSLETTER_INHALT['18/2026']; /* ← nur diese Nr. ändern */
+  return NEWSLETTER_INHALT['19/2026']; /* ← nur diese Nr. ändern */
 }
 
 
